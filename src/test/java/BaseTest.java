@@ -1,6 +1,7 @@
 
 import org.junit.After;
 import org.junit.Before;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import java.io.IOException;
@@ -23,7 +24,9 @@ public class BaseTest {
 
     @After
     public void tearDown() {
-
+        //Sign out
+        driver.findElement(By.xpath("//*[@class='font-serif text-base text-white xl:font-bold leading-loose tracking-tiny italic']")).click();
+        driver.findElement(By.xpath("//span[contains(text(),'Sign Out')]")).click();
         //driver.quit();
     }
 }

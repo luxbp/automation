@@ -8,6 +8,7 @@ import java.io.IOException;
 public class BaseTestAll extends BaseTest {
 
     protected LoginPage mainPage;
+    //protected Rco RandCo;
 
     @Before
     public void setup() throws IOException, InterruptedException {

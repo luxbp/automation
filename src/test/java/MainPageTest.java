@@ -13,7 +13,14 @@ public class MainPageTest extends BaseTest {
         mainPage.signInEmail();
         mainPage.signInPassword();
         mainPage.signInButton();
+        mainPage.clickProduct();
+        mainPage.clickFirstProduct();
+        mainPage.clickCart();
+        mainPage.clickCheckoutBtn();
+        mainPage.clickFirstContinueBtn();
+        mainPage.clickSecondContinueBtn();
+        mainPage.enterPurchaseOrderNumber();
+        mainPage.placeOrderBtn();
+        mainPage.lastContinueBtn();
     }
-
-
 }
