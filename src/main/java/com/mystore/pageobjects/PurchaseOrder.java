@@ -14,8 +14,6 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class PurchaseOrder extends BaseClass {
-
-
 	@FindBy(xpath = "//input[@type='text']")  //Purchase Order Number
 	WebElement purchaseOrderNumber;
 
