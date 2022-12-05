@@ -18,7 +18,10 @@ public class AddToCartPage extends BaseClass {
 	@FindBy(xpath = "//span[text()='Products']")  //Click on Products dropdown
 	WebElement products;
 
-	@FindBy(xpath = "(//a[@data-testid='productLink'])[4]")  //Click on item name of selected brand product
+	@FindBy(xpath = "//*[@data-id='icon-rco']")			//Click R+CO brand
+	WebElement rCO;
+
+	@FindBy(xpath = "(//a[@data-testid='productLink'])[2]")  //Click on item name of selected brand product
 	WebElement productOne;
 
 	@FindBy(xpath = "//*[contains(@class,'product__name')]")
@@ -38,17 +41,18 @@ public class AddToCartPage extends BaseClass {
 
 		WebDriverWait waitAlter = new WebDriverWait(driver, 10);
 		waitAlter.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Products']")));
-		Thread.sleep(3000);
 		Action.click(driver,products);
 
-		driver.findElement(By.cssSelector("a[href='/brands/r-and-co'][target='']")).click();
+		rCO.click();
+
+//		driver.findElement(By.cssSelector("a[href='/brands/r-and-co'][target='']")).click();
 
 		WebDriverWait waitAll = new WebDriverWait(driver, 5);
 		waitAll.until(ExpectedConditions.visibilityOf(clickElse));
 		Action.click(driver,clickElse);
 	}
 
-	public void clickFirstProduct() throws InterruptedException {
+	public void clickFirstProduct()  {
 		Action.click(driver,productOne);
 
 		WebDriverWait waitBuyProductOne = new WebDriverWait(driver, 10);

@@ -11,19 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ShippingMethod extends BaseClass {
 
-
-	@FindBy(xpath = "//td[@class='cart_unit']/span/span")
-	WebElement unitPrice;
-
-	@FindBy(id = "total_price")
-	WebElement totalPrice;
-
-	@FindBy(xpath = "//span[text()='Proceed to checkout']")
-	WebElement proceedToCheckOut;
-
-
-
-
 	@FindBy(xpath = "//span[contains(text(),'Continue')]")  //Click on Checkout Button on SHIPPING METHOD
 	WebElement clickContinue;
 

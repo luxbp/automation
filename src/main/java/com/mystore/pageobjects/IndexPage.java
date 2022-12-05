@@ -15,10 +15,10 @@ public class IndexPage extends BaseClass {
 	public IndexPage() {
 		PageFactory.initElements(driver, this);
 	}
-	public LoginPage clickOnsignIn()  {
+/*	public LoginPage clickOnsignIn()  {
 		Action.click(driver, signInBtn);
 		return new LoginPage();
-	}
+	}*/
 
 
 }
