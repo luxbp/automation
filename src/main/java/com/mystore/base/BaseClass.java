@@ -16,6 +16,8 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.*;
 import io.github.bonigarcia.wdm.WebDriverManager;
+
+
 public class BaseClass {
     public static Properties prop;
     public static WebDriver driver;
@@ -23,6 +25,7 @@ public class BaseClass {
     public static ExtentReports extent;
     static ExtentSparkReporter reporter;
     static ExtentTest BrowserTest;
+
 
     @BeforeSuite
     public void startReport(){
@@ -33,8 +36,6 @@ public class BaseClass {
     @BeforeMethod
     public static void launchApp() {
         loadConfig();
-
-
         BrowserTest = extent.createTest("Browser test", "This is to test if browser opened successfully");
         WebDriverManager.chromedriver().setup();
         String browserName = prop.getProperty("BrowserType");
@@ -60,18 +61,15 @@ public class BaseClass {
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20000, TimeUnit.MILLISECONDS);
-        driver.get(prop.getProperty("url"));
-        BrowserTest.log(Status.INFO, "Navigating to sign in page");
-        BrowserTest.pass("Successfully opened Sign in page");
+            driver.get(prop.getProperty("produrl"));
+            BrowserTest.log(Status.INFO, "Navigating to sign in page");
+            BrowserTest.pass("Successfully opened Sign in page");
     }
-
-
-
     public static void loadConfig() {
         try {
             prop = new Properties();
             FileInputStream ip = new FileInputStream(
-                    System.getProperty("user.dir") + "\\Configuration\\Config.properties");
+                    System.getProperty("user.dir") + "/Configuration/Config.properties");
             prop.load(ip);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -88,14 +86,9 @@ public class BaseClass {
     public void tearDown() {
         System.out.println("Closing browser...");
         driver.quit();
-        System.out.println("Closing browser...1111111111111111111111111111");
-       // driver.close();
-        System.out.println("Closing browser...2222222222222222222222222222222");
-        System.out.println("Closing browser...33333333333333333333333333333333333");
-
     }
     @AfterSuite
     public void closeReport(){
         extent.flush();
     }
-}
+    }

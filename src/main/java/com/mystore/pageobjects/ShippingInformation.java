@@ -9,10 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class ShippingInformation extends BaseClass {
-
-    Action action = new Action();
-
-
     @FindBy(xpath = "(//a[@href='/cart'])[1]")  //Click on Cart button
     WebElement clickCartBtn;
 
@@ -27,9 +23,9 @@ public class ShippingInformation extends BaseClass {
 
     public void clickCart() throws InterruptedException {
 
-        /*WebDriverWait waitCart = new WebDriverWait(driver, 10);
-        waitCart.until(ExpectedConditions.invisibilityOf(notificationMesg));*/
-        Thread.sleep(5000);
+/*        WebDriverWait waitCart = new WebDriverWait(driver, 10);
+        waitCart.until(ExpectedConditions.visibilityOf(clickCartBtn));*/
+        Thread.sleep(8000);
         clickCartBtn.click();
     }
 
