@@ -12,7 +12,7 @@ import com.mystore.pageobjects.LoginPage;
 
 public class LoginPageTest extends BaseClass {
 
-	@Test
+	@Test (groups={"Login"})
 	public void loginTest() throws Throwable {
 		ExtentTest loginReport = extent.createTest("Login test","This is test to validate successful login");
 

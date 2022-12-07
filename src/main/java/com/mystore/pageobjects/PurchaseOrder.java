@@ -21,8 +21,10 @@ public class PurchaseOrder extends BaseClass {
 	}
 
 	public void enterPurchaseOrderNumber() {
-		purchaseOrderNumber.sendKeys(prop.getProperty("PurchaseOrderNumber"));
-		System.out.println("Purchase order number is " + purchaseOrderNumber);
+
+		String pNo= prop.getProperty("PurchaseOrderNumber");
+		purchaseOrderNumber.sendKeys(pNo);
+		System.out.println("Purchase order number is " + pNo);
 
 		clickContinue.click();
 	}
