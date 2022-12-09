@@ -1,8 +1,6 @@
 name: 'Luxury Brand Partner Test'
 on:  
   push:
-      branches:
-      - deployment/browserstack-integration
   
   pull_request:
   #schedule:
