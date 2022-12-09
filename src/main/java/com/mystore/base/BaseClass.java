@@ -21,7 +21,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseClass {
     public static Properties prop;
     public static WebDriver driver;
-    protected static ThreadLocal<ChromeDriver> driver1 = new ThreadLocal<>();
     public static ExtentReports extent;
     static ExtentSparkReporter reporter;
     static ExtentTest BrowserTest;
@@ -76,10 +75,6 @@ public class BaseClass {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    public WebDriver getDriver() {
-        return driver1.get();
     }
 
     @AfterMethod

@@ -1,9 +1,8 @@
 package com.mystore.testcases;
 
-import com.aventstack.extentreports.ExtentTest;
-import com.aventstack.extentreports.Status;
+// import com.aventstack.extentreports.ExtentTest;
+// import com.aventstack.extentreports.Status;
 
-import javafx.scene.layout.Priority;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.mystore.base.BaseClass;
@@ -14,11 +13,11 @@ public class LoginPageTest extends BaseClass {
 
 	@Test (groups={"Login"})
 	public void loginTest() throws Throwable {
-		ExtentTest loginReport = extent.createTest("Login test","This is test to validate successful login");
+		// ExtentTest loginReport = extent.createTest("Login test","This is test to validate successful login");
 
 		LoginPage loginTest = new LoginPage();
-		loginReport.log(Status.INFO, "Starting Browser");
-		loginReport.pass("Navigated to login page");
+		// loginReport.log(Status.INFO, "Starting Browser");
+		// loginReport.pass("Navigated to login page");
 		loginTest.clickOnsignIn();
 		loginTest.login(prop.getProperty("username"),prop.getProperty("password"));
 		loginTest.signInButton();
@@ -28,17 +27,17 @@ public class LoginPageTest extends BaseClass {
 			try {
 				Assert.assertEquals("YOU ARE LOGGED IN!", LogInfo);
 				System.out.println("Login Successful");
-				loginReport.pass("Logged in successfully");
+				// loginReport.pass("Logged in successfully");
 
 			} catch (AssertionError Ae) {
-				loginReport.fail("Login failed due to " + Ae);
+				// loginReport.fail("Login failed due to " + Ae);
 				System.out.println("Logged In Failed due to " + Ae);
 			}
 		} catch (Exception logException) {
-			loginReport.fail("Login failed");
+			// loginReport.fail("Login failed");
 			System.out.println("Failed due to " + logException);
-			loginReport.fail("Exception failed due to " + logException);
+			// loginReport.fail("Exception failed due to " + logException);
 		}
-		loginReport.info("Test Complete");
+		// loginReport.info("Test Complete");
 	}
 }
