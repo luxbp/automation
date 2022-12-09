@@ -3,7 +3,6 @@ package com.mystore.testcases;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
-import javafx.scene.layout.Priority;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import com.mystore.base.BaseClass;

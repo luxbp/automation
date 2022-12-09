@@ -1,30 +1,29 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name = "TestNG">
-<test name = "E2E" >
-      <groups>
-          <run>
-              <include name="Login"  />
-              <include name="AddToCart"  />
-              <exclude name="ShippingInformation"  />
-              <exclude name="ShippingMethod"  />
-              <exclude name="PaymentMethod"  />
-              <exclude name="PurchaseOrder"  />
-              <exclude name="OrderReview"  />
-              <include name="OrderSummary"  />
-          </run>
-      </groups>
-    </test>
-    
+<!--<test name = "E2E" >-->
+<!--      <groups>-->
+<!--          <run>-->
+<!--              <include name="Login"  />-->
+<!--              <include name="AddToCart"  />-->
+<!--              <exclude name="ShippingInformation"  />-->
+<!--              <exclude name="ShippingMethod"  />-->
+<!--              <exclude name="PaymentMethod"  />-->
+<!--              <exclude name="PurchaseOrder"  />-->
+<!--              <exclude name="OrderReview"  />-->
+<!--              <include name="OrderSummary"  />-->
+<!--          </run>-->
+<!--      </groups>-->
+<!--    </test>-->
     <test name = "End to end">
     <classes>
-<!--        <class name="com.mystore.testcases.LoginPageTest"></class>-->
+        <class name="com.mystore.testcases.LoginPageTest"></class>
 <!--        <class name="com.mystore.testcases.AddToCartPageTest"></class>-->
 <!--        <class name="com.mystore.testcases.ShippingInformationPageTest"></class>-->
 <!--        <class name="com.mystore.testcases.ShippingMethodPageTest"></class>-->
 <!--        <class name="com.mystore.testcases.PaymentPageTest"></class>-->
 <!--        <class name="com.mystore.testcases.PurchaseOrderTestPage"></class>-->
 <!--        <class name="com.mystore.testcases.OrderReviewPageTest"></class>-->
-        <class name="com.mystore.testcases.OrderSummaryPageTest"></class>
+<!--        <class name="com.mystore.testcases.OrderSummaryPageTest"></class>-->
     </classes>
     </test>
 </suite>

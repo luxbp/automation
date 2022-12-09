@@ -21,7 +21,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class BaseClass {
     public static Properties prop;
     public static WebDriver driver;
-    protected static ThreadLocal<ChromeDriver> driver1 = new ThreadLocal<>();
     public static ExtentReports extent;
     static ExtentSparkReporter reporter;
     static ExtentTest BrowserTest;
@@ -61,9 +60,9 @@ public class BaseClass {
         }
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20000, TimeUnit.MILLISECONDS);
-            driver.get(prop.getProperty("produrl"));
-            BrowserTest.log(Status.INFO, "Navigating to sign in page");
-            BrowserTest.pass("Successfully opened Sign in page");
+        driver.get(prop.getProperty("produrl"));
+        BrowserTest.log(Status.INFO, "Navigating to sign in page");
+        BrowserTest.pass("Successfully opened Sign in page");
     }
     public static void loadConfig() {
         try {
@@ -78,10 +77,6 @@ public class BaseClass {
         }
     }
 
-    public WebDriver getDriver() {
-        return driver1.get();
-    }
-
     @AfterMethod
     public void tearDown() {
         System.out.println("Closing browser...");
@@ -91,4 +86,4 @@ public class BaseClass {
     public void closeReport(){
         extent.flush();
     }
-    }
+}

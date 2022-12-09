@@ -1,0 +1,19 @@
+userName: luxbpseva_FToxAm
+accessKey: nyP8YcixmDTwet5jXfjx
+framework: testng
+platforms:
+  #  - os: OS X
+  #    osVersion: Big Sur
+  #    browserName: Safari
+  #    browserVersion: 14.1
+  - os: Windows
+    osVersion: 11
+    browserName: Chrome
+    browserVersion: latest
+parallelsPerPlatform: 1
+browserstackLocal: false
+buildName: luxbp build-1
+projectName: LuxBP BrowserStack
+debug: true
+networkLogs: true
+consoleLogs: info
