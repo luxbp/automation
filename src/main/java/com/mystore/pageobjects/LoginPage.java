@@ -41,8 +41,9 @@ public class LoginPage extends BaseClass {
 	public HomePage login(String uname, String pwd) {
 		WebDriverWait wait = new WebDriverWait(driver,5);
 		wait.until(ExpectedConditions.visibilityOf(signInEmail));
-		Action.type(signInEmail, uname);
-		Action.type(signInPassword, pwd);
+		signInEmail.sendKeys("devops@luxbp.com");
+		signInPassword.sendKeys("LBP#Test");
+	
 		return new HomePage();
 	}
 
