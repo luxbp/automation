@@ -19,7 +19,7 @@ public class LoginPageTest extends BaseClass {
 		loginReport.log(Status.INFO, "Starting Browser");
 		loginReport.pass("Navigated to login page");
 		loginTest.clickOnsignIn();
-		loginTest.login(prop.getProperty("username"),prop.getProperty("password"));
+		//loginTest.login(prop.getProperty("username"),prop.getProperty("password"));
 		loginTest.signInButton();
 		try {
 			String LogInfo = loginTest.validateLogin();
