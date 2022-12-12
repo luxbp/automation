@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends BaseClass {
 
-
 	@FindBy(xpath = "//*[contains(text(),'Sign In')]")   //Click on Sign in button
 	WebElement signOn;
 
