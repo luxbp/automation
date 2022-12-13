@@ -42,16 +42,13 @@ public class LoginPage extends BaseClass {
     }
 
     public void clickOnsignIn() {
-
         if (driver instanceof SafariDriver) {
             System.out.println("Driver is safari");
             WebDriverWait waitToastMesg = new WebDriverWait(driver, 5);
             waitToastMesg.until(ExpectedConditions.visibilityOf(toastClose));
             toastClose.click();
-            signOn.click();
-        } else {
-            signOn.click();
         }
+        signOn.click();
     }
 
     public HomePage login(String uname, String pwd) {
