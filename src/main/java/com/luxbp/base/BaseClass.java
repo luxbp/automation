@@ -71,6 +71,7 @@ public class BaseClass {
             driver.get(prop.getProperty("devurl"));
             BrowserTest.log(Status.INFO, "Navigating to sign in page");
             BrowserTest.pass("Successfully opened Sign in page");
+
     }
     public static void loadConfig() {
         try {

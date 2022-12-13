@@ -159,9 +159,8 @@ public class ShippingMethodPageTest extends BaseClass {
         ExtentTest shippingMethodRbleuBothReport = extent.createTest("Shipping Method Order(s) with only R+Co Bleu brand products (both $ and points product)","This is to test the shipping method module");
 
         ShippingInformationPageTest ShippingInfo = new ShippingInformationPageTest();
-        ShippingInfo.ShippingInformationTestRbleuPoints();         //This function validates Shipping Info module
+        ShippingInfo.ShippingInformationTestRbleuBoth();         //This function validates Shipping Info module
         shippingMethodRbleuBothReport.log(Status.INFO,"Shipping Information R+Co Bleu brand products (both $ and points product executed...");
-
 
         ShippingMethod shippingMethod = new ShippingMethod();
         shippingMethod.clickFirstContinueBtn();         //This will click the first continue button.

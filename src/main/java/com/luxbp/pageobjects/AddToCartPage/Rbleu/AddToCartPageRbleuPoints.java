@@ -41,7 +41,6 @@ public class AddToCartPageRbleuPoints extends BaseClass {
 
     public void clickProductRbluePoints() throws InterruptedException {
         Thread.sleep(5000);
-
         WebDriverWait waitRblue = new WebDriverWait(driver, 5);
         waitRblue.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Products']")));
         products.click();
