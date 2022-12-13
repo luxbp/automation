@@ -10,10 +10,10 @@ import org.testng.annotations.Test;
 
 public class AddToCartRcoPointsTest extends BaseClass {
 
-    @Test
-    public void addToCartPageRplusCoTestPoints() throws Throwable {
+    @Test(dataProvider = "logincredentials")
+    public void addToCartPageRplusCoTestPoints(String username,String password) throws Throwable {
         LoginPageTest login = new LoginPageTest();
-        login.loginTest();
+        login.loginTest(username, password);
 
         ExtentTest addToCartPointReport = extent.createTest("Add to cart for Points","This is to test if an item from R-Co is added to cart from points");
 

@@ -2,7 +2,7 @@
 <suite name = "TestNG">
     <test name = "End to end">
     <classes>
-        <class name="com.luxbp.testcases.OrderSummaryPageTest"></class>
+        <class name="com.luxbp.testcases.LoginPageTest"></class>
     </classes>
     </test>
 </suite>

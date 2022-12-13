@@ -2,16 +2,17 @@ package com.luxbp.brands.RcoTest;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.luxbp.base.BaseClass;
 import com.luxbp.pageobjects.AddToCartPage.Rco.AddToCartPageRcoBoth;
 import com.luxbp.testcases.LoginPageTest;
 import org.testng.Assert;
-import com.luxbp.base.BaseClass;
+import org.testng.annotations.Test;
 
 public class AddToCartPageRcoBothTest extends BaseClass {
-
-    public void addToCartPageRcoTestBoth() throws Throwable {
+    @Test(dataProvider = "logincredentials")
+    public void addToCartPageRcoTestBoth(String username, String password) throws Throwable {
         LoginPageTest login = new LoginPageTest();
-        login.loginTest();
+        login.loginTest(username, password);
 
         ExtentTest AddToCartPageRcoBothReport = extent.createTest("Add to cart","This is to test if an item is added to cart");
 

@@ -9,12 +9,12 @@ import org.testng.annotations.Test;
 
 public class OrderSummaryPageTest extends BaseClass {
 
-    @Test (description = "Order(s) summary with only R+Co brand products (only retail $)", groups={"OrderSummary"}, priority = 1)
-    public void orderSummaryPageRplusCo() throws Throwable {
+    @Test (dataProvider = "logincredentials",description = "Order(s) summary with only R+Co brand products (only retail $)", groups={"OrderSummary"}, priority = 1)
+    public void orderSummaryPageRplusCo(String username,String password) throws Throwable {
         ExtentTest orderSummaryRcoDollarReport = extent.createTest("Order(s) summary with only R+Co brand products (only retail $)","This is to test Order summary page");
 
         OrderReviewPageTest order = new OrderReviewPageTest();
-        order.orderReviewTestRplusCo();
+        order.orderReviewTestRplusCo(username, password);
         orderSummaryRcoDollarReport.pass("Order(s) review with only R+Co brand products (only retail $) executed...");
 
         OrderSummary orderSummary = new OrderSummary();
@@ -32,12 +32,12 @@ public class OrderSummaryPageTest extends BaseClass {
         System.out.println("Clicked on Last Continue button");
     }
 
-    @Test (description = "Order(s) summary with only R+Co brand products (only NFR points product)", groups={"OrderSummary"}, priority = 2)
-    public void orderSummaryPageRplusCoPoints() throws Throwable {
+    @Test (dataProvider = "logincredentials",description = "Order(s) summary with only R+Co brand products (only NFR points product)", groups={"OrderSummary"}, priority = 2)
+    public void orderSummaryPageRplusCoPoints(String username, String password) throws Throwable {
         ExtentTest orderSummaryRcoPointsReport = extent.createTest("Order(s) summary with only R+Co brand products (only NFR points product)","This is to test Order summary page");
 
         OrderReviewPageTest order = new OrderReviewPageTest();
-        order.orderReviewTestRplusCoPoints();
+        order.orderReviewTestRplusCoPoints(username, password);
         orderSummaryRcoPointsReport.pass("Order(s) review with only R+Co brand products (only NFR points product) executed...");
 
         OrderSummary orderSummary = new OrderSummary();
@@ -55,12 +55,12 @@ public class OrderSummaryPageTest extends BaseClass {
         System.out.println("Clicked on Last Continue button");
     }
 
-    @Test (description = "Order(s) summary with only R+Co brand products (both $ and points product)", groups={"OrderSummary"}, priority = 3)
-    public void orderSummaryPageRplusCoBoth() throws Throwable {
+    @Test (dataProvider = "logincredentials",description = "Order(s) summary with only R+Co brand products (both $ and points product)", groups={"OrderSummary"}, priority = 3)
+    public void orderSummaryPageRplusCoBoth(String username, String password) throws Throwable {
         ExtentTest orderSummaryRcoBothReport = extent.createTest("Order(s) summary with only R+Co brand products (both $ and points product)","This is to test Order summary page");
 
         OrderReviewPageTest order = new OrderReviewPageTest();
-        order.orderReviewTestRplusCoBoth();
+        order.orderReviewTestRplusCoBoth(username, password);
         orderSummaryRcoBothReport.pass("Order(s) review with only R+Co brand products (both $ and points product) executed...");
 
         OrderSummary orderSummary = new OrderSummary();
@@ -79,12 +79,12 @@ public class OrderSummaryPageTest extends BaseClass {
         System.out.println("Clicked on Last Continue button");
     }
 
-    @Test (description = "Order(s) summary with only R+Co brand SAME product (both $ and points SAME product)", groups={"OrderSummary"}, priority = 3)
-    public void orderSummaryPageRplusCoBothSameItem() throws Throwable {
+    @Test (dataProvider = "logincredentials",description = "Order(s) summary with only R+Co brand SAME product (both $ and points SAME product)", groups={"OrderSummary"}, priority = 3)
+    public void orderSummaryPageRplusCoBothSameItem(String username, String password) throws Throwable {
         ExtentTest orderSummaryRcoBothSameItemReport = extent.createTest("Order(s) summary with only R+Co brand SAME product (both $ and points SAME product)","This is to test Order summary page");
 
         OrderReviewPageTest order = new OrderReviewPageTest();
-        order.orderReviewTestRplusCoBothSameItem();
+        order.orderReviewTestRplusCoBothSameItem(username, password);
         orderSummaryRcoBothSameItemReport.pass("Order(s) review with only R+Co brand SAME product (both $ and points SAME product) executed...");
 
         OrderSummary orderSummary = new OrderSummary();
@@ -102,12 +102,12 @@ public class OrderSummaryPageTest extends BaseClass {
         orderSummaryRcoBothSameItemReport.info("Order(s) summary with only R+Co brand SAME product (both $ and points SAME product) test ends");
         System.out.println("Clicked on Last Continue button");
     }
-    @Test(description = "Order(s) summary with only R+Co Bleu brand products", groups={"OrderSummary"}, priority = 4)
-    public void orderSummaryPageRbleu() throws Throwable {
+    @Test(dataProvider = "logincredentials",description = "Order(s) summary with only R+Co Bleu brand products", groups={"OrderSummary"}, priority = 4)
+    public void orderSummaryPageRbleu(String username, String password) throws Throwable {
         ExtentTest orderSummaryRbleuDollarReport = extent.createTest("Order(s) summary with only R+Co Bleu brand products","This is to test Order summary page");
 
         OrderReviewPageTest order = new OrderReviewPageTest();
-        order.orderReviewTestRpluBleu();
+        order.orderReviewTestRpluBleu(username, password);
         orderSummaryRbleuDollarReport.pass("Order(s) review with only R+Co Bleu brand products executed...");
 
         OrderSummary orderSummary = new OrderSummary();
@@ -125,12 +125,12 @@ public class OrderSummaryPageTest extends BaseClass {
         orderSummaryRbleuDollarReport.info("Order(s) summary with only R+Co Bleu brand products test ends");
         System.out.println("Clicked on Last Continue button");
     }
-    @Test (description = "Order(s) summary with only R+Co Bleu brand products (only NFR points product)", groups={"OrderSummary"}, priority = 5)
-    public void orderSummaryPageRbleuPoints() throws Throwable {
+    @Test (dataProvider = "logincredentials",description = "Order(s) summary with only R+Co Bleu brand products (only NFR points product)", groups={"OrderSummary"}, priority = 5)
+    public void orderSummaryPageRbleuPoints(String username, String password) throws Throwable {
         ExtentTest orderSummaryRbleuPointsReport = extent.createTest("Order(s) summary with only R+Co Bleu brand products (only NFR points product)","This is to test Order summary page");
 
         OrderReviewPageTest order = new OrderReviewPageTest();
-        order.orderReviewTestRbleuPoints();
+        order.orderReviewTestRbleuPoints(username, password);
         orderSummaryRbleuPointsReport.pass("Order(s) review with only R+Co Bleu brand products (only NFR points product) executed...");
 
         OrderSummary orderSummary = new OrderSummary();
@@ -150,11 +150,11 @@ public class OrderSummaryPageTest extends BaseClass {
     }
 
     @Test (description = "Order(s) summary with only R+Co Bleu brand products (both $ and points product)", groups={"OrderSummary"}, priority = 6)
-    public void orderSummaryPageRbleuBoth() throws Throwable {
+    public void orderSummaryPageRbleuBoth(String username, String password) throws Throwable {
         ExtentTest orderSummaryRbleuBothReport = extent.createTest("Order(s) summary with only R+Co Bleu brand products (both $ and points product)","This is to test Order summary page");
 
         OrderReviewPageTest order = new OrderReviewPageTest();
-        order.orderReviewTestRleuBoth();
+        order.orderReviewTestRleuBoth(username, password);
         orderSummaryRbleuBothReport.pass("Order(s) review with only R+Co Bleu brand products (both $ and points product) executed...");
 
         OrderSummary orderSummary = new OrderSummary();
@@ -173,12 +173,12 @@ public class OrderSummaryPageTest extends BaseClass {
         System.out.println("Clicked on Last Continue button");
     }
 
-    @Test (description = "Order(s) summary with only Rbleu brand SAME product (both $ and points SAME product)", groups={"OrderSummary"}, priority = 3)
-    public void orderSummaryPageRbleuCoBothSameItem() throws Throwable {
+    @Test (dataProvider = "logincredentials",description = "Order(s) summary with only Rbleu brand SAME product (both $ and points SAME product)", groups={"OrderSummary"}, priority = 3)
+    public void orderSummaryPageRbleuCoBothSameItem(String username, String password) throws Throwable {
         ExtentTest orderSummaryRbleuBothSameItemReport = extent.createTest("Order(s) summary with only Rbleu brand SAME product (both $ and points SAME product)","This is to test Order summary page");
 
         OrderReviewPageTest order = new OrderReviewPageTest();
-        order.orderReviewTestRbleuBothSameItem();
+        order.orderReviewTestRbleuBothSameItem(username, password);
         orderSummaryRbleuBothSameItemReport.pass("Order(s) review with only Rbleu brand SAME product (both $ and points SAME product) executed...");
 
         OrderSummary orderSummary = new OrderSummary();
@@ -197,12 +197,12 @@ public class OrderSummaryPageTest extends BaseClass {
         System.out.println("Clicked on Last Continue button");
     }
 
-    @Test (description = "Order(s) summary with only R+Color brand products", groups={"OrderSummary"}, priority = 7)
-    public void orderSummaryPageRcolor() throws Throwable {
+    @Test (dataProvider = "logincredentials",description = "Order(s) summary with only R+Color brand products", groups={"OrderSummary"}, priority = 7)
+    public void orderSummaryPageRcolor(String username, String password) throws Throwable {
         ExtentTest orderSummaryRcolorReport = extent.createTest("Order(s) summary with only R+Color brand products","This is to test Order summary page");
 
         OrderReviewPageTest order = new OrderReviewPageTest();
-        order.orderReviewTestRcolor();
+        order.orderReviewTestRcolor(username, password);
         orderSummaryRcolorReport.pass("Order(s) review with only R+Color brand products executed...");
 
         OrderSummary orderSummary = new OrderSummary();
@@ -221,12 +221,12 @@ public class OrderSummaryPageTest extends BaseClass {
         System.out.println("Clicked on Last Continue button");
     }
 
-    @Test (description = "Order(s) summary with only V-76 brand products", groups={"OrderSummary"}, priority = 8)
-    public void orderSummaryPageV76Dollar() throws Throwable {
+    @Test (dataProvider = "logincredentials",description = "Order(s) summary with only V-76 brand products", groups={"OrderSummary"}, priority = 8)
+    public void orderSummaryPageV76Dollar(String username, String password) throws Throwable {
         ExtentTest orderSummaryV76DollarReport = extent.createTest("Order(s) summary with only V-76 brand products","This is to test Order summary page");
 
         OrderReviewPageTest order = new OrderReviewPageTest();
-        order.orderReviewTestV76Dollar();
+        order.orderReviewTestV76Dollar(username, password);
         orderSummaryV76DollarReport.pass("Order(s) review with only V-76 brand products executed...");
 
         OrderSummary orderSummary = new OrderSummary();
@@ -245,12 +245,12 @@ public class OrderSummaryPageTest extends BaseClass {
         System.out.println("Clicked on Last Continue button");
     }
 
-    @Test (description = "Order(s) summary with only V-76 brand products POINTS", groups={"OrderSummary"}, priority = 9)
-    public void orderSummaryPageV76Points() throws Throwable {
+    @Test (dataProvider = "logincredentials",description = "Order(s) summary with only V-76 brand products POINTS", groups={"OrderSummary"}, priority = 9)
+    public void orderSummaryPageV76Points(String username, String password) throws Throwable {
         ExtentTest orderSummaryV76PointsReport = extent.createTest("Order(s) summary with only V-76 brand products POINTS","This is to test Order summary page");
 
         OrderReviewPageTest order = new OrderReviewPageTest();
-        order.orderReviewTestV76Points();
+        order.orderReviewTestV76Points(username, password);
         orderSummaryV76PointsReport.pass("Order(s) review with only V-76 brand products POINTS executed...");
 
         OrderSummary orderSummary = new OrderSummary();
@@ -269,12 +269,12 @@ public class OrderSummaryPageTest extends BaseClass {
         System.out.println("Clicked on Last Continue button");
     }
 
-    @Test (description = "Order(s) summary with only V-76 brand products BOTH", groups={"OrderSummary"}, priority = 10)
-    public void orderSummaryPageV76Both() throws Throwable {
+    @Test (dataProvider = "logincredentials",description = "Order(s) summary with only V-76 brand products BOTH", groups={"OrderSummary"}, priority = 10)
+    public void orderSummaryPageV76Both(String username, String password) throws Throwable {
         ExtentTest orderSummaryV76BothReport = extent.createTest("Order(s) summary with only V-76 brand products BOTH","This is to test Order summary page");
 
         OrderReviewPageTest order = new OrderReviewPageTest();
-        order.orderReviewTestV76Both();
+        order.orderReviewTestV76Both(username, password);
         orderSummaryV76BothReport.pass("Order(s) review with only V-76 brand products BOTH executed...");
 
         OrderSummary orderSummary = new OrderSummary();
@@ -293,12 +293,12 @@ public class OrderSummaryPageTest extends BaseClass {
         System.out.println("Clicked on Last Continue button");
     }
 
-    @Test (description = "Order(s) summary with only V76 brand SAME product (both $ and points SAME product)", groups={"OrderSummary"}, priority = 3)
-    public void orderSummaryPageV76CoBothSameItem() throws Throwable {
+    @Test (dataProvider = "logincredentials",description = "Order(s) summary with only V76 brand SAME product (both $ and points SAME product)", groups={"OrderSummary"}, priority = 3)
+    public void orderSummaryPageV76CoBothSameItem(String username, String password) throws Throwable {
         ExtentTest orderSummaryV76BothSameItemReport = extent.createTest("Order(s) summary with only V76 brand SAME product (both $ and points SAME product)","This is to test Order summary page");
 
         OrderReviewPageTest order = new OrderReviewPageTest();
-        order.orderReviewTestV76BothSameItem();
+        order.orderReviewTestV76BothSameItem(username,password);
         orderSummaryV76BothSameItemReport.pass("Order(s) review with only V76 brand SAME product (both $ and points SAME product) executed...");
 
         OrderSummary orderSummary = new OrderSummary();

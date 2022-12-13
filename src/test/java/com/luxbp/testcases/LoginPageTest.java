@@ -3,23 +3,22 @@ package com.luxbp.testcases;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 
+import com.luxbp.base.BaseClass;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import com.luxbp.base.BaseClass;
 import com.luxbp.pageobjects.LoginPage;
-
 
 public class LoginPageTest extends BaseClass {
 
-	@Test (groups={"Login"})
-	public void loginTest() throws Throwable {
-		ExtentTest loginReport = extent.createTest("Login test","This is test to validate successful login");
+	@Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, groups = { "Login" })
+	public void loginTest(String userName, String password) throws Throwable {
+		ExtentTest loginReport = extent.createTest("Login test", "This is test to validate successful login");
 
 		LoginPage loginTest = new LoginPage();
 		loginReport.log(Status.INFO, "Starting Browser");
 		loginReport.pass("Navigated to login page");
 		loginTest.clickOnsignIn();
-		loginTest.login(prop.getProperty("username"),prop.getProperty("password"));
+		loginTest.login(userName, password);
 		loginTest.signInButton();
 		try {
 			String LogInfo = loginTest.validateLogin();

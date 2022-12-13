@@ -9,10 +9,10 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AddToCartPageRcoSameItemBothTest extends BaseClass {
-@Test
-    public void addToCartPageRcoSameItemBothTest() throws Throwable {
+    @Test(dataProvider = "logincredentials")
+    public void addToCartPageRcoSameItemBothTest(String username, String password) throws Throwable {
         LoginPageTest login = new LoginPageTest();
-        login.loginTest();
+        login.loginTest(username, password);
 
         ExtentTest AddToCartPageRcoSameItemBothTestReport = extent.createTest("Add to cart same item buy from both NFR Point as well as Retail $","This is to test if an item is added to cart");
 

@@ -6,12 +6,13 @@ import com.luxbp.base.BaseClass;
 import com.luxbp.pageobjects.AddToCartPage.V76.AddToCartPageV76Points;
 import com.luxbp.testcases.LoginPageTest;
 import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class AddToCartPageV76PointsTest extends BaseClass {
-
-    public void addToCartPageV76TestPoints() throws Throwable {
+    @Test(dataProvider = "logincredentials")
+    public void addToCartPageV76TestPoints(String username, String password) throws Throwable {
         LoginPageTest login = new LoginPageTest();
-        login.loginTest();
+        login.loginTest(username, password);
 
         ExtentTest addToCartPointReport = extent.createTest("Add to cart for Points","This is to test if an item from V76 is added to cart from points");
 

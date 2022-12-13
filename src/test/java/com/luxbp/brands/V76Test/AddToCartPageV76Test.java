@@ -2,17 +2,17 @@ package com.luxbp.brands.V76Test;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.luxbp.base.BaseClass;
 import com.luxbp.pageobjects.AddToCartPage.V76.AddToCartPageV76Dollar;
 import com.luxbp.testcases.LoginPageTest;
 import org.testng.Assert;
-import com.luxbp.base.BaseClass;
+import org.testng.annotations.Test;
 
 public class AddToCartPageV76Test extends BaseClass {
-
-
-    public void addToCartPageV76Dollar() throws Throwable {
+    @Test(dataProvider = "logincredentials")
+    public void addToCartPageV76Dollar(String username, String password) throws Throwable {
         LoginPageTest login = new LoginPageTest();
-        login.loginTest();
+        login.loginTest(username, password);
         ExtentTest addToCartV76Report = extent.createTest("Add to cart V-76","This is to test if an item is added to cart in V-76 store");
 
         AddToCartPageV76Dollar v76 = new AddToCartPageV76Dollar();

@@ -2,16 +2,17 @@ package com.luxbp.brands.RcoTest;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.luxbp.base.BaseClass;
 import com.luxbp.testcases.LoginPageTest;
 import org.testng.Assert;
-import com.luxbp.base.BaseClass;
 import com.luxbp.pageobjects.AddToCartPage.Rco.AddToCartPageRplusCo;
+import org.testng.annotations.Test;
 
 public class AddToCartPageRplusCoTest extends BaseClass {
-
-    public void addToCartPageRplusCoTestDollar() throws Throwable {
+    @Test(dataProvider = "logincredentials")
+    public void addToCartPageRplusCoTestDollar(String username, String password) throws Throwable {
        LoginPageTest login = new LoginPageTest();
-        login.loginTest();
+        login.loginTest(username, password);
 
         ExtentTest addToCartDollarReport = extent.createTest("Add to Cart Order(s) with only R+Co brand products (only retail $)","This is to test if an item is added to cart");
 
