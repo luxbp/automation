@@ -1,15 +1,7 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name = "TestNG">
-    
     <test name = "End to end">
     <classes>
-<!--        <class name="com.luxbp.testcases.LoginPageTest"></class>-->
-<!--        <class name="com.luxbp.testcases.AddToCartPageTest"></class>-->
-<!--        <class name="com.luxbp.testcases.ShippingInformationPageTest"></class>-->
-<!--        <class name="com.luxbp.testcases.ShippingMethodPageTest"></class>-->
-<!--        <class name="com.luxbp.testcases.PaymentPageTest"></class>-->
-<!--        <class name="com.luxbp.testcases.PurchaseOrderTestPage"></class>-->
-<!--        <class name="com.luxbp.testcases.OrderReviewPageTest"></class>-->
         <class name="com.luxbp.testcases.OrderSummaryPageTest"></class>
     </classes>
     </test>

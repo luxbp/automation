@@ -59,6 +59,7 @@ public class AddToCartPageRbleuBoth extends BaseClass {
 
         Action.click(driver, products);
         driver.findElement(By.cssSelector("a[href='/brands/bleu'][target='']")).click();
+
         WebDriverWait waitFilter = new WebDriverWait(driver, 5);
         waitFilter.until(ExpectedConditions.visibilityOf(clickElse));
         clickElse.click();

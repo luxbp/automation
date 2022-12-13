@@ -162,6 +162,7 @@ public class ShippingMethodPageTest extends BaseClass {
         ShippingInfo.ShippingInformationTestRbleuBoth();         //This function validates Shipping Info module
         shippingMethodRbleuBothReport.log(Status.INFO,"Shipping Information R+Co Bleu brand products (both $ and points product executed...");
 
+
         ShippingMethod shippingMethod = new ShippingMethod();
         shippingMethod.clickFirstContinueBtn();         //This will click the first continue button.
         shippingMethodRbleuBothReport.log(Status.INFO,"Shipping Method R+Co Bleu brand products (both $ and points product executed...");

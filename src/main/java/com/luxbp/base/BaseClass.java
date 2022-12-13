@@ -66,8 +66,8 @@ public class BaseClass {
             BrowserTest.pass("Safari Browser opened successfully");
             BrowserTest.fail("Other Browser not opened");
         }
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(20000, TimeUnit.MILLISECONDS);
+            driver.manage().window().maximize();
+            driver.manage().timeouts().implicitlyWait(20000, TimeUnit.MILLISECONDS);
             driver.get(prop.getProperty("devurl"));
             BrowserTest.log(Status.INFO, "Navigating to sign in page");
             BrowserTest.pass("Successfully opened Sign in page");
