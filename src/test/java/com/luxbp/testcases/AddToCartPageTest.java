@@ -5,7 +5,7 @@ import com.luxbp.brands.RbleuTest.AddToCartPageRbleuBothTest;
 import com.luxbp.brands.RbleuTest.AddToCartPageRbleuSameItemTest;
 import com.luxbp.brands.RbleuTest.AddToCartPageRbleuTest;
 import com.luxbp.brands.RcoTest.*;
-import com.luxbp.brands.RcoTest.AddToCartPageRbleuPointsTest;
+import com.luxbp.brands.RbleuTest.AddToCartPageRbleuPointsTest;
 import com.luxbp.brands.RcolorTest.AddToCartPageRcolorTest;
 import com.luxbp.brands.V76Test.AddToCartPageV76BothTest;
 import com.luxbp.brands.V76Test.AddToCartPageV76PointsTest;
@@ -47,7 +47,7 @@ public class AddToCartPageTest extends BaseClass {
     @Test(priority = 6, groups={"AddToCart"}, description = "Order(s) with only R-Bleu brand products (only NFR points product)")
     public void AddToCartPageRbleuPointsTest() throws Throwable {
         AddToCartPageRbleuPointsTest rBleuPoints = new AddToCartPageRbleuPointsTest();
-        rBleuPoints.AddToCartPageRbleuPointsTest();
+        rBleuPoints.AddToCartPageRbleuPointTest();
     }
 
     @Test(priority = 7, groups={"AddToCart"}, description = "Order(s) with only R-Bleu brand products BOTH")

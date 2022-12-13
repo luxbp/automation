@@ -2,6 +2,7 @@ package com.luxbp.pageobjects;
 
 import com.aventstack.extentreports.ExtentTest;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import com.luxbp.actiondriver.Action;
@@ -39,16 +40,13 @@ public class LoginPage extends BaseClass {
 	public LoginPage() {
 		PageFactory.initElements(driver, this);}
 	public void clickOnsignIn() {
-		String Browser = prop.getProperty("BrowserType");
-		if(Browser.equalsIgnoreCase("Safari")){
-			WebDriverWait waitToastMesg = new WebDriverWait(driver,5);
+		if (driver instanceof SafariDriver) {
+			System.out.println("Driver is safari");
+			WebDriverWait waitToastMesg = new WebDriverWait(driver, 5);
 			waitToastMesg.until(ExpectedConditions.visibilityOf(toastClose));
 			toastClose.click();
-			signOn.click();
 		}
-		else {
-			signOn.click();
-		}
+		signOn.click();
 	}
 	public HomePage login(String uname, String pwd) {
 		WebDriverWait wait = new WebDriverWait(driver,5);

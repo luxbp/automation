@@ -52,8 +52,8 @@ public class AddToCartPageRplusCo extends BaseClass {
 		driver.findElement(By.cssSelector("a[href='/brands/r-and-co'][target='']")).click();
 //		rCO.click();
 
-			WebDriverWait waitFilter = new WebDriverWait(driver, 5);
-			waitFilter.until(ExpectedConditions.visibilityOf(clickElse));
+		/*	WebDriverWait waitFilter = new WebDriverWait(driver, 5);
+			waitFilter.until(ExpectedConditions.visibilityOf(clickElse));*/
 			Thread.sleep(5000);
 			clickElse.click();
 		}

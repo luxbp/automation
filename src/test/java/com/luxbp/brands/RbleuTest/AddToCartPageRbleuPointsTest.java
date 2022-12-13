@@ -1,4 +1,4 @@
-package com.luxbp.brands.RcoTest;
+package com.luxbp.brands.RbleuTest;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 public class AddToCartPageRbleuPointsTest extends BaseClass {
 
     @Test
-    public void AddToCartPageRbleuPointsTest() throws Throwable {
+    public void AddToCartPageRbleuPointTest() throws Throwable {
         LoginPageTest login = new LoginPageTest();
         login.loginTest();
 
