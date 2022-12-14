@@ -5,11 +5,8 @@ jobs:
     name: 'BrowserStack Test on Ubuntu'
     runs-on: ubuntu-latest  # Can be self-hosted runner also
     steps:
-
-      - name: 'BrowserStack Env Setup'  # Invokes the setup-env action
-        uses: browserstack/github-actions/setup-env@master
+      - name: BrowserStack Actions
+        uses: browserstack/github-actions@v1.0.1
         with:
-          username:  ${{ secrets.BROWSERSTACK_USERNAME }}
-          access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}
-          build-name: 'Luxury Brand Partner Build'
-          project-name: 'Luxury Brand Parter Repository'
+          userName: 'luxbpseva_FToxAm'
+          accessKey: 'nyP8YcixmDTwet5jXfjx'
