@@ -9,11 +9,11 @@ import org.testng.annotations.Test;
 
 public class PaymentPageTest extends BaseClass {
 
-    @Test (description = "Payment Method Order(s) with only R+Co brand products (only retail $)", groups={"PaymentMethod"})
-    public void PaymentMethodTestRplusCo() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Payment Method Order(s) with only R+Co brand products (only retail $)", groups={"PaymentMethod"})
+    public void PaymentMethodTestRplusCo(String username, String password) throws Throwable {
         ExtentTest paymentReport = extent.createTest("Payment Method Module Order(s) with only R+Co brand products (only retail $)","This is to test payment module");
         ShippingMethodPageTest shipMethod = new ShippingMethodPageTest();
-        shipMethod.ShippingMethodTestRplusCo();            //This function will run Shipping method test
+        shipMethod.ShippingMethodTestRplusCo(username, password);            //This function will run Shipping method test
         paymentReport.log(Status.INFO,"Shipping Method with Order(s) with only R+Co brand products (only retail $) module executed...");
 
         PaymentPage payment = new PaymentPage();
@@ -32,12 +32,12 @@ public class PaymentPageTest extends BaseClass {
         paymentReport.info("Payment method with Order(s) with only R+Co brand products (only retail $) test ends");
     }
 
-    @Test (description = "Payment Method Order(s) with only R+Co brand products (only NFR points product)", groups={"PaymentMethod"})
-    public void PaymentMethodTestRplusCoPoints() throws Throwable {
+    @Test (dataProvider = "logincredentials",dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Payment Method Order(s) with only R+Co brand products (only NFR points product)", groups={"PaymentMethod"})
+    public void PaymentMethodTestRplusCoPoints(String username, String password) throws Throwable {
         ExtentTest paymentRcoPointReport = extent.createTest("Payment Method Order(s) with only R+Co brand products (only NFR points product)","This is to test payment module");
 
         ShippingMethodPageTest shipMethod = new ShippingMethodPageTest();
-        shipMethod.ShippingMethodTestRplusCoPoints();            //This function will run Shipping method test
+        shipMethod.ShippingMethodTestRplusCoPoints(username, password);            //This function will run Shipping method test
         paymentRcoPointReport.log(Status.INFO,"Shipping Method Order(s) with only R+Co brand products (only NFR points product) module executed...");
 
         PaymentPage payment = new PaymentPage();
@@ -56,12 +56,12 @@ public class PaymentPageTest extends BaseClass {
         paymentRcoPointReport.info("Payment Method Order(s) with only R+Co brand products (only NFR points product) test ends");
     }
 
-    @Test (description = "Payment Method Order(s) with only R+Co brand products (both $ and points product)", groups={"PaymentMethod"})
-    public void PaymentMethodTestRplusCoBoth() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Payment Method Order(s) with only R+Co brand products (both $ and points product)", groups={"PaymentMethod"})
+    public void PaymentMethodTestRplusCoBoth(String username, String password) throws Throwable {
         ExtentTest paymentRcoBothReport = extent.createTest("Payment Method Order(s) with only R+Co brand products (both $ and points product)","This is to test payment module");
 
         ShippingMethodPageTest shipMethod = new ShippingMethodPageTest();
-        shipMethod.ShippingMethodTestRplusCoBoth();            //This function will run Shipping method test
+        shipMethod.ShippingMethodTestRplusCoBoth(username, password);            //This function will run Shipping method test
         paymentRcoBothReport.log(Status.INFO,"Shipping Method Order(s) with only R+Co brand products (both $ and points product) module executed...");
 
         PaymentPage payment = new PaymentPage();
@@ -80,12 +80,12 @@ public class PaymentPageTest extends BaseClass {
         paymentRcoBothReport.info("Payment Order(s) with only R+Co brand products (both $ and points product) test ends");
     }
 
-    @Test (description = "Payment Method Order(s) with only R+Co brand SAME product (both $ and points SAME product)", groups={"PaymentMethod"})
-    public void PaymentMethodTestRplusCoSameItemBoth() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Payment Method Order(s) with only R+Co brand SAME product (both $ and points SAME product)", groups={"PaymentMethod"})
+    public void PaymentMethodTestRplusCoSameItemBoth(String username, String password) throws Throwable {
         ExtentTest paymentRcoSameItemBothReport = extent.createTest("Payment Method Order(s) with only R+Co brand SAME products (both $ and points product)","This is to test payment module");
 
         ShippingMethodPageTest shipMethod = new ShippingMethodPageTest();
-        shipMethod.ShippingMethodTestRplusCoBothSameItem();            //This function will run Shipping method test
+        shipMethod.ShippingMethodTestRplusCoBothSameItem(username, password);            //This function will run Shipping method test
         paymentRcoSameItemBothReport.log(Status.INFO,"Shipping Method Order(s) with only R+Co brand SAME product (both $ and points SAME product) module executed...");
 
         PaymentPage payment = new PaymentPage();
@@ -103,11 +103,11 @@ public class PaymentPageTest extends BaseClass {
         }
         paymentRcoSameItemBothReport.info("Payment Order(s) with only R+Co brand SAME products (both $ and points SAME product) test ends");
     }
-    @Test (description = "Payment Method Order(s) with only R+Co Bleu brand products", groups={"PaymentMethod"})
-    public void PaymentMethodTestRbleu() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Payment Method Order(s) with only R+Co Bleu brand products", groups={"PaymentMethod"})
+    public void PaymentMethodTestRbleu(String username ,String password) throws Throwable {
         ExtentTest paymentRleuReport = extent.createTest("Payment Method Module Order(s) with only R+Co Bleu brand products","This is to test payment module");
         ShippingMethodPageTest shipMethod = new ShippingMethodPageTest();
-        shipMethod.ShippingMethodTestRBleu();            //This function will run Shipping method test
+        shipMethod.ShippingMethodTestRBleu(username, password);            //This function will run Shipping method test
         paymentRleuReport.log(Status.INFO,"Shipping Method Order(s) with only R+Co Bleu brand products module executed...");
 
         PaymentPage payment = new PaymentPage();
@@ -126,13 +126,13 @@ public class PaymentPageTest extends BaseClass {
         paymentRleuReport.info("Payment Order(s) with only R+Co Bleu brand products module ends");
     }
 
-    @Test (description = "Payment Method Order(s) with only R+Co Bleu brand products (only NFR points product)", groups={"PaymentMethod"})
-    public void PaymentMethodTestRbleuPoints() throws Throwable {
+    @Test (dataProvider = "logincredentials",dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Payment Method Order(s) with only R+Co Bleu brand products (only NFR points product)", groups={"PaymentMethod"})
+    public void PaymentMethodTestRbleuPoints(String username, String password) throws Throwable {
         ShippingMethodPageTest shipMethod = new ShippingMethodPageTest();
 
         ExtentTest paymentReport = extent.createTest("Payment Method Module","This is to test payment module");
 
-        shipMethod.ShippingMethodTestRBleuPoints();            //This function will run Shipping method test
+        shipMethod.ShippingMethodTestRBleuPoints(username, password);            //This function will run Shipping method test
 
         PaymentPage payment = new PaymentPage();
         paymentReport.log(Status.INFO,"Payment info module status");
@@ -150,13 +150,13 @@ public class PaymentPageTest extends BaseClass {
         paymentReport.info("Payment Information page test ends");
     }
 
-    @Test (description = "Payment Method Order(s) with only R+Co Bleu brand products (both $ and points product)", groups={"PaymentMethod"})
-    public void PaymentMethodTestRbleuBoth() throws Throwable {
+    @Test (dataProvider = "logincredentials",dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Payment Method Order(s) with only R+Co Bleu brand products (both $ and points product)", groups={"PaymentMethod"})
+    public void PaymentMethodTestRbleuBoth(String username, String password) throws Throwable {
         ShippingMethodPageTest shipMethod = new ShippingMethodPageTest();
 
         ExtentTest paymentReport = extent.createTest("Payment Method Module","This is to test payment module");
 
-        shipMethod.ShippingInformationTestRbleuBoth();            //This function will run Shipping method test
+        shipMethod.ShippingInformationTestRbleuBoth(username, password);            //This function will run Shipping method test
 
         PaymentPage payment = new PaymentPage();
         paymentReport.log(Status.INFO,"Payment info module status");
@@ -174,12 +174,12 @@ public class PaymentPageTest extends BaseClass {
         paymentReport.info("Payment Information page test ends");
     }
 
-    @Test (description = "Payment Method Order(s) with only Rbleu brand SAME product (both $ and points SAME product)", groups={"PaymentMethod"})
-    public void PaymentMethodTestRbleuSameItemBoth() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Payment Method Order(s) with only Rbleu brand SAME product (both $ and points SAME product)", groups={"PaymentMethod"})
+    public void PaymentMethodTestRbleuSameItemBoth(String username, String password) throws Throwable {
         ExtentTest paymentRbleuSameItemBothReport = extent.createTest("Payment Method Order(s) with only Rbleu brand SAME products (both $ and points product)","This is to test payment module");
 
         ShippingMethodPageTest shipMethod = new ShippingMethodPageTest();
-        shipMethod.ShippingMethodTestRbleuBothSameItem();           //This function will run Shipping method test
+        shipMethod.ShippingMethodTestRbleuBothSameItem(username, password);           //This function will run Shipping method test
         paymentRbleuSameItemBothReport.log(Status.INFO,"Shipping Method Order(s) with only Rbleu brand SAME product (both $ and points SAME product) module executed...");
 
         PaymentPage payment = new PaymentPage();
@@ -198,13 +198,13 @@ public class PaymentPageTest extends BaseClass {
         paymentRbleuSameItemBothReport.info("Payment Order(s) with only Rbleu brand SAME products (both $ and points SAME product) test ends");
     }
 
-    @Test (description = "Payment Method Order(s) with only R+Color brand products", groups={"PaymentMethod"})
-    public void PaymentMethodTestRcolor() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Payment Method Order(s) with only R+Color brand products", groups={"PaymentMethod"})
+    public void PaymentMethodTestRcolor(String username, String password) throws Throwable {
         ShippingMethodPageTest shipMethod = new ShippingMethodPageTest();
 
         ExtentTest paymentReport = extent.createTest("Payment Method Module","This is to test payment module");
 
-        shipMethod.ShippingInformationTestRcolor();            //This function will run Shipping method test
+        shipMethod.ShippingInformationTestRcolor(username, password);            //This function will run Shipping method test
 
         PaymentPage payment = new PaymentPage();
         paymentReport.log(Status.INFO,"Payment info module status");
@@ -222,13 +222,13 @@ public class PaymentPageTest extends BaseClass {
         paymentReport.info("Payment Information page test ends");
     }
 
-    @Test (description = "Payment Method Order(s) with only V-76 brand products", groups={"PaymentMethod"})
-    public void PaymentMethodTestV76Dollar() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Payment Method Order(s) with only V-76 brand products", groups={"PaymentMethod"})
+    public void PaymentMethodTestV76Dollar(String username, String password) throws Throwable {
         ShippingMethodPageTest shipMethod = new ShippingMethodPageTest();
 
         ExtentTest paymentReport = extent.createTest("Payment Method Module","This is to test payment module");
 
-        shipMethod.ShippingInformationTestV76();            //This function will run Shipping method test
+        shipMethod.ShippingInformationTestV76(username, password);            //This function will run Shipping method test
 
         PaymentPage payment = new PaymentPage();
         paymentReport.log(Status.INFO,"Payment info module status");
@@ -246,13 +246,13 @@ public class PaymentPageTest extends BaseClass {
         paymentReport.info("Payment Information page test ends");
     }
 
-    @Test (description = "Payment Method Order(s) with only V-76 brand products POINTS", groups={"PaymentMethod"})
-    public void PaymentMethodTestV76Points() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Payment Method Order(s) with only V-76 brand products POINTS", groups={"PaymentMethod"})
+    public void PaymentMethodTestV76Points(String username, String password) throws Throwable {
         ShippingMethodPageTest shipMethod = new ShippingMethodPageTest();
 
         ExtentTest paymentReport = extent.createTest("Payment Method Module","This is to test payment module");
 
-        shipMethod.ShippingInformationTestV76Points();            //This function will run Shipping method test
+        shipMethod.ShippingInformationTestV76Points(username, password);            //This function will run Shipping method test
 
         PaymentPage payment = new PaymentPage();
         paymentReport.log(Status.INFO,"Payment info module status");
@@ -270,13 +270,13 @@ public class PaymentPageTest extends BaseClass {
         paymentReport.info("Payment Information page test ends");
     }
 
-    @Test (description = "Payment Method Order(s) with only V-76 brand products BOTH", groups={"PaymentMethod"})
-    public void PaymentMethodTestV76Both() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Payment Method Order(s) with only V-76 brand products BOTH", groups={"PaymentMethod"})
+    public void PaymentMethodTestV76Both(String username, String password) throws Throwable {
         ShippingMethodPageTest shipMethod = new ShippingMethodPageTest();
 
         ExtentTest paymentReport = extent.createTest("Payment Method Module","This is to test payment module");
 
-        shipMethod.ShippingInformationTestV76Both();            //This function will run Shipping method test
+        shipMethod.ShippingInformationTestV76Both(username, password);            //This function will run Shipping method test
 
         PaymentPage payment = new PaymentPage();
         paymentReport.log(Status.INFO,"Payment info module status");
@@ -294,12 +294,12 @@ public class PaymentPageTest extends BaseClass {
         paymentReport.info("Payment Information page test ends");
     }
 
-    @Test (description = "Payment Method Order(s) with only V76 brand SAME product (both $ and points SAME product)", groups={"PaymentMethod"})
-    public void PaymentMethodTestV76SameItemBoth() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Payment Method Order(s) with only V76 brand SAME product (both $ and points SAME product)", groups={"PaymentMethod"})
+    public void PaymentMethodTestV76SameItemBoth(String username, String password) throws Throwable {
         ExtentTest paymentRbleuSameItemBothReport = extent.createTest("Payment Method Order(s) with only V76 brand SAME products (both $ and points product)","This is to test payment module");
 
         ShippingMethodPageTest shipMethod = new ShippingMethodPageTest();
-        shipMethod.ShippingMethodTestV76BothSameItem();           //This function will run Shipping method test
+        shipMethod.ShippingMethodTestV76BothSameItem(username, password);           //This function will run Shipping method test
         paymentRbleuSameItemBothReport.log(Status.INFO,"Shipping Method Order(s) with only Rbleu brand SAME product (both $ and points SAME product) module executed...");
 
         PaymentPage payment = new PaymentPage();

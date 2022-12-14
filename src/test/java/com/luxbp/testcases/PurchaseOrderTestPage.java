@@ -8,12 +8,12 @@ import org.testng.annotations.Test;
 
 public class PurchaseOrderTestPage extends BaseClass {
 
-    @Test (groups={"PurchaseOrder"}, description = "Purchase Order Order(s) with only R+Co brand products (only retail $)")
-    public void purchaseOrderRplucCo() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, groups={"PurchaseOrder"}, description = "Purchase Order Order(s) with only R+Co brand products (only retail $)")
+    public void purchaseOrderRplucCo(String username, String password) throws Throwable {
         ExtentTest purchaseOrderRcoDollarReport = extent.createTest("Purchase Order Order(s) with only R+Co brand products (only retail $)", "This is to test purchase order module");
 
         PaymentPageTest paymentPage = new PaymentPageTest();
-        paymentPage.PaymentMethodTestRplusCo();            //This will run the upto payment Function
+        paymentPage.PaymentMethodTestRplusCo(username, password);            //This will run the upto payment Function
         purchaseOrderRcoDollarReport.log(Status.INFO, "Payment Order(s) with only R+Co brand products (only retail $) executed...");
 
         PurchaseOrder purchaseOrder = new PurchaseOrder();
@@ -23,12 +23,12 @@ public class PurchaseOrderTestPage extends BaseClass {
         purchaseOrderRcoDollarReport.info("Purchase Order Order(s) with only R+Co brand products (only retail $) test ends");
     }
 
-    @Test (groups={"PurchaseOrder"}, description = "Purchase Order Order(s) with only R+Co brand products (only NFR points product)")
-    public void purchaseOrderRplucCoPoints() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,groups={"PurchaseOrder"}, description = "Purchase Order Order(s) with only R+Co brand products (only NFR points product)")
+    public void purchaseOrderRplucCoPoints(String username, String password) throws Throwable {
         ExtentTest purchaseOrderRcoPointsReport = extent.createTest("Purchase Order(s) with only R+Co brand products (only NFR points product)", "This is to test purchase order module");
 
         PaymentPageTest paymentPage = new PaymentPageTest();
-        paymentPage.PaymentMethodTestRplusCoPoints();            //This will run the upto payment Function
+        paymentPage.PaymentMethodTestRplusCoPoints(username, password);            //This will run the upto payment Function
         purchaseOrderRcoPointsReport.pass("Payment Order(s) with only R+Co brand products (only NFR points product) executed...");
 
         PurchaseOrder purchaseOrder = new PurchaseOrder();
@@ -38,12 +38,12 @@ public class PurchaseOrderTestPage extends BaseClass {
         purchaseOrderRcoPointsReport.info("Purchase Order(s) with only R+Co brand products (only NFR points product) test ends");
     }
 
-    @Test (groups={"PurchaseOrder"}, description = "Purchase Order(s) with only R+Co brand products (both $ and points product)")
-    public void purchaseOrderRplucCoBoth() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,groups={"PurchaseOrder"}, description = "Purchase Order(s) with only R+Co brand products (both $ and points product)")
+    public void purchaseOrderRplucCoBoth(String username, String password) throws Throwable {
         ExtentTest purchaseOrderReport = extent.createTest("Purchase Order(s) with only R+Co brand products (both $ and points product)", "This is to test purchase order module");
 
         PaymentPageTest paymentPage = new PaymentPageTest();
-        paymentPage.PaymentMethodTestRplusCoBoth();            //This will run the upto payment Function
+        paymentPage.PaymentMethodTestRplusCoBoth(username, password);            //This will run the upto payment Function
         purchaseOrderReport.log(Status.INFO, "Purchase Order(s) with only R+Co brand products (both $ and points product) executed...");
 
         PurchaseOrder purchaseOrder = new PurchaseOrder();
@@ -52,12 +52,12 @@ public class PurchaseOrderTestPage extends BaseClass {
 
         purchaseOrderReport.info("Purchase Order(s) with only R+Co brand products (both $ and points product)test ends");
     }
-    @Test (groups={"PurchaseOrder"}, description = "Purchase Order(s) with only R+Co brand SAME product (both $ and points SAME product)")
-    public void purchaseOrderRplucCoSameItemBoth() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,groups={"PurchaseOrder"}, description = "Purchase Order(s) with only R+Co brand SAME product (both $ and points SAME product)")
+    public void purchaseOrderRplucCoSameItemBoth(String username, String password) throws Throwable {
         ExtentTest purchaseOrderRcoSameReport = extent.createTest("Purchase Order(s) with only R+Co brand SAME product (both $ and points SAME product)", "This is to test purchase order module");
 
         PaymentPageTest paymentPage = new PaymentPageTest();
-        paymentPage.PaymentMethodTestRplusCoSameItemBoth();            //This will run the upto payment Function
+        paymentPage.PaymentMethodTestRplusCoSameItemBoth(username, password);            //This will run the upto payment Function
         purchaseOrderRcoSameReport.log(Status.INFO, "Purchase Order(s) with only R+Co brand SAME product (both $ and points SAME product) executed...");
 
         PurchaseOrder purchaseOrder = new PurchaseOrder();
@@ -67,12 +67,12 @@ public class PurchaseOrderTestPage extends BaseClass {
         purchaseOrderRcoSameReport.info("Purchase Order(s) with only R+Co brand SAME product (both $ and points SAME product)test ends");
     }
 
-    @Test (groups={"PurchaseOrder"}, description = "Purchase Order(s) with only R+Co Bleu brand products")
-    public void purchaseOrderRbleu() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,groups={"PurchaseOrder"}, description = "Purchase Order(s) with only R+Co Bleu brand products")
+    public void purchaseOrderRbleu(String username, String password) throws Throwable {
         ExtentTest purchaseOrderRbleuReport = extent.createTest("Purchase Order(s) with only R+Co Bleu brand products", "This is to test purchase order module");
 
         PaymentPageTest paymentPage = new PaymentPageTest();
-        paymentPage.PaymentMethodTestRbleu();            //This will run the upto payment Function
+        paymentPage.PaymentMethodTestRbleu(username, password);            //This will run the upto payment Function
         purchaseOrderRbleuReport.log(Status.INFO, "Payment method Order(s) with only R+Co Bleu brand products executed...");
 
         PurchaseOrder purchaseOrder = new PurchaseOrder();
@@ -82,12 +82,12 @@ public class PurchaseOrderTestPage extends BaseClass {
         purchaseOrderRbleuReport.info("Purchase Order(s) with only R+Co Bleu brand products test ends");
     }
 
-    @Test (groups={"PurchaseOrder"}, description = "Purchase Order(s) with only R+Co Bleu brand products (only NFR points product)")
-    public void purchaseOrderRbleuPoints() throws Throwable {
+    @Test (dataProvider = "logincredentials",dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, groups={"PurchaseOrder"}, description = "Purchase Order(s) with only R+Co Bleu brand products (only NFR points product)")
+    public void purchaseOrderRbleuPoints(String username, String password) throws Throwable {
         ExtentTest purchaseOrderRbleuPointsReport = extent.createTest("Purchase Order(s) with only R+Co Bleu brand products (only NFR points product)", "This is to test purchase order module");
 
         PaymentPageTest paymentPage = new PaymentPageTest();
-        paymentPage.PaymentMethodTestRbleuPoints();            //This will run the upto payment Function
+        paymentPage.PaymentMethodTestRbleuPoints(username, password);            //This will run the upto payment Function
         purchaseOrderRbleuPointsReport.log(Status.INFO, "Payment method Order(s) with only R+Co Bleu brand products (only NFR points product) module executed...");
 
         PurchaseOrder purchaseOrder = new PurchaseOrder();
@@ -97,12 +97,12 @@ public class PurchaseOrderTestPage extends BaseClass {
         purchaseOrderRbleuPointsReport.info("Purchase Order(s) with only R+Co Bleu brand products (only NFR points product) page test ends");
     }
 
-    @Test (groups={"PurchaseOrder"}, description = "Purchase Order(s) with only R+Co Bleu brand products (both $ and points product)")
-    public void purchaseOrderRbleuBoth() throws Throwable {
+    @Test (dataProvider = "logincredentials",dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, groups={"PurchaseOrder"}, description = "Purchase Order(s) with only R+Co Bleu brand products (both $ and points product)")
+    public void purchaseOrderRbleuBoth(String username, String password) throws Throwable {
         ExtentTest purchaseOrderRbleuBothReport = extent.createTest("Purchase Order(s) with only R+Co Bleu brand products (both $ and points product)", "This is to test purchase order module");
 
         PaymentPageTest paymentPage = new PaymentPageTest();
-        paymentPage.PaymentMethodTestRbleuBoth();            //This will run the upto payment Function
+        paymentPage.PaymentMethodTestRbleuBoth(username, password);            //This will run the upto payment Function
         purchaseOrderRbleuBothReport.log(Status.INFO, "Payment method Order(s) with only R+Co Bleu brand products (both $ and points product) executed...");
 
         PurchaseOrder purchaseOrder = new PurchaseOrder();
@@ -112,12 +112,12 @@ public class PurchaseOrderTestPage extends BaseClass {
         purchaseOrderRbleuBothReport.info("Purchase Order(s) with only R+Co Bleu brand products (both $ and points product) page test ends");
     }
 
-    @Test (groups={"PurchaseOrder"}, description = "Purchase Order(s) with only Rbleu brand SAME product (both $ and points SAME product)")
-    public void purchaseOrderRbleuSameItemBoth() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,groups={"PurchaseOrder"}, description = "Purchase Order(s) with only Rbleu brand SAME product (both $ and points SAME product)")
+    public void purchaseOrderRbleuSameItemBoth(String username, String password) throws Throwable {
         ExtentTest purchaseOrderRbleuSameReport = extent.createTest("Purchase Order(s) with only Rbleu brand SAME product (both $ and points SAME product)", "This is to test purchase order module");
 
         PaymentPageTest paymentPage = new PaymentPageTest();
-        paymentPage.PaymentMethodTestRbleuSameItemBoth();            //This will run the upto payment Function
+        paymentPage.PaymentMethodTestRbleuSameItemBoth(username, password);            //This will run the upto payment Function
         purchaseOrderRbleuSameReport.log(Status.INFO, "Purchase Order(s) with only Rbleu brand SAME product (both $ and points SAME product) executed...");
 
         PurchaseOrder purchaseOrder = new PurchaseOrder();
@@ -126,12 +126,12 @@ public class PurchaseOrderTestPage extends BaseClass {
 
         purchaseOrderRbleuSameReport.info("Purchase Order(s) with only Rbleu brand SAME product (both $ and points SAME product)test ends");
     }
-    @Test (groups={"PurchaseOrder"}, description = "Purchase Order(s) with only R+Color brand products")
-    public void purchaseOrderRcolor() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,groups={"PurchaseOrder"}, description = "Purchase Order(s) with only R+Color brand products")
+    public void purchaseOrderRcolor(String username, String password) throws Throwable {
         ExtentTest purchaseOrderRcolorReport = extent.createTest("Purchase Order(s) with only R+Color brand products", "This is to test purchase order module");
 
         PaymentPageTest paymentPage = new PaymentPageTest();
-        paymentPage.PaymentMethodTestRcolor();            //This will run the upto payment Function
+        paymentPage.PaymentMethodTestRcolor(username, password);            //This will run the upto payment Function
         purchaseOrderRcolorReport.log(Status.INFO, "Payment method Order(s) with only R+Color brand products executed...");
 
         PurchaseOrder purchaseOrder = new PurchaseOrder();
@@ -141,13 +141,13 @@ public class PurchaseOrderTestPage extends BaseClass {
         purchaseOrderRcolorReport.info("Purchase Order(s) with only R+Color brand products test ends");
     }
 
-    @Test (groups={"PurchaseOrder"}, description = "Purchase Order(s) with only V-76 brand products")
-    public void purchaseOrderV76Dollar() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,groups={"PurchaseOrder"}, description = "Purchase Order(s) with only V-76 brand products")
+    public void purchaseOrderV76Dollar(String username, String password) throws Throwable {
         ExtentTest purchaseOrderV76DollarReport = extent.createTest("Purchase Order(s) with only V-76 brand products", "This is to test purchase order module");
 
         PaymentPageTest paymentPage = new PaymentPageTest();
         purchaseOrderV76DollarReport.log(Status.INFO, "Payment method Order(s) with only V-76 brand products executed...");
-        paymentPage.PaymentMethodTestV76Dollar();            //This will run the upto payment Function
+        paymentPage.PaymentMethodTestV76Dollar(username, password);            //This will run the upto payment Function
 
         PurchaseOrder purchaseOrder = new PurchaseOrder();
         purchaseOrder.enterPurchaseOrderNumber();           //This will enter Purchase Order Number and click on Continue button
@@ -155,13 +155,13 @@ public class PurchaseOrderTestPage extends BaseClass {
 
         purchaseOrderV76DollarReport.info("Purchase Order(s) with only V-76 brand products ends");
     }
-    @Test (groups={"PurchaseOrder"}, description = "Purchase Order(s) with only V-76 brand products POINTS")
-    public void purchaseOrderV76Points() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,groups={"PurchaseOrder"}, description = "Purchase Order(s) with only V-76 brand products POINTS")
+    public void purchaseOrderV76Points(String username ,String password) throws Throwable {
         ExtentTest purchaseOrderV76PointsReport = extent.createTest("Purchase Order(s) with only V-76 brand products POINTS", "This is to test purchase order module");
 
         PaymentPageTest paymentPage = new PaymentPageTest();
         purchaseOrderV76PointsReport.log(Status.INFO, "Payment method Order(s) with only V-76 brand products POINTS executed...");
-        paymentPage.PaymentMethodTestV76Points();            //This will run the upto payment Function
+        paymentPage.PaymentMethodTestV76Points(username, password);            //This will run the upto payment Function
 
         PurchaseOrder purchaseOrder = new PurchaseOrder();
         purchaseOrder.enterPurchaseOrderNumber();           //This will enter Purchase Order Number and click on Continue button
@@ -169,13 +169,13 @@ public class PurchaseOrderTestPage extends BaseClass {
 
         purchaseOrderV76PointsReport.info("Purchase Order(s) with only V-76 brand products POINTS test ends");
     }
-    @Test (groups={"PurchaseOrder"}, description = "Purchase Order(s) with only V-76 brand products BOTH")
-    public void purchaseOrderV76Both() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,groups={"PurchaseOrder"}, description = "Purchase Order(s) with only V-76 brand products BOTH")
+    public void purchaseOrderV76Both(String username, String password) throws Throwable {
         ExtentTest purchaseOrderV76BothReport = extent.createTest("Purchase Order(s) with only V-76 brand products BOTH", "This is to test purchase order module");
 
         PaymentPageTest paymentPage = new PaymentPageTest();
         purchaseOrderV76BothReport.log(Status.INFO, "Purchase Order(s) with only V-76 brand products BOTH executed...");
-        paymentPage.PaymentMethodTestV76Both();            //This will run the upto payment Function
+        paymentPage.PaymentMethodTestV76Both(username, password);            //This will run the upto payment Function
 
         PurchaseOrder purchaseOrder = new PurchaseOrder();
         purchaseOrder.enterPurchaseOrderNumber();           //This will enter Purchase Order Number and click on Continue button
@@ -184,12 +184,12 @@ public class PurchaseOrderTestPage extends BaseClass {
         purchaseOrderV76BothReport.info("Purchase Order(s) with only V-76 brand products BOTH  ends");
     }
 
-    @Test (groups={"PurchaseOrder"}, description = "Purchase Order(s) with only V76 brand SAME product (both $ and points SAME product)")
-    public void purchaseOrderV76SameItemBoth() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,groups={"PurchaseOrder"}, description = "Purchase Order(s) with only V76 brand SAME product (both $ and points SAME product)")
+    public void purchaseOrderV76SameItemBoth(String username, String password) throws Throwable {
         ExtentTest purchaseOrderV76SameReport = extent.createTest("Purchase Order(s) with only V76 brand SAME product (both $ and points SAME product)", "This is to test purchase order module");
 
         PaymentPageTest paymentPage = new PaymentPageTest();
-        paymentPage.PaymentMethodTestV76SameItemBoth();            //This will run the upto payment Function
+        paymentPage.PaymentMethodTestV76SameItemBoth(username, password);            //This will run the upto payment Function
         purchaseOrderV76SameReport.log(Status.INFO, "Purchase Order(s) with only V76 brand SAME product (both $ and points SAME product) executed...");
 
         PurchaseOrder purchaseOrder = new PurchaseOrder();

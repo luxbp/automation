@@ -4,16 +4,16 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.luxbp.base.BaseClass;
 import com.luxbp.pageobjects.AddToCartPage.Rco.AddToCartPageRcoPoints;
-import com.luxbp.testcases.LoginPageTest;
+import com.luxbp.pageobjects.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AddToCartRcoPointsTest extends BaseClass {
 
-    @Test
-    public void addToCartPageRplusCoTestPoints() throws Throwable {
-        LoginPageTest login = new LoginPageTest();
-        login.loginTest();
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class)
+    public void addToCartPageRplusCoTestPoints(String username, String password) throws Throwable {
+        LoginPage login = new LoginPage();
+        login.loginTest(username, password);
 
         ExtentTest addToCartPointReport = extent.createTest("Add to cart for Points","This is to test if an item from R-Co is added to cart from points");
 

@@ -1,6 +1,7 @@
 package com.luxbp.pageobjects;
 
 import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.FindBy;
@@ -9,8 +10,11 @@ import com.luxbp.actiondriver.Action;
 import com.luxbp.base.BaseClass;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class LoginPage extends BaseClass {
+
 
 	@FindBy(xpath = "//*[contains(text(),'Sign In')]")   //Click on Sign in button
 	WebElement signOn;
@@ -26,6 +30,7 @@ public class LoginPage extends BaseClass {
 
 	@FindBy(xpath = "//*[@data-testid='notificationMessage']")    //Verify login message
 	WebElement verifyLoginMessage;
+
 
 	@FindBy(xpath = "//*[@class='ss-gizmo ss-delete text-dark text-2h6 opacity-40 hover:opacity-100 slow-color-change leading-none icon-lg']")
 	WebElement closeVerifyMessage;
@@ -46,12 +51,38 @@ public class LoginPage extends BaseClass {
 		}
 		signOn.click();
 	}
-	public HomePage login(String uname, String pwd) {
+	public HomePage login(String username, String password) {
 		WebDriverWait wait = new WebDriverWait(driver,5);
 		wait.until(ExpectedConditions.visibilityOf(signInEmail));
-		Action.type(signInEmail, uname);
-		Action.type(signInPassword, pwd);
+		Action.type(signInEmail, username);
+		Action.type(signInPassword, password);
 		return new HomePage();
+	}
+
+	public void loginTest(String userName, String password) throws Throwable {
+		ExtentTest loginReport = extent.createTest("Login test", "This is test to validate successful login");
+
+		clickOnsignIn();
+		login(userName, password);
+		signInButton();
+		try {
+			String LogInfo = validateLogin();
+
+			try {
+				Assert.assertEquals("YOU ARE LOGGED IN!", LogInfo);
+				System.out.println("Login Successful");
+				loginReport.pass("Logged in successfully");
+
+			} catch (AssertionError Ae) {
+				loginReport.fail("Login failed due to " + Ae);
+				System.out.println("Logged In Failed due to " + Ae);
+			}
+		} catch (Exception logException) {
+			loginReport.fail("Login failed");
+			System.out.println("Failed due to " + logException);
+			loginReport.fail("Exception failed due to " + logException);
+		}
+		loginReport.info("Test Complete");
 	}
 
 	public void signInButton() throws InterruptedException {

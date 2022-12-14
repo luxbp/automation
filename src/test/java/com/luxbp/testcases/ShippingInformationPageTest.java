@@ -9,14 +9,14 @@ import org.testng.annotations.Test;
 
 public class ShippingInformationPageTest extends BaseClass {
 
-    @Test(description = "SHIPPINGINFORMATION Order(s) with only R+Co brand products (only retail $)", groups={"ShippingInformation"})
-    public void ShippingInformationTestRplusCo() throws Throwable {
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "SHIPPINGINFORMATION Order(s) with only R+Co brand products (only retail $)", groups={"ShippingInformation"})
+    public void ShippingInformationTestRplusCo(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoRcoDollarReport = extent.createTest("SHIPPING INFORMATION Order(s) with only R+Co brand products (only retail $)","This is to test the Shipping Information module");
 
         AddToCartPageTest addCart = new AddToCartPageTest();
 
-        addCart.addToCartRplusCoDollar();            //This function logins, navigate to a brand, click on a product & buy
+        addCart.addToCartRplusCoDollar(username, password);            //This function logins, navigate to a brand, click on a product & buy
 
         shippingInfoRcoDollarReport.log(Status.INFO, "Rco (Only Retail $ product) add executed...");
         ShippingInformation confirm = new ShippingInformation();
@@ -37,14 +37,14 @@ public class ShippingInformationPageTest extends BaseClass {
         shippingInfoRcoDollarReport.info("Shipping Information of Rco (Only Retail $ product) page test ends");
     }
 
-    @Test(description = "SHIPPING INFORMATION Order(s) with only R+Co brand products (only NFR points product)", groups={"ShippingInformation"})
-    public void ShippingInformationTestRplusCoPoints() throws Throwable {
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "SHIPPING INFORMATION Order(s) with only R+Co brand products (only NFR points product)", groups={"ShippingInformation"})
+    public void ShippingInformationTestRplusCoPoints(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoRcoPointsReport = extent.createTest("Shipping Information R+Co brand products (only NFR points product)","This is to test the Shipping Information module");
 
         AddToCartPageTest addCart = new AddToCartPageTest();
 
-        addCart.addToCartRplusCoPoints();            //This function logins, navigate to a brand, click on a product & buy
+        addCart.addToCartRplusCoPoints(username, password);            //This function logins, navigate to a brand, click on a product & buy
         shippingInfoRcoPointsReport.log(Status.INFO, "Rco (only NFR points product) product add executed...");
 
         ShippingInformation confirm = new ShippingInformation();
@@ -65,14 +65,14 @@ public class ShippingInformationPageTest extends BaseClass {
         shippingInfoRcoPointsReport.info("Shipping Information page of R+Co brand products (only NFR points product) test ends)");
     }
 
-    @Test(description = "SHIPPING INFORMATION Order(s) with only R+Co brand products (both $ and points product)", groups={"ShippingInformation"})
-    public void ShippingInformationTestRplusCoBoth() throws Throwable {
+    @Test(dataProvider = "logincredentials", description = "SHIPPING INFORMATION Order(s) with only R+Co brand products (both $ and points product)", groups={"ShippingInformation"})
+    public void ShippingInformationTestRplusCoBoth(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoRcoBothReport = extent.createTest("Shipping Information R+Co brand products (both $ and points product)","This is to test the Shipping Information module");
 
         AddToCartPageTest addCart = new AddToCartPageTest();
 
-        addCart.addToCartRplusCoPointsBoth();            //This function logins, navigate to a brand, click on a product & buy
+        addCart.addToCartRplusCoPointsBoth(username, password);            //This function logins, navigate to a brand, click on a product & buy
 
         shippingInfoRcoBothReport.log(Status.INFO, "Rco brand products (both $ and points product) add executed...");
 
@@ -96,13 +96,13 @@ public class ShippingInformationPageTest extends BaseClass {
     }
 
     @Test(description = "SHIPPING INFORMATION Order(s) with only R+Co brand products (both $ and points SAME product)", groups={"ShippingInformation"})
-    public void ShippingInformationTestRplusCoBothSameItem() throws Throwable {
+    public void ShippingInformationTestRplusCoBothSameItem(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoRcoBothSameItemReport = extent.createTest("Shipping Information R+Co brand products (both $ and points Same product)","This is to test the Shipping Information module");
 
         AddToCartPageTest addCart = new AddToCartPageTest();
 
-        addCart.addToCartRplusCoItemBoth();            //This function logins, navigate to a brand, click on a product & buy
+        addCart.addToCartRplusCoItemBoth(username, password);            //This function logins, navigate to a brand, click on a product & buy
 
         shippingInfoRcoBothSameItemReport.log(Status.INFO, "Rco brand products (both $ and points product) add executed...");
 
@@ -126,13 +126,13 @@ public class ShippingInformationPageTest extends BaseClass {
     }
 
     @Test(description = "SHIPPING INFORMATION Order(s) with only RBleu brand products", groups={"ShippingInformation"})
-    public void ShippingInformationTestRbleu() throws Throwable {
+    public void ShippingInformationTestRbleu(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoRbleuReport = extent.createTest("Shipping Information Order(s) with only RBleu brand products","This is to test the Shipping Information module");
 
         AddToCartPageTest addCart = new AddToCartPageTest();
 
-        addCart.addToCartRbleuDollar();            //This function logins, navigate to a brand, click on a product & buy
+        addCart.addToCartRbleuDollar(username,password);            //This function logins, navigate to a brand, click on a product & buy
 
         shippingInfoRbleuReport.log(Status.INFO, "Order(s) with only RBleu brand products add executed...");
 
@@ -155,13 +155,13 @@ public class ShippingInformationPageTest extends BaseClass {
     }
 
     @Test(description = "SHIPPING INFORMATION Order(s) with only R+Co Bleu brand products (only NFR points product)", groups={"ShippingInformation"})
-    public void ShippingInformationTestRbleuPoints() throws Throwable {
+    public void ShippingInformationTestRbleuPoints(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoRbleuPointsReport = extent.createTest("Shipping Information Module (only NFR points product)","This is to test the Shipping Information module");
 
         AddToCartPageTest addCart = new AddToCartPageTest();
 
-        addCart.AddToCartPageRbleuPointsTest();            //This function logins, navigate to a brand, click on a product & buy
+        addCart.AddToCartPageRbleuPointsTest(username, password);            //This function logins, navigate to a brand, click on a product & buy
         shippingInfoRbleuPointsReport.log(Status.INFO, "R-Bleu brand products (only NFR points product) add executed...");
 
         ShippingInformation confirm = new ShippingInformation();
@@ -183,13 +183,13 @@ public class ShippingInformationPageTest extends BaseClass {
     }
 
     @Test(description = "SHIPPING INFORMATION Order(s) with only R-Bleu brand products (both $ and points product)", groups={"ShippingInformation"})
-    public void ShippingInformationTestRbleuBoth() throws Throwable {
+    public void ShippingInformationTestRbleuBoth(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoRbleuBothReport = extent.createTest("Shipping Information R-Bleu brand products (both $ and points product)","This is to test the Shipping Information module");
 
         AddToCartPageTest addCart = new AddToCartPageTest();
 
-        addCart.AddToCartPageRbleuBothTest();            //This function logins, navigate to a brand, click on a product & buy
+        addCart.AddToCartPageRbleuBothTest(username, password);            //This function logins, navigate to a brand, click on a product & buy
         shippingInfoRbleuBothReport.log(Status.INFO, "R-Bleu brand products (both $ and points product) add executed...");
 
         ShippingInformation confirm = new ShippingInformation();
@@ -211,13 +211,13 @@ public class ShippingInformationPageTest extends BaseClass {
     }
 
     @Test(description = "SHIPPING INFORMATION Order(s) with only Rbleu products (both $ and points SAME product)", groups={"ShippingInformation"})
-    public void ShippingInformationTestRbleuBothSameItem() throws Throwable {
+    public void ShippingInformationTestRbleuBothSameItem(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoRbleuBothSameItemReport = extent.createTest("Shipping Information Rbleu brand products (both $ and points Same product)","This is to test the Shipping Information module");
 
         AddToCartPageTest addCart = new AddToCartPageTest();
 
-        addCart.addToCartPageRbleuSameItemBothTest();            //This function logins, navigate to a brand, click on a product & buy
+        addCart.addToCartPageRbleuSameItemBothTest(username, password);            //This function logins, navigate to a brand, click on a product & buy
 
         shippingInfoRbleuBothSameItemReport.log(Status.INFO, "Rbleu brand products (both $ and points product) add executed...");
 
@@ -240,14 +240,14 @@ public class ShippingInformationPageTest extends BaseClass {
         shippingInfoRbleuBothSameItemReport.info("Shipping Information page of Rbleu products (both $ and points product) test ends");
     }
 
-    @Test(description = "SHIPPING INFORMATION Order(s) with only R+Color brand products", groups={"ShippingInformation"})
-    public void ShippingInformationTestRcolor() throws Throwable {
+    @Test(dataProvider = "logincredentials",dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "SHIPPING INFORMATION Order(s) with only R+Color brand products", groups={"ShippingInformation"})
+    public void ShippingInformationTestRcolor(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoRcolorReport = extent.createTest("Shipping Information Module only R+Color brand products","This is to test the Shipping Information module");
 
         AddToCartPageTest addCart = new AddToCartPageTest();
 
-        addCart.addToCartPageRcolorTestDollar();            //This function logins, navigate to a brand, click on a product & buy
+        addCart.addToCartPageRcolorTestDollar(username, password);            //This function logins, navigate to a brand, click on a product & buy
         shippingInfoRcolorReport.log(Status.INFO, "R+Color brand products add executed...");
 
         ShippingInformation confirm = new ShippingInformation();
@@ -269,13 +269,13 @@ public class ShippingInformationPageTest extends BaseClass {
     }
 
     @Test(description = "SHIPPING INFORMATION Order(s) with only V-76 brand products", groups={"ShippingInformation"})
-    public void ShippingInformationTestV76() throws Throwable {
+    public void ShippingInformationTestV76(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoV76Report = extent.createTest("Shipping Information Module V-76 brand products","This is to test the Shipping Information module");
 
         AddToCartPageTest addCart = new AddToCartPageTest();
 
-        addCart.addToCartV76Dollar();            //This function logins, navigate to a brand, click on a product & buy
+        addCart.addToCartV76Dollar(username, password);            //This function logins, navigate to a brand, click on a product & buy
         shippingInfoV76Report.log(Status.INFO, "V-76 brand products add executed...");
 
         ShippingInformation confirm = new ShippingInformation();
@@ -297,13 +297,13 @@ public class ShippingInformationPageTest extends BaseClass {
     }
 
     @Test(description = "SHIPPING INFORMATION Order(s) with only V-76 brand products(NFR Brand product)", groups={"ShippingInformation"})
-    public void ShippingInformationTestV76Points() throws Throwable {
+    public void ShippingInformationTestV76Points(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoV76PointsReport = extent.createTest("Shipping Information Module V-76 brand products(NFR Brand product)","This is to test the Shipping Information module");
 
         AddToCartPageTest addCart = new AddToCartPageTest();
 
-        addCart.addToCartV76Points();            //This function logins, navigate to a brand, click on a product & buy
+        addCart.addToCartV76Points(username, password);            //This function logins, navigate to a brand, click on a product & buy
         shippingInfoV76PointsReport.log(Status.INFO, "V-76 brand products(NFR Brand product) add executed...");
 
         ShippingInformation confirm = new ShippingInformation();
@@ -324,13 +324,13 @@ public class ShippingInformationPageTest extends BaseClass {
         shippingInfoV76PointsReport.info("Shipping Information V-76 brand products(NFR Brand product) test ends");
     }
     @Test(description = "SHIPPING INFORMATION Order(s) with only V-76 brand products (NFR Product and retail $)", groups={"ShippingInformation"})
-    public void ShippingInformationTestV76Both() throws Throwable {
+    public void ShippingInformationTestV76Both(String username ,String password) throws Throwable {
 
         ExtentTest shippingInfoV76BothReport = extent.createTest("Shipping Information Module V-76 brand products (NFR Product and retail $)","This is to test the Shipping Information module");
 
         AddToCartPageTest addCart = new AddToCartPageTest();
 
-        addCart.addToCartV76Both();            //This function logins, navigate to a brand, click on a product & buy
+        addCart.addToCartV76Both(username, password);            //This function logins, navigate to a brand, click on a product & buy
         shippingInfoV76BothReport.log(Status.INFO,"V-76 brand products (NFR Product and retail $) status");
 
         ShippingInformation confirm = new ShippingInformation();
@@ -350,14 +350,14 @@ public class ShippingInformationPageTest extends BaseClass {
         }
         shippingInfoV76BothReport.info("Shipping Information V-76 brand products (NFR Product and retail $) test ends");
     }
-    @Test(description = "SHIPPING INFORMATION Order(s) with only Rbleu products (both $ and points SAME product)", groups={"ShippingInformation"})
-    public void ShippingInformationTestV76BothSameItem() throws Throwable {
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "SHIPPING INFORMATION Order(s) with only Rbleu products (both $ and points SAME product)", groups={"ShippingInformation"})
+    public void ShippingInformationTestV76BothSameItem(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoV76BothSameItemReport = extent.createTest("Shipping Information V76 brand products (both $ and points Same product)","This is to test the Shipping Information module");
 
         AddToCartPageTest addCart = new AddToCartPageTest();
 
-        addCart.addToCartPageV76SameItemBothTest();            //This function logins, navigate to a brand, click on a product & buy
+        addCart.addToCartPageV76SameItemBothTest(username, password);            //This function logins, navigate to a brand, click on a product & buy
 
         shippingInfoV76BothSameItemReport.log(Status.INFO, "V76 brand products (both $ and points product) add executed...");
 

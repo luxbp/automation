@@ -38,7 +38,6 @@ public class BaseClass {
     public static void launchApp() {
         loadConfig();
         BrowserTest = extent.createTest("Browser test", "This is to test if browser opened successfully");
-        WebDriverManager.chromedriver().setup();
         String browserName = prop.getProperty("BrowserType");
 
         if (browserName.equalsIgnoreCase("Chrome")) {
