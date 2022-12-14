@@ -8,5 +8,7 @@ jobs:
       - name: BrowserStack Actions
         uses: browserstack/github-actions@v1.0.1
         with:
-          userName: 'luxbpseva_FToxAm'
+          username: 'luxbpseva_FToxAm'
           access-key: 'nyP8YcixmDTwet5jXfjx'
+          build-name: 'Luxury BP build'
+          project-name: 'Luxury Repository'
