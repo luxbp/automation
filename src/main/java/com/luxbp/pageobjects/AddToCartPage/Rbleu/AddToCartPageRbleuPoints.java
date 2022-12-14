@@ -41,7 +41,6 @@ public class AddToCartPageRbleuPoints extends BaseClass {
 
     public void clickProductRbluePoints() throws InterruptedException {
         Thread.sleep(5000);
-
         WebDriverWait waitRblue = new WebDriverWait(driver, 5);
         waitRblue.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Products']")));
         products.click();
@@ -92,8 +91,8 @@ public class AddToCartPageRbleuPoints extends BaseClass {
     }
 
     public String getItemNameRbluePoints() {
-        WebDriverWait waitItem = new WebDriverWait(driver, 5);
-        waitItem.until(ExpectedConditions.visibilityOf(prodPoint));
+       /* WebDriverWait waitItem = new WebDriverWait(driver, 5);
+        waitItem.until(ExpectedConditions.visibilityOf(prodPoint));*/
         String message = prodPoint.getText();
         System.out.println("Product Name -> " + message);
         return message;

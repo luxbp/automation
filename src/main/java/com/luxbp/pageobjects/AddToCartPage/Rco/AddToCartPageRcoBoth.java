@@ -60,13 +60,12 @@ public class AddToCartPageRcoBoth extends BaseClass {
 
         Action.click(driver, products);
         driver.findElement(By.cssSelector("a[href='/brands/r-and-co'][target='']")).click();
-//        rCO.click();
 
         WebDriverWait waitFilter = new WebDriverWait(driver, 5);
         waitFilter.until(ExpectedConditions.visibilityOf(clickElse));
-        //Thread.sleep(5000);
         clickElse.click();
-
+        WebDriverWait waitProd = new WebDriverWait(driver, 5);
+        waitProd.until(ExpectedConditions.visibilityOf(productOne));
         productOne.click();
     }
 
@@ -120,20 +119,13 @@ public class AddToCartPageRcoBoth extends BaseClass {
 
 
     public String getItemNameRcoBoth () {
-        WebDriverWait waitItem = new WebDriverWait(driver, 5);
-        waitItem.until(ExpectedConditions.visibilityOf(productOne));
+/*        WebDriverWait waitItem = new WebDriverWait(driver, 5);
+        waitItem.until(ExpectedConditions.visibilityOf(productOne));*/
         String message = productOne.getText();
         System.out.println("Product Name -> " + message);
         return message;
     }
 
-    public String getItemNameRcoPoint () {
-        WebDriverWait waitItem = new WebDriverWait(driver, 5);
-        waitItem.until(ExpectedConditions.visibilityOf(prodPoint));
-        String message = prodPoint.getText();
-        System.out.println("Product Name -> " + message);
-        return message;
-    }
     public String validateAddProductBoth () {
 /*        WebDriverWait waitAlter = new WebDriverWait(driver, 5);
         waitAlter.until(ExpectedConditions.visibilityOf(closeVerifyMessage));*/

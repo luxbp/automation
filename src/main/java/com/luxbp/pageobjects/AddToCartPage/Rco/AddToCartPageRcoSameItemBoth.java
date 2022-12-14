@@ -63,12 +63,16 @@ public class AddToCartPageRcoSameItemBoth extends BaseClass {
         WebDriverWait waitRedeem = new WebDriverWait(driver, 5);
         waitRedeem.until(ExpectedConditions.visibilityOf(redeemYourPointsRco));
         redeemYourPointsRco.click();
-        Thread.sleep(10000);
+        Thread.sleep(8000);
         prod.click();
     }
 
     public void addViaPoint() throws InterruptedException {
-        String buyBtnExpectedMesg = "OUT OF STOCK";
+        WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
+        waitRedeemProd.until(ExpectedConditions.visibilityOf(buyWithPoints));
+        buyWithPoints.click();
+
+      /*  String buyBtnExpectedMesg = "OUT OF STOCK";
 
         String buyBtnActualMesg = prodString.getText();
 
@@ -84,7 +88,7 @@ public class AddToCartPageRcoSameItemBoth extends BaseClass {
             buyWithPoints.click();
             System.out.println("Not enough points, continuing with retail $");
             addToCartRcoSameItemReport.fail("Not enough points, continuing with retail $");
-            addViaDollar();
+            addViaDollar();*/
 /*            String validateMesg = notify.getText();
 
             if (validateMesg.equals(failMesg)) {
@@ -96,18 +100,15 @@ public class AddToCartPageRcoSameItemBoth extends BaseClass {
                 addToCartRcoSameItemReport.pass("Added successfully via NFR points");
             }*/
         }
-    }
 
-    public void addViaDollar() throws InterruptedException {
-/*        WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
-        waitRedeemProd.until(ExpectedConditions.invisibilityOf(notify));*/
+    public void addViaDollar() {
         buyWithDollar.click();
         addToCartRcoSameItemReport.pass("Product added successfully");
     }
 
     public String getItemNameRplusCoItem() {
-        WebDriverWait waitItem = new WebDriverWait(driver, 5);
-        waitItem.until(ExpectedConditions.visibilityOf(prod));
+       /* WebDriverWait waitItem = new WebDriverWait(driver, 5);
+        waitItem.until(ExpectedConditions.visibilityOf(prod));*/
         String message = prod.getText();
         System.out.println("Product Name -> " + message);
         return message;

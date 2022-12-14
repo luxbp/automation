@@ -63,15 +63,15 @@ public class AddToCartPageRbleuBoth extends BaseClass {
         WebDriverWait waitFilter = new WebDriverWait(driver, 5);
         waitFilter.until(ExpectedConditions.visibilityOf(clickElse));
         clickElse.click();
-        WebDriverWait waitProductOne = new WebDriverWait(driver, 10);
+        WebDriverWait waitProductOne = new WebDriverWait(driver, 5);
         waitProductOne.until(ExpectedConditions.visibilityOf(productOne));
         productOne.click();
     }
 
     public void buyFirstProdRbleu(){
-        WebDriverWait waitBuyProductOne = new WebDriverWait(driver, 10);
+        WebDriverWait waitBuyProductOne = new WebDriverWait(driver, 5);
         waitBuyProductOne.until(ExpectedConditions.visibilityOf(buyProductOne));
-        Action.click(driver,buyProductOne);
+        buyProductOne.click();
         addToCartRbleuBothReport.pass("Product added successfully");
 
     /*    String buyBtnExpectedMesg = "OUT OF STOCK";
@@ -91,14 +91,12 @@ public class AddToCartPageRbleuBoth extends BaseClass {
 
     public void backToRedeemBleuBoth() throws InterruptedException {
         back.click();
-        WebDriverWait waiProductOne = new WebDriverWait(driver, 10);
-        waiProductOne.until(ExpectedConditions.visibilityOf(productOne));
         redeemYourPoints.click();
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         productOne.click();
         WebDriverWait waitBuyProductOne = new WebDriverWait(driver, 10);
         waitBuyProductOne.until(ExpectedConditions.visibilityOf(buyWithPoint));
-        Action.click(driver, buyWithPoint);
+        buyWithPoint.click();
         addToCartRbleuBothReport.pass("Product added successfully");
 
 /*        String buyBtnExpectedMesg = "OUT OF STOCK";
@@ -122,8 +120,8 @@ public class AddToCartPageRbleuBoth extends BaseClass {
         }*/
     }
     public String getItemNameRbleuBoth () {
-        WebDriverWait waitItem = new WebDriverWait(driver, 5);
-        waitItem.until(ExpectedConditions.visibilityOf(productOne));
+     /*   WebDriverWait waitItem = new WebDriverWait(driver, 5);
+        waitItem.until(ExpectedConditions.visibilityOf(productOne));*/
         String message = productOne.getText();
         System.out.println("Product Name -> " + message);
         return message;
