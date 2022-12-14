@@ -9,4 +9,4 @@ jobs:
         uses: browserstack/github-actions@v1.0.1
         with:
           userName: 'luxbpseva_FToxAm'
-          accessKey: 'nyP8YcixmDTwet5jXfjx'
+          access-key: 'nyP8YcixmDTwet5jXfjx'
