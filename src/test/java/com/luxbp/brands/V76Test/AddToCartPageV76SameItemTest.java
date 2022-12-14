@@ -9,7 +9,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AddToCartPageV76SameItemTest extends BaseClass {
-    @Test
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class)
     public void addToCartPageV76SameItemBothTest(String username, String password) throws Throwable {
         LoginPage login = new LoginPage();
         login.loginTest(username, password);
