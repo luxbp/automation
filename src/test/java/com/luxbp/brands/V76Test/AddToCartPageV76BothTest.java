@@ -3,16 +3,16 @@ package com.luxbp.brands.V76Test;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.luxbp.pageobjects.AddToCartPage.V76.AddToCartPageV76Both;
-import com.luxbp.testcases.LoginPageTest;
+import com.luxbp.pageobjects.LoginPage;
 import org.testng.Assert;
 import com.luxbp.base.BaseClass;
 
 
 public class AddToCartPageV76BothTest extends BaseClass {
 
-    public void addToCartPageV76TestBoth() throws Throwable {
-        LoginPageTest login = new LoginPageTest();
-        login.loginTest();
+    public void addToCartPageV76TestBoth(String username, String password) throws Throwable {
+        LoginPage login = new LoginPage();
+        login.loginTest(username, password);
 
         ExtentTest AddToCartPageV76BothReport = extent.createTest("Add to cart","This is to test if an item is added to cart");
 

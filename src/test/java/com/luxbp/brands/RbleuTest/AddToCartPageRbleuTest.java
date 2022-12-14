@@ -3,16 +3,17 @@ package com.luxbp.brands.RbleuTest;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.luxbp.pageobjects.AddToCartPage.Rbleu.AddToCartPageRbleuDollar;
-import com.luxbp.testcases.LoginPageTest;
+import com.luxbp.pageobjects.LoginPage;
 import org.testng.Assert;
 import com.luxbp.base.BaseClass;
+import org.testng.annotations.Test;
 
 
 public class AddToCartPageRbleuTest extends BaseClass {
-
-    public void addToCartPageRbleuTestDollar() throws Throwable {
-        LoginPageTest login = new LoginPageTest();
-        login.loginTest();
+@Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class)
+    public void addToCartPageRbleuTestDollar(String username, String password) throws Throwable {
+        LoginPage login = new LoginPage();
+        login.loginTest(username, password);
         ExtentTest addToCartRbleuReport = extent.createTest("Add to cart R-bleu","This is to test if an item is added to cart in R-bleu store");
 
         AddToCartPageRbleuDollar rBluePage = new AddToCartPageRbleuDollar();

@@ -9,12 +9,12 @@ import org.testng.annotations.Test;
 
 public class ShippingMethodPageTest extends BaseClass {
 
-    @Test(description = "Shipping Method Order(s) with only R+Co brand products (only retail $)", groups={"ShippingMethod"})
-    public void ShippingMethodTestRplusCo() throws Throwable {
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Shipping Method Order(s) with only R+Co brand products (only retail $)", groups={"ShippingMethod"})
+    public void ShippingMethodTestRplusCo(String username, String password) throws Throwable {
         ShippingInformationPageTest ShippingInfo = new ShippingInformationPageTest();
         ExtentTest shippingMethodRcoDollarReport = extent.createTest("Shipping Method of R+Co brand products (only retail $)","This is to test the shipping method module");
 
-        ShippingInfo.ShippingInformationTestRplusCo();         //This function validates Shipping Info module\
+        ShippingInfo.ShippingInformationTestRplusCo(username, password);         //This function validates Shipping Info module\
 
         shippingMethodRcoDollarReport.log(Status.INFO,"Shipping Information R+Co brand products (only retail $) executed...");
 
@@ -34,12 +34,12 @@ public class ShippingMethodPageTest extends BaseClass {
         shippingMethodRcoDollarReport.info("Shipping Method R+Co brand products (only retail $) ends");
     }
 
-    @Test(description = "Shipping Method Order(s) with only R+Co brand products (only NFR points product)", groups={"ShippingMethod"})
-    public void ShippingMethodTestRplusCoPoints() throws Throwable {
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Shipping Method Order(s) with only R+Co brand products (only NFR points product)", groups={"ShippingMethod"})
+    public void ShippingMethodTestRplusCoPoints(String username, String password) throws Throwable {
         ShippingInformationPageTest ShippingInfo = new ShippingInformationPageTest();
         ExtentTest shippingMethodRcoPointsReport = extent.createTest("Shipping Method Order(s) with only R+Co brand products (only NFR points product)","This is to test the shipping method module");
 
-        ShippingInfo.ShippingInformationTestRplusCoPoints();         //This function validates Shipping Info module\
+        ShippingInfo.ShippingInformationTestRplusCoPoints(username, password);         //This function validates Shipping Info module\
         shippingMethodRcoPointsReport.log(Status.INFO,"Shipping Info Order(s) with only R+Co brand products (only NFR points product) executed...");
 
         ShippingMethod shippingMethod = new ShippingMethod();
@@ -58,11 +58,11 @@ public class ShippingMethodPageTest extends BaseClass {
         shippingMethodRcoPointsReport.info("Shipping Method Order(s) with only R+Co brand products (only NFR points product) ends");
     }
 
-    @Test(description = "Shipping Method Order(s) with only R+Co brand products (both $ and points product)", groups={"ShippingMethod"})
-    public void ShippingMethodTestRplusCoBoth() throws Throwable {
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Shipping Method Order(s) with only R+Co brand products (both $ and points product)", groups={"ShippingMethod"})
+    public void ShippingMethodTestRplusCoBoth(String username, String password) throws Throwable {
         ShippingInformationPageTest ShippingInfo = new ShippingInformationPageTest();
         ExtentTest shippingMethodrcoBothReport = extent.createTest("Shipping Method Order(s) with only R+Co brand products (both $ and points product)","This is to test the shipping method module");
-        ShippingInfo.ShippingInformationTestRplusCoBoth();         //This function validates Shipping Info module\
+        ShippingInfo.ShippingInformationTestRplusCoBoth(username, password);         //This function validates Shipping Info module\
 
         shippingMethodrcoBothReport.log(Status.INFO,"Shipping Information Order(s) with only R+Co brand products (both $ and points product) executed...");
 
@@ -82,11 +82,11 @@ public class ShippingMethodPageTest extends BaseClass {
         shippingMethodrcoBothReport.info("Shipping Method Order(s) with only R+Co brand products (both $ and points product) test ends");
     }
 
-    @Test(description = "Shipping Method Order(s) with  R+Co brand SAME product (both $ and points product)", groups={"ShippingMethod"})
-    public void ShippingMethodTestRplusCoBothSameItem() throws Throwable {
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Shipping Method Order(s) with  R+Co brand SAME product (both $ and points product)", groups={"ShippingMethod"})
+    public void ShippingMethodTestRplusCoBothSameItem(String username, String password) throws Throwable {
         ShippingInformationPageTest ShippingInfo = new ShippingInformationPageTest();
         ExtentTest shippingMethodrcoBothReport = extent.createTest("Shipping Method Order(s) with only R+Co brand SAME products (both $ and points product)","This is to test the shipping method module");
-        ShippingInfo.ShippingInformationTestRplusCoBothSameItem();         //This function validates Shipping Info module\
+        ShippingInfo.ShippingInformationTestRplusCoBothSameItem(username, password);         //This function validates Shipping Info module\
 
         shippingMethodrcoBothReport.log(Status.INFO,"Shipping Information Order(s) with only R+Co brand SAME products (both $ and points product) executed...");
 
@@ -106,12 +106,12 @@ public class ShippingMethodPageTest extends BaseClass {
         shippingMethodrcoBothReport.info("Shipping Method Order(s) with only R+Co brand SAME products (both $ and points product) test ends");
     }
 
-    @Test(description = "Shipping Method Order(s) with only R-Bleu brand products", groups={"ShippingMethod"})
-    public void ShippingMethodTestRBleu() throws Throwable {
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Shipping Method Order(s) with only R-Bleu brand products", groups={"ShippingMethod"})
+    public void ShippingMethodTestRBleu(String username, String password) throws Throwable {
         ExtentTest shippingMethodRbleuReport = extent.createTest("Shipping Method Order(s) with only R-Bleu brand products","This is to test the shipping method module");
 
         ShippingInformationPageTest ShippingInfo = new ShippingInformationPageTest();
-        ShippingInfo.ShippingInformationTestRbleu();         //This function validates Shipping Info module
+        ShippingInfo.ShippingInformationTestRbleu(username, password);         //This function validates Shipping Info module
         shippingMethodRbleuReport.log(Status.INFO,"Shipping Information Order(s) with only R-Bleu brand products executed...");
 
         ShippingMethod shippingMethod = new ShippingMethod();
@@ -129,12 +129,12 @@ public class ShippingMethodPageTest extends BaseClass {
         }
         shippingMethodRbleuReport.info("Shipping Method Order(s) with only R-Bleu brand products test ends");
     }
-    @Test(description = "Shipping Method Order(s) with only R+Co Bleu brand products (only NFR points product)", groups={"ShippingMethod"})
-    public void ShippingMethodTestRBleuPoints() throws Throwable {
+    @Test(dataProvider = "logincredentials",dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Shipping Method Order(s) with only R+Co Bleu brand products (only NFR points product)", groups={"ShippingMethod"})
+    public void ShippingMethodTestRBleuPoints(String username, String password) throws Throwable {
         ExtentTest shippingMethodRbleuPointsReport = extent.createTest("Shipping Method Order(s) with only R+Co Bleu brand products (only NFR points product","This is to test the shipping method module");
 
         ShippingInformationPageTest ShippingInfo = new ShippingInformationPageTest();
-        ShippingInfo.ShippingInformationTestRbleuPoints();         //This function validates Shipping Info module
+        ShippingInfo.ShippingInformationTestRbleuPoints(username, password);         //This function validates Shipping Info module
         shippingMethodRbleuPointsReport.log(Status.INFO,"Shipping Information R+Co Bleu brand products (only NFR points product executed...");
 
 
@@ -154,12 +154,12 @@ public class ShippingMethodPageTest extends BaseClass {
         shippingMethodRbleuPointsReport.info("Shipping Method R+Co Bleu brand products (only NFR points product) test ends");
     }
 
-    @Test(description = "Shipping Method Order(s) with only R+Co Bleu brand products (both $ and points product)", groups={"ShippingMethod"})
-    public void ShippingInformationTestRbleuBoth() throws Throwable {
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Shipping Method Order(s) with only R+Co Bleu brand products (both $ and points product)", groups={"ShippingMethod"})
+    public void ShippingInformationTestRbleuBoth(String username, String password) throws Throwable {
         ExtentTest shippingMethodRbleuBothReport = extent.createTest("Shipping Method Order(s) with only R+Co Bleu brand products (both $ and points product)","This is to test the shipping method module");
 
         ShippingInformationPageTest ShippingInfo = new ShippingInformationPageTest();
-        ShippingInfo.ShippingInformationTestRbleuBoth();         //This function validates Shipping Info module
+        ShippingInfo.ShippingInformationTestRbleuBoth(username, password);         //This function validates Shipping Info module
         shippingMethodRbleuBothReport.log(Status.INFO,"Shipping Information R+Co Bleu brand products (both $ and points product executed...");
 
 
@@ -179,11 +179,11 @@ public class ShippingMethodPageTest extends BaseClass {
         shippingMethodRbleuBothReport.info("Shipping Method R+Co Bleu brand products (both $ and points product test ends");
     }
 
-    @Test(description = "Shipping Method Order(s) with  Rbleu brand SAME product (both $ and points product)", groups={"ShippingMethod"})
-    public void ShippingMethodTestRbleuBothSameItem() throws Throwable {
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Shipping Method Order(s) with  Rbleu brand SAME product (both $ and points product)", groups={"ShippingMethod"})
+    public void ShippingMethodTestRbleuBothSameItem(String username ,String password) throws Throwable {
         ShippingInformationPageTest ShippingInfo = new ShippingInformationPageTest();
         ExtentTest shippingMethodrcoBothReport = extent.createTest("Shipping Method Order(s) with only R+Co brand SAME products (both $ and points product)","This is to test the shipping method module");
-        ShippingInfo.ShippingInformationTestRbleuBothSameItem();         //This function validates Shipping Info module\
+        ShippingInfo.ShippingInformationTestRbleuBothSameItem(username, password);         //This function validates Shipping Info module\
 
         shippingMethodrcoBothReport.log(Status.INFO,"Shipping Information Order(s) with only Rbleu brand SAME products (both $ and points product) executed...");
 
@@ -203,12 +203,12 @@ public class ShippingMethodPageTest extends BaseClass {
         shippingMethodrcoBothReport.info("Shipping Method Order(s) with only Rbleu SAME products (both $ and points product) test ends");
     }
 
-    @Test(description = "Shipping Method Order(s) with only R+Color brand products", groups={"ShippingMethod"})
-    public void ShippingInformationTestRcolor() throws Throwable {
+    @Test(dataProvider = "logincredentials",dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Shipping Method Order(s) with only R+Color brand products", groups={"ShippingMethod"})
+    public void ShippingInformationTestRcolor(String username, String password) throws Throwable {
         ExtentTest shippingMethodRcolorReport = extent.createTest("Shipping Method Order(s) with only R+Color brand products","This is to test the shipping method module");
 
         ShippingInformationPageTest ShippingInfo = new ShippingInformationPageTest();
-        ShippingInfo.ShippingInformationTestRcolor();         //This function validates Shipping Info module
+        ShippingInfo.ShippingInformationTestRcolor(username, password);         //This function validates Shipping Info module
         shippingMethodRcolorReport.log(Status.INFO,"Shipping Information Order(s) with only R+Color brand products executed...");
 
         ShippingMethod shippingMethod = new ShippingMethod();
@@ -226,12 +226,12 @@ public class ShippingMethodPageTest extends BaseClass {
         }
         shippingMethodRcolorReport.info("Shipping Method Order(s) with only R+Color brand products test ends");
     }
-    @Test(description = "Shipping Method Order(s) with only V-76 brand products", groups={"ShippingMethod"})
-    public void ShippingInformationTestV76() throws Throwable {
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Shipping Method Order(s) with only V-76 brand products", groups={"ShippingMethod"})
+    public void ShippingInformationTestV76(String username, String password) throws Throwable {
         ExtentTest shippingMethodV76Report = extent.createTest("Shipping Method Order(s) with only V-76 brand products","This is to test the shipping method module");
 
         ShippingInformationPageTest ShippingInfo = new ShippingInformationPageTest();
-        ShippingInfo.ShippingInformationTestV76();         //This function validates Shipping Info module
+        ShippingInfo.ShippingInformationTestV76(username, password);         //This function validates Shipping Info module
         shippingMethodV76Report.log(Status.INFO,"Shipping Information Order(s) with only V-76 brand products executed...");
 
 
@@ -250,12 +250,12 @@ public class ShippingMethodPageTest extends BaseClass {
         }
         shippingMethodV76Report.info("Shipping Method Order(s) with only V-76 brand products test ends");
     }
-    @Test(description = "Shipping Method Order(s) with only V-76 brand products POINTS", groups={"ShippingMethod"})
-    public void ShippingInformationTestV76Points() throws Throwable {
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Shipping Method Order(s) with only V-76 brand products POINTS", groups={"ShippingMethod"})
+    public void ShippingInformationTestV76Points(String username, String password) throws Throwable {
         ExtentTest shippingMethodV76PointsReport = extent.createTest("Shipping Method Order(s) with only V-76 brand products POINTS","This is to test the shipping method module");
 
         ShippingInformationPageTest ShippingInfo = new ShippingInformationPageTest();
-        ShippingInfo.ShippingInformationTestV76Points();         //This function validates Shipping Info module
+        ShippingInfo.ShippingInformationTestV76Points(username, password);         //This function validates Shipping Info module
         shippingMethodV76PointsReport.log(Status.INFO,"Shipping Information Order(s) with only V-76 brand products POINTS executed...");
 
 
@@ -275,12 +275,12 @@ public class ShippingMethodPageTest extends BaseClass {
         shippingMethodV76PointsReport.info("Shipping Method Order(s) with only V-76 brand products POINTS test ends");
     }
 
-    @Test(description = "Shipping Method Order(s) with only V-76 brand products BOTH", groups={"ShippingMethod"})
-    public void ShippingInformationTestV76Both() throws Throwable {
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Shipping Method Order(s) with only V-76 brand products BOTH", groups={"ShippingMethod"})
+    public void ShippingInformationTestV76Both(String username, String password) throws Throwable {
         ExtentTest shippingMethodV76BothReport = extent.createTest("Shipping Method Order(s) with only V-76 brand products BOTH","This is to test the shipping method module");
 
         ShippingInformationPageTest ShippingInfo = new ShippingInformationPageTest();
-        ShippingInfo.ShippingInformationTestV76Both();         //This function validates Shipping Info module
+        ShippingInfo.ShippingInformationTestV76Both(username, password);         //This function validates Shipping Info module
         shippingMethodV76BothReport.log(Status.INFO,"Shipping Information Order(s) with only V-76 brand products BOTH executed...");
 
 
@@ -299,11 +299,11 @@ public class ShippingMethodPageTest extends BaseClass {
         }
         shippingMethodV76BothReport.info("Shipping Method Order(s) with only V-76 brand products BOTH test ends");
     }
-    @Test(description = "Shipping Method Order(s) with V76 brand SAME product (both $ and points product)", groups={"ShippingMethod"})
-    public void ShippingMethodTestV76BothSameItem() throws Throwable {
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Shipping Method Order(s) with V76 brand SAME product (both $ and points product)", groups={"ShippingMethod"})
+    public void ShippingMethodTestV76BothSameItem(String username, String password) throws Throwable {
         ShippingInformationPageTest ShippingInfo = new ShippingInformationPageTest();
         ExtentTest shippingMethodrcoBothReport = extent.createTest("Shipping Method Order(s) with only V76 brand SAME products (both $ and points product)","This is to test the shipping method module");
-        ShippingInfo.ShippingInformationTestV76BothSameItem();         //This function validates Shipping Info module\
+        ShippingInfo.ShippingInformationTestV76BothSameItem(username, password);         //This function validates Shipping Info module\
 
         shippingMethodrcoBothReport.log(Status.INFO,"Shipping Information Order(s) with only V76 brand SAME products (both $ and points product) executed...");
 

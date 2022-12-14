@@ -9,12 +9,12 @@ import org.testng.annotations.Test;
 
 public class OrderReviewPageTest extends BaseClass {
 
-    @Test (description = "Order Review Order(s) with only R+Co brand products (only retail $)", groups={"OrderReview"})
-    public void orderReviewTestRplusCo() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Order Review Order(s) with only R+Co brand products (only retail $)", groups={"OrderReview"})
+    public void orderReviewTestRplusCo(String username, String password) throws Throwable {
         ExtentTest orderReviewRcoDollarReport = extent.createTest("Order Review Order(s) with only R+Co brand products (only retail $)","This is to test Order review module");
 
         PurchaseOrderTestPage  pOrder = new PurchaseOrderTestPage();
-        pOrder.purchaseOrderRplucCo();            //This function will run upto Payment Information module.
+        pOrder.purchaseOrderRplucCo(username, password);            //This function will run upto Payment Information module.
         orderReviewRcoDollarReport.pass("Purchase Order(s) with only R+Co brand products (only retail $) executed...");
 
         OrderReviewPage orderReview = new OrderReviewPage();
@@ -31,12 +31,12 @@ public class OrderReviewPageTest extends BaseClass {
         orderReview.placeOrderBtn();
         orderReviewRcoDollarReport.info("Order(s) review with only R+Co brand products (only retail $) test ends");
     }
-    @Test (description = "Order(s) review with only R+Co brand products (only NFR points product)", groups={"OrderReview"})
-    public void orderReviewTestRplusCoPoints() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Order(s) review with only R+Co brand products (only NFR points product)", groups={"OrderReview"})
+    public void orderReviewTestRplusCoPoints(String username, String password) throws Throwable {
         ExtentTest orderReviewRcoPointsReport = extent.createTest("Order Review Order(s) with only R+Co brand products (only NFR points product)","This is to test Order review module");
 
         PurchaseOrderTestPage  pOrder = new PurchaseOrderTestPage();
-        pOrder.purchaseOrderRplucCoPoints();            //This function will run upto Payment Information module.
+        pOrder.purchaseOrderRplucCoPoints(username, password);            //This function will run upto Payment Information module.
         orderReviewRcoPointsReport.pass("Purchase Order(s) with only R+Co brand products (only NFR points product) executed...");
 
         OrderReviewPage orderReview = new OrderReviewPage();
@@ -53,12 +53,12 @@ public class OrderReviewPageTest extends BaseClass {
         orderReview.placeOrderBtn();
         orderReviewRcoPointsReport.info("Order(s) with only R+Co brand products (only NFR points product) test ends");
     }
-    @Test (description = "Order(s) review with only R+Co brand products (both $ and points product)", groups={"OrderReview"})
-    public void orderReviewTestRplusCoBoth() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Order(s) review with only R+Co brand products (both $ and points product)", groups={"OrderReview"})
+    public void orderReviewTestRplusCoBoth(String username, String password) throws Throwable {
         ExtentTest orderReviewRcoBothReport = extent.createTest("Order(s) review with only R+Co brand products (both $ and points product)","This is to test Order review module");
 
         PurchaseOrderTestPage  pOrder = new PurchaseOrderTestPage();
-        pOrder.purchaseOrderRplucCoBoth();            //This function will run upto Payment Information module.
+        pOrder.purchaseOrderRplucCoBoth(username, password);            //This function will run upto Payment Information module.
         orderReviewRcoBothReport.pass("Purchase Order(s) review with only R+Co brand products (both $ and points product) executed...");
 
         OrderReviewPage orderReview = new OrderReviewPage();
@@ -75,12 +75,12 @@ public class OrderReviewPageTest extends BaseClass {
         orderReview.placeOrderBtn();
         orderReviewRcoBothReport.info("Order(s) review with only R+Co brand products (both $ and points product) test ends");
     }
-
-    public void orderReviewTestRplusCoBothSameItem() throws Throwable {
+@Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class)
+    public void orderReviewTestRplusCoBothSameItem(String username, String password) throws Throwable {
         ExtentTest orderReviewRcoBothSameItemReport = extent.createTest("Order(s) review with only R+Co brand SAME product (both $ and points SAME product)","This is to test Order review module");
 
         PurchaseOrderTestPage  pOrder = new PurchaseOrderTestPage();
-        pOrder.purchaseOrderRplucCoSameItemBoth();            //This function will run upto Payment Information module.
+        pOrder.purchaseOrderRplucCoSameItemBoth(username, password);            //This function will run upto Payment Information module.
         orderReviewRcoBothSameItemReport.pass("Purchase Order(s) review with only R+Co brand SAME product (both $ and points SAME product) executed...");
 
         OrderReviewPage orderReview = new OrderReviewPage();
@@ -97,12 +97,12 @@ public class OrderReviewPageTest extends BaseClass {
         orderReview.placeOrderBtn();
         orderReviewRcoBothSameItemReport.info("Order(s) review with only R+Co brand SAME product (both $ and points SAME product) test ends");
     }
-    @Test (description = "Order(s) review with only R+Co Bleu brand products", groups={"OrderReview"})
-    public void orderReviewTestRpluBleu() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Order(s) review with only R+Co Bleu brand products", groups={"OrderReview"})
+    public void orderReviewTestRpluBleu(String username, String password) throws Throwable {
         ExtentTest orderReviewRbleuDollarReport = extent.createTest("Order(s) review with only R+Co Bleu brand products","This is to test Order review module");
 
         PurchaseOrderTestPage  pOrder = new PurchaseOrderTestPage();
-        pOrder.purchaseOrderRbleu();            //This function will run upto Payment Information module.
+        pOrder.purchaseOrderRbleu(username, password);            //This function will run upto Payment Information module.
         orderReviewRbleuDollarReport.pass("Purchase Order(s) review with only R+Co Bleu brand products executed...");
 
         OrderReviewPage orderReview = new OrderReviewPage();
@@ -120,12 +120,12 @@ public class OrderReviewPageTest extends BaseClass {
         orderReviewRbleuDollarReport.info("Order(s) review with only R+Co Bleu brand products test ends");
     }
 
-    @Test (description = "Order(s) review with only R+Co Bleu brand products (only NFR points product)", groups={"OrderReview"})
-    public void orderReviewTestRbleuPoints() throws Throwable {
+    @Test (dataProvider = "logincredentials",dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Order(s) review with only R+Co Bleu brand products (only NFR points product)", groups={"OrderReview"})
+    public void orderReviewTestRbleuPoints(String username, String password) throws Throwable {
         ExtentTest orderReviewRbleuPointsReport = extent.createTest("Order(s) review with only R+Co Bleu brand products (only NFR points product)","This is to test Order review module");
 
         PurchaseOrderTestPage  pOrder = new PurchaseOrderTestPage();
-        pOrder.purchaseOrderRbleuPoints();            //This function will run upto Payment Information module.
+        pOrder.purchaseOrderRbleuPoints(username, password);            //This function will run upto Payment Information module.
         orderReviewRbleuPointsReport.pass("Purchase Order(s) review with only R+Co Bleu brand products (only NFR points product) executed...");
 
         OrderReviewPage orderReview = new OrderReviewPage();
@@ -142,12 +142,12 @@ public class OrderReviewPageTest extends BaseClass {
         orderReview.placeOrderBtn();
         orderReviewRbleuPointsReport.info("Order(s) review with only R+Co Bleu brand products (only NFR points product) test ends");
     }
-    @Test (description = "Order(s) review with only R+Co Bleu brand products (both $ and points product)", groups={"OrderReview"})
-    public void orderReviewTestRleuBoth() throws Throwable {
+    @Test (dataProvider = "logincredentials",dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Order(s) review with only R+Co Bleu brand products (both $ and points product)", groups={"OrderReview"})
+    public void orderReviewTestRleuBoth(String username, String password) throws Throwable {
         ExtentTest orderReviewRbleuBothReport = extent.createTest("Order(s) review with only R+Co Bleu brand products (both $ and points product)","This is to test Order review module");
 
         PurchaseOrderTestPage  pOrder = new PurchaseOrderTestPage();
-        pOrder.purchaseOrderRbleuBoth();            //This function will run upto Payment Information module.
+        pOrder.purchaseOrderRbleuBoth(username, password);            //This function will run upto Payment Information module.
         orderReviewRbleuBothReport.pass("Purchase Order(s) review with only R+Co Bleu brand products (both $ and points product) executed...");
 
         OrderReviewPage orderReview = new OrderReviewPage();
@@ -164,11 +164,13 @@ public class OrderReviewPageTest extends BaseClass {
         orderReview.placeOrderBtn();
         orderReviewRbleuBothReport.info("Order(s) review with only R+Co Bleu brand products (both $ and points product) test emds");
     }
-    public void orderReviewTestRbleuBothSameItem() throws Throwable {
+    @Test (dataProvider = "logincredentials",dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Order(s) review with only Rbleu brand SAME product (both $ and points SAME product)", groups={"OrderReview"})
+
+    public void orderReviewTestRbleuBothSameItem(String username, String password) throws Throwable {
         ExtentTest orderReviewRleuBothSameItemReport = extent.createTest("Order(s) review with only Rbleu brand SAME product (both $ and points SAME product)","This is to test Order review module");
 
         PurchaseOrderTestPage  pOrder = new PurchaseOrderTestPage();
-        pOrder.purchaseOrderRbleuSameItemBoth();            //This function will run upto Payment Information module.
+        pOrder.purchaseOrderRbleuSameItemBoth(username, password);            //This function will run upto Payment Information module.
         orderReviewRleuBothSameItemReport.pass("Purchase Order(s) review with only Rbleu brand SAME product (both $ and points SAME product) executed...");
 
         OrderReviewPage orderReview = new OrderReviewPage();
@@ -185,12 +187,12 @@ public class OrderReviewPageTest extends BaseClass {
         orderReview.placeOrderBtn();
         orderReviewRleuBothSameItemReport.info("Order(s) review with only Rbleu brand SAME product (both $ and points SAME product) test ends");
     }
-    @Test (description = "Order(s) review with only R+Color brand products", groups={"OrderReview"})
-    public void orderReviewTestRcolor() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Order(s) review with only R+Color brand products", groups={"OrderReview"})
+    public void orderReviewTestRcolor(String username, String password) throws Throwable {
         ExtentTest orderReviewRcolorReport = extent.createTest("Order(s) review with only R+Color brand products","This is to test Order review module");
 
         PurchaseOrderTestPage  pOrder = new PurchaseOrderTestPage();
-        pOrder.purchaseOrderRcolor();            //This function will run upto Payment Information module.
+        pOrder.purchaseOrderRcolor(username, password);            //This function will run upto Payment Information module.
         orderReviewRcolorReport.pass("Purchase Order(s) review with only R+Color brand products executed...");
 
         OrderReviewPage orderReview = new OrderReviewPage();
@@ -207,12 +209,12 @@ public class OrderReviewPageTest extends BaseClass {
         orderReview.placeOrderBtn();
         orderReviewRcolorReport.info("Order(s) review with only R+Color brand products test ends");
     }
-    @Test (description = "Order(s) review with only V-76 brand products", groups={"OrderReview"})
-    public void orderReviewTestV76Dollar() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Order(s) review with only V-76 brand products", groups={"OrderReview"})
+    public void orderReviewTestV76Dollar(String username, String password) throws Throwable {
         ExtentTest orderReviewV76DollarReport = extent.createTest("Order(s) review with only V-76 brand products","This is to test Order review module");
 
         PurchaseOrderTestPage  pOrder = new PurchaseOrderTestPage();
-        pOrder.purchaseOrderV76Dollar();            //This function will run upto Payment Information module.
+        pOrder.purchaseOrderV76Dollar(username, password);            //This function will run upto Payment Information module.
         orderReviewV76DollarReport.pass("Purchase Order(s) review with only R+Color brand products executed...");
 
         OrderReviewPage orderReview = new OrderReviewPage();
@@ -229,12 +231,12 @@ public class OrderReviewPageTest extends BaseClass {
         orderReview.placeOrderBtn();
         orderReviewV76DollarReport.info("Order Review Order(s) with only V-76 brand products test ends");
     }
-    @Test (description = "Order(s) review with only V-76 brand products POINTS", groups={"OrderReview"})
-    public void orderReviewTestV76Points() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Order(s) review with only V-76 brand products POINTS", groups={"OrderReview"})
+    public void orderReviewTestV76Points(String username, String password) throws Throwable {
         ExtentTest orderReviewV76PointsReport = extent.createTest("Order(s) review with only V-76 brand products POINTS","This is to test Order review module");
 
         PurchaseOrderTestPage  pOrder = new PurchaseOrderTestPage();
-        pOrder.purchaseOrderV76Points();            //This function will run upto Payment Information module.
+        pOrder.purchaseOrderV76Points(username, password);            //This function will run upto Payment Information module.
         orderReviewV76PointsReport.pass("Purchase Order(s) review with only V-76 brand products POINTS executed...");
 
         OrderReviewPage orderReview = new OrderReviewPage();
@@ -251,12 +253,12 @@ public class OrderReviewPageTest extends BaseClass {
         orderReview.placeOrderBtn();
         orderReviewV76PointsReport.info("Order(s) review with only V-76 brand products POINTS test ends");
     }
-    @Test (description = "Order(s) review with only V-76 brand products BOTH", groups={"OrderReview"})
-    public void orderReviewTestV76Both() throws Throwable {
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Order(s) review with only V-76 brand products BOTH", groups={"OrderReview"})
+    public void orderReviewTestV76Both(String username, String password) throws Throwable {
         ExtentTest orderReviewV76BothReport = extent.createTest("Order(s) review with only V-76 brand products BOTH","This is to test Order review module");
 
         PurchaseOrderTestPage  pOrder = new PurchaseOrderTestPage();
-        pOrder.purchaseOrderV76Both();            //This function will run upto Payment Information module.
+        pOrder.purchaseOrderV76Both(username, password);            //This function will run upto Payment Information module.
         orderReviewV76BothReport.pass("Purchase Order(s) review with only V-76 brand products BOTH executed...");
 
         OrderReviewPage orderReview = new OrderReviewPage();
@@ -273,11 +275,12 @@ public class OrderReviewPageTest extends BaseClass {
         orderReview.placeOrderBtn();
         orderReviewV76BothReport.info("Order(s) review with only V-76 brand products BOTH test ends");
     }
-    public void orderReviewTestV76BothSameItem() throws Throwable {
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class)
+    public void orderReviewTestV76BothSameItem(String username, String password) throws Throwable {
         ExtentTest orderReviewV76BothSameItemReport = extent.createTest("Order(s) review with only V76 brand SAME product (both $ and points SAME product)","This is to test Order review module");
 
         PurchaseOrderTestPage  pOrder = new PurchaseOrderTestPage();
-        pOrder.purchaseOrderV76SameItemBoth();            //This function will run upto Payment Information module.
+        pOrder.purchaseOrderV76SameItemBoth(username, password);            //This function will run upto Payment Information module.
         orderReviewV76BothSameItemReport.pass("Purchase Order(s) review with only V76 brand SAME product (both $ and points SAME product) executed...");
 
         OrderReviewPage orderReview = new OrderReviewPage();

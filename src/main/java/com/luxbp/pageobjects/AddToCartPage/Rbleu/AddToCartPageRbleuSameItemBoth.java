@@ -79,7 +79,7 @@ public class AddToCartPageRbleuSameItemBoth extends BaseClass {
             addToCartRleuSameBothReport.pass("Product added successfully");
         }*/
 
-        String validateMesg = notify.getText();
+/*        String validateMesg = notify.getText();
         if (validateMesg.equals(failMesg)) {
             System.out.println("Not enough points, continuing with retail $");
             addToCartRleuSameBothReport.fail("Not enough points, continuing with retail $");
@@ -88,15 +88,17 @@ public class AddToCartPageRbleuSameItemBoth extends BaseClass {
         } else if (validateMesg.equals(passMesg)) {
             System.out.println("Added successfully via NFR points");
             addToCartRleuSameBothReport.fail("Added successfully via NFR points");
-        }
+        }*/
     }
 
     public void addViaDollar() throws InterruptedException {
-        String buyBtnExpectedMesg = "OUT OF STOCK";
+        buyWithDollar.click();
+        addToCartRleuSameBothReport.fail("Product added successfully");
+/*        String buyBtnExpectedMesg = "OUT OF STOCK";
         String buyBtnActualMesg = prodString.getText();
 
-     /*   WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
-        waitRedeemProd.until(ExpectedConditions.invisibilityOf(notifyMesg));*/
+     *//*   WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
+        waitRedeemProd.until(ExpectedConditions.invisibilityOf(notifyMesg));*//*
         if (buyBtnActualMesg.equals(buyBtnExpectedMesg)) {
             System.out.println("Product is out of stock");
             addToCartRleuSameBothReport.fail("Product is out of stock");
@@ -104,7 +106,7 @@ public class AddToCartPageRbleuSameItemBoth extends BaseClass {
         } else {
             buyWithDollar.click();
             addToCartRleuSameBothReport.fail("Product added successfully");
-        }
+        }*/
     }
 
     public String getItemNameRbleuItem() {

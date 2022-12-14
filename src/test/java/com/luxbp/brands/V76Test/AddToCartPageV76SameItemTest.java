@@ -4,15 +4,15 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.luxbp.base.BaseClass;
 import com.luxbp.pageobjects.AddToCartPage.V76.AddToCartPageV76SameItemBoth;
-import com.luxbp.testcases.LoginPageTest;
+import com.luxbp.pageobjects.LoginPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class AddToCartPageV76SameItemTest extends BaseClass {
     @Test
-    public void addToCartPageV76SameItemBothTest() throws Throwable {
-        LoginPageTest login = new LoginPageTest();
-        login.loginTest();
+    public void addToCartPageV76SameItemBothTest(String username, String password) throws Throwable {
+        LoginPage login = new LoginPage();
+        login.loginTest(username, password);
 
         ExtentTest AddToCartPageV76SameItemBothTestReport = extent.createTest("Add to cart same item buy from both NFR Point as well as Retail $","This is to test if an item is added to cart");
 
