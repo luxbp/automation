@@ -20,7 +20,7 @@ public class AddToCartPageRcoPoints extends BaseClass {
     @FindBy(xpath = "//*[@data-id='icon-rco']")            //Click R+CO brand
     WebElement rCO;
 
-    @FindBy(xpath = "(//a[@data-testid='productLink'])[8]")
+    @FindBy(xpath = "(//a[@data-testid='productLink'])[6]")
     WebElement prodPoint;
 
     @FindBy(xpath = "//*[contains(@class,'product__name')]")
@@ -57,13 +57,18 @@ public class AddToCartPageRcoPoints extends BaseClass {
 
     public void clickRedeemRco() throws InterruptedException {
         redeemYourPointsRco.click();
-        Thread.sleep(8000);        //Need to add thread as there are no other elements for explicit wait
+        Thread.sleep(10000);        //Need to add thread as there are no other elements for explicit wait
+        WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
+        waitRedeemProd.until(ExpectedConditions.visibilityOf(prodPoint));
         prodPoint.click();
     }
 
     public void buyProdPoint() throws InterruptedException {
+        WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
+        waitRedeemProd.until(ExpectedConditions.visibilityOf(buyWithPoints));
+        buyWithPoints.click();
 
-        String buyBtnExpectedMesg = "OUT OF STOCK";
+ /*       String buyBtnExpectedMesg = "OUT OF STOCK";
         String buyBtnActualMesg = prodString.getText();
 
         WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
@@ -82,15 +87,14 @@ public class AddToCartPageRcoPoints extends BaseClass {
             addToCartRcoPointsReport.fail("Not enough points, continuing with retail $");
 
             AddToCartPageRcoSameItemBoth rBoth = new AddToCartPageRcoSameItemBoth();
-            rBoth.addViaDollar();
+            rBoth.addViaDollar();*/
 
-            addToCartRcoPointsReport.pass("Product added successfully");
-        }
+        addToCartRcoPointsReport.pass("Product added successfully");
     }
 
     public String getItemNameRplusCoPoints() {
-        WebDriverWait waitItem = new WebDriverWait(driver, 5);
-        waitItem.until(ExpectedConditions.visibilityOf(prodPoint));
+    /*    WebDriverWait waitItem = new WebDriverWait(driver, 5);
+        waitItem.until(ExpectedConditions.visibilityOf(prodPoint));*/
         String message = prodPoint.getText();
         System.out.println("Product Name -> " + message);
         return message;

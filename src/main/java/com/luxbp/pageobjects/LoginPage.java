@@ -12,7 +12,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class LoginPage extends BaseClass {
 
-
 	@FindBy(xpath = "//*[contains(text(),'Sign In')]")   //Click on Sign in button
 	WebElement signOn;
 
@@ -27,7 +26,6 @@ public class LoginPage extends BaseClass {
 
 	@FindBy(xpath = "//*[@data-testid='notificationMessage']")    //Verify login message
 	WebElement verifyLoginMessage;
-
 
 	@FindBy(xpath = "//*[@class='ss-gizmo ss-delete text-dark text-2h6 opacity-40 hover:opacity-100 slow-color-change leading-none icon-lg']")
 	WebElement closeVerifyMessage;

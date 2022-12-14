@@ -74,8 +74,8 @@ public class AddToCartPageV76Points extends BaseClass {
     }
 
     public String getItemNameV76Points () {
-        WebDriverWait waitItem = new WebDriverWait(driver, 5);
-        waitItem.until(ExpectedConditions.visibilityOf(prodPoint));
+     /*   WebDriverWait waitItem = new WebDriverWait(driver, 5);
+        waitItem.until(ExpectedConditions.visibilityOf(prodPoint));*/
         String message = prodPoint.getText();
         System.out.println("Product Name -> " + message);
         return message;

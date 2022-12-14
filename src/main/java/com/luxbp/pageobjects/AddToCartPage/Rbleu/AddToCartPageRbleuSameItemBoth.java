@@ -108,8 +108,8 @@ public class AddToCartPageRbleuSameItemBoth extends BaseClass {
     }
 
     public String getItemNameRbleuItem() {
-        WebDriverWait waitItem = new WebDriverWait(driver, 5);
-        waitItem.until(ExpectedConditions.visibilityOf(prod));
+        /*WebDriverWait waitItem = new WebDriverWait(driver, 5);
+        waitItem.until(ExpectedConditions.visibilityOf(prod));*/
         String message = prod.getText();
         System.out.println("Product Name -> " + message);
         return message;
