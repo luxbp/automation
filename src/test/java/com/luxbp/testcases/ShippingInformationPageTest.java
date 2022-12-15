@@ -65,7 +65,7 @@ public class ShippingInformationPageTest extends BaseClass {
         shippingInfoRcoPointsReport.info("Shipping Information page of R+Co brand products (only NFR points product) test ends)");
     }
 
-    @Test(dataProvider = "logincredentials", description = "SHIPPING INFORMATION Order(s) with only R+Co brand products (both $ and points product)", groups={"ShippingInformation"})
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "SHIPPING INFORMATION Order(s) with only R+Co brand products (both $ and points product)", groups={"ShippingInformation"})
     public void ShippingInformationTestRplusCoBoth(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoRcoBothReport = extent.createTest("Shipping Information R+Co brand products (both $ and points product)","This is to test the Shipping Information module");
@@ -95,7 +95,7 @@ public class ShippingInformationPageTest extends BaseClass {
         shippingInfoRcoBothReport.info("Shipping Information page of Rco brand products (both $ and points product) test ends");
     }
 
-    @Test(description = "SHIPPING INFORMATION Order(s) with only R+Co brand products (both $ and points SAME product)", groups={"ShippingInformation"})
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "SHIPPING INFORMATION Order(s) with only R+Co brand products (both $ and points SAME product)", groups={"ShippingInformation"})
     public void ShippingInformationTestRplusCoBothSameItem(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoRcoBothSameItemReport = extent.createTest("Shipping Information R+Co brand products (both $ and points Same product)","This is to test the Shipping Information module");
@@ -125,7 +125,7 @@ public class ShippingInformationPageTest extends BaseClass {
         shippingInfoRcoBothSameItemReport.info("Shipping Information page of Rco brand products (both $ and points SAME product) test ends");
     }
 
-    @Test(description = "SHIPPING INFORMATION Order(s) with only RBleu brand products", groups={"ShippingInformation"})
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "SHIPPING INFORMATION Order(s) with only RBleu brand products", groups={"ShippingInformation"})
     public void ShippingInformationTestRbleu(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoRbleuReport = extent.createTest("Shipping Information Order(s) with only RBleu brand products","This is to test the Shipping Information module");
@@ -154,7 +154,7 @@ public class ShippingInformationPageTest extends BaseClass {
         shippingInfoRbleuReport.info("Shipping Information Order(s) with only RBleu brand products test ends");
     }
 
-    @Test(description = "SHIPPING INFORMATION Order(s) with only R+Co Bleu brand products (only NFR points product)", groups={"ShippingInformation"})
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "SHIPPING INFORMATION Order(s) with only R+Co Bleu brand products (only NFR points product)", groups={"ShippingInformation"})
     public void ShippingInformationTestRbleuPoints(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoRbleuPointsReport = extent.createTest("Shipping Information Module (only NFR points product)","This is to test the Shipping Information module");
@@ -182,7 +182,7 @@ public class ShippingInformationPageTest extends BaseClass {
         shippingInfoRbleuPointsReport.info("Shipping Information R-Bleu brand products (only NFR points product) test ends");
     }
 
-    @Test(description = "SHIPPING INFORMATION Order(s) with only R-Bleu brand products (both $ and points product)", groups={"ShippingInformation"})
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "SHIPPING INFORMATION Order(s) with only R-Bleu brand products (both $ and points product)", groups={"ShippingInformation"})
     public void ShippingInformationTestRbleuBoth(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoRbleuBothReport = extent.createTest("Shipping Information R-Bleu brand products (both $ and points product)","This is to test the Shipping Information module");
@@ -210,7 +210,7 @@ public class ShippingInformationPageTest extends BaseClass {
         shippingInfoRbleuBothReport.info("Shipping Information R-Bleu brand products (both $ and points product) test ends");
     }
 
-    @Test(description = "SHIPPING INFORMATION Order(s) with only Rbleu products (both $ and points SAME product)", groups={"ShippingInformation"})
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "SHIPPING INFORMATION Order(s) with only Rbleu products (both $ and points SAME product)", groups={"ShippingInformation"})
     public void ShippingInformationTestRbleuBothSameItem(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoRbleuBothSameItemReport = extent.createTest("Shipping Information Rbleu brand products (both $ and points Same product)","This is to test the Shipping Information module");
@@ -268,7 +268,7 @@ public class ShippingInformationPageTest extends BaseClass {
         shippingInfoRcolorReport.info("Shipping Information R+Color brand products test ends");
     }
 
-    @Test(description = "SHIPPING INFORMATION Order(s) with only V-76 brand products", groups={"ShippingInformation"})
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "SHIPPING INFORMATION Order(s) with only V-76 brand products", groups={"ShippingInformation"})
     public void ShippingInformationTestV76(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoV76Report = extent.createTest("Shipping Information Module V-76 brand products","This is to test the Shipping Information module");
@@ -296,7 +296,7 @@ public class ShippingInformationPageTest extends BaseClass {
         shippingInfoV76Report.info("Shipping Information V-76 brand products test ends");
     }
 
-    @Test(description = "SHIPPING INFORMATION Order(s) with only V-76 brand products(NFR Brand product)", groups={"ShippingInformation"})
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "SHIPPING INFORMATION Order(s) with only V-76 brand products(NFR Brand product)", groups={"ShippingInformation"})
     public void ShippingInformationTestV76Points(String username, String password) throws Throwable {
 
         ExtentTest shippingInfoV76PointsReport = extent.createTest("Shipping Information Module V-76 brand products(NFR Brand product)","This is to test the Shipping Information module");
@@ -323,7 +323,7 @@ public class ShippingInformationPageTest extends BaseClass {
         }
         shippingInfoV76PointsReport.info("Shipping Information V-76 brand products(NFR Brand product) test ends");
     }
-    @Test(description = "SHIPPING INFORMATION Order(s) with only V-76 brand products (NFR Product and retail $)", groups={"ShippingInformation"})
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "SHIPPING INFORMATION Order(s) with only V-76 brand products (NFR Product and retail $)", groups={"ShippingInformation"})
     public void ShippingInformationTestV76Both(String username ,String password) throws Throwable {
 
         ExtentTest shippingInfoV76BothReport = extent.createTest("Shipping Information Module V-76 brand products (NFR Product and retail $)","This is to test the Shipping Information module");
@@ -379,6 +379,5 @@ public class ShippingInformationPageTest extends BaseClass {
         }
         shippingInfoV76BothSameItemReport.info("Shipping Information page of 76 products (both $ and points product) test ends");
     }
-
 
 }

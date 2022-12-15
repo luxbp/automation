@@ -37,7 +37,7 @@ public class AddToCartPageRbleuBoth extends BaseClass {
     @FindBy(xpath = "(//a[@href='/brands/bleu/not-for-resale'])[1]")        //Click Redeem
     WebElement redeemYourPoints;
 
-    @FindBy(xpath = "(//a[@data-testid='productLink'])[2]")
+    @FindBy(xpath = "(//a[@data-testid='productLink'])[4]")
     WebElement prodPoint;
 
     @FindBy(xpath = "(//*[@class=\'ss-gizmo absolute mr-6 -mt-1.5 right-0 top-50% leading-none ss-right\'])[1]")        //Buy With Points
@@ -53,7 +53,7 @@ public class AddToCartPageRbleuBoth extends BaseClass {
 
     public void clickProductRbleuDollar() throws InterruptedException {
 
-        WebDriverWait waitAlter1 = new WebDriverWait(driver, 10);
+        WebDriverWait waitAlter1 = new WebDriverWait(driver, 5);
         waitAlter1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Products']")));
         Thread.sleep(5000);
 
@@ -69,7 +69,7 @@ public class AddToCartPageRbleuBoth extends BaseClass {
     }
 
     public void buyFirstProdRbleu(){
-        WebDriverWait waitBuyProductOne = new WebDriverWait(driver, 5);
+        WebDriverWait waitBuyProductOne = new WebDriverWait(driver, 10);
         waitBuyProductOne.until(ExpectedConditions.visibilityOf(buyProductOne));
         buyProductOne.click();
         addToCartRbleuBothReport.pass("Product added successfully");
@@ -93,7 +93,7 @@ public class AddToCartPageRbleuBoth extends BaseClass {
         back.click();
         redeemYourPoints.click();
         Thread.sleep(8000);
-        productOne.click();
+        prodPoint.click();
         WebDriverWait waitBuyProductOne = new WebDriverWait(driver, 10);
         waitBuyProductOne.until(ExpectedConditions.visibilityOf(buyWithPoint));
         buyWithPoint.click();

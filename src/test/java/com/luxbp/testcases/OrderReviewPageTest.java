@@ -75,7 +75,7 @@ public class OrderReviewPageTest extends BaseClass {
         orderReview.placeOrderBtn();
         orderReviewRcoBothReport.info("Order(s) review with only R+Co brand products (both $ and points product) test ends");
     }
-@Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class)
+@Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Order(s) review with only R+Co brand SAME product (both $ and points SAME product)", groups={"OrderReview"})
     public void orderReviewTestRplusCoBothSameItem(String username, String password) throws Throwable {
         ExtentTest orderReviewRcoBothSameItemReport = extent.createTest("Order(s) review with only R+Co brand SAME product (both $ and points SAME product)","This is to test Order review module");
 
@@ -275,7 +275,7 @@ public class OrderReviewPageTest extends BaseClass {
         orderReview.placeOrderBtn();
         orderReviewV76BothReport.info("Order(s) review with only V-76 brand products BOTH test ends");
     }
-    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class)
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Order(s) review with only V-76 brand Same product BOTH", groups={"OrderReview"})
     public void orderReviewTestV76BothSameItem(String username, String password) throws Throwable {
         ExtentTest orderReviewV76BothSameItemReport = extent.createTest("Order(s) review with only V76 brand SAME product (both $ and points SAME product)","This is to test Order review module");
 
