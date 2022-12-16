@@ -63,12 +63,12 @@ public class AddToCartPageV76SameItemBoth extends BaseClass {
         WebDriverWait waitRedeem = new WebDriverWait(driver, 5);
         waitRedeem.until(ExpectedConditions.visibilityOf(redeemYourPointsV76));
         redeemYourPointsV76.click();
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         prod.click();
     }
 
     public void addViaPoint() throws InterruptedException {
-
+        Thread.sleep(5000);
         buyWithPoints.click();
         System.out.println("Added successfully via NFR points");
         addToCartV76SameItemReport.pass("Product added successfully via NFR points");

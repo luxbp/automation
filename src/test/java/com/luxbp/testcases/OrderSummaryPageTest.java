@@ -79,7 +79,7 @@ public class OrderSummaryPageTest extends BaseClass {
         System.out.println("Clicked on Last Continue button");
     }
 
-    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Order(s) summary with only R+Co brand SAME product (both $ and points SAME product)", groups={"OrderSummary"}, priority = 3)
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Order(s) summary with only R+Co brand SAME product (both $ and points SAME product)", groups={"OrderSummary"}, priority = 4)
     public void orderSummaryPageRplusCoBothSameItem(String username, String password) throws Throwable {
         ExtentTest orderSummaryRcoBothSameItemReport = extent.createTest("Order(s) summary with only R+Co brand SAME product (both $ and points SAME product)","This is to test Order summary page");
 
@@ -102,7 +102,7 @@ public class OrderSummaryPageTest extends BaseClass {
         orderSummaryRcoBothSameItemReport.info("Order(s) summary with only R+Co brand SAME product (both $ and points SAME product) test ends");
         System.out.println("Clicked on Last Continue button");
     }
-    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Order(s) summary with only R+Co Bleu brand products", groups={"OrderSummary"}, priority = 4)
+    @Test(dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Order(s) summary with only R+Co Bleu brand products", groups={"OrderSummary"}, priority = 5)
     public void orderSummaryPageRbleu(String username, String password) throws Throwable {
         ExtentTest orderSummaryRbleuDollarReport = extent.createTest("Order(s) summary with only R+Co Bleu brand products","This is to test Order summary page");
 
@@ -125,7 +125,7 @@ public class OrderSummaryPageTest extends BaseClass {
         orderSummaryRbleuDollarReport.info("Order(s) summary with only R+Co Bleu brand products test ends");
         System.out.println("Clicked on Last Continue button");
     }
-    @Test (dataProvider = "logincredentials",dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Order(s) summary with only R+Co Bleu brand products (only NFR points product)", groups={"OrderSummary"}, priority = 5)
+    @Test (dataProvider = "logincredentials",dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Order(s) summary with only R+Co Bleu brand products (only NFR points product)", groups={"OrderSummary"}, priority = 6)
     public void orderSummaryPageRbleuPoints(String username, String password) throws Throwable {
         ExtentTest orderSummaryRbleuPointsReport = extent.createTest("Order(s) summary with only R+Co Bleu brand products (only NFR points product)","This is to test Order summary page");
 
@@ -149,7 +149,7 @@ public class OrderSummaryPageTest extends BaseClass {
         System.out.println("Clicked on Last Continue button");
     }
 
-    @Test (dataProvider = "logincredentials",dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Order(s) summary with only R+Co Bleu brand products (both $ and points product)", groups={"OrderSummary"}, priority = 6)
+    @Test (dataProvider = "logincredentials",dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Order(s) summary with only R+Co Bleu brand products (both $ and points product)", groups={"OrderSummary"}, priority = 7)
     public void orderSummaryPageRbleuBoth(String username, String password) throws Throwable {
         ExtentTest orderSummaryRbleuBothReport = extent.createTest("Order(s) summary with only R+Co Bleu brand products (both $ and points product)","This is to test Order summary page");
 
@@ -173,7 +173,7 @@ public class OrderSummaryPageTest extends BaseClass {
         System.out.println("Clicked on Last Continue button");
     }
 
-    @Test (dataProvider = "logincredentials",dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Order(s) summary with only Rbleu brand SAME product (both $ and points SAME product)", groups={"OrderSummary"}, priority = 3)
+    @Test (dataProvider = "logincredentials",dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Order(s) summary with only Rbleu brand SAME product (both $ and points SAME product)", groups={"OrderSummary"}, priority = 8)
     public void orderSummaryPageRbleuCoBothSameItem(String username, String password) throws Throwable {
         ExtentTest orderSummaryRbleuBothSameItemReport = extent.createTest("Order(s) summary with only Rbleu brand SAME product (both $ and points SAME product)","This is to test Order summary page");
 
@@ -197,7 +197,7 @@ public class OrderSummaryPageTest extends BaseClass {
         System.out.println("Clicked on Last Continue button");
     }
 
-    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Order(s) summary with only R+Color brand products", groups={"OrderSummary"}, priority = 7)
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Order(s) summary with only R+Color brand products", groups={"OrderSummary"}, priority = 9)
     public void orderSummaryPageRcolor(String username, String password) throws Throwable {
         ExtentTest orderSummaryRcolorReport = extent.createTest("Order(s) summary with only R+Color brand products","This is to test Order summary page");
 
@@ -221,7 +221,7 @@ public class OrderSummaryPageTest extends BaseClass {
         System.out.println("Clicked on Last Continue button");
     }
 
-    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Order(s) summary with only V-76 brand products", groups={"OrderSummary"}, priority = 8)
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Order(s) summary with only V-76 brand products", groups={"OrderSummary"}, priority = 10)
     public void orderSummaryPageV76Dollar(String username, String password) throws Throwable {
         ExtentTest orderSummaryV76DollarReport = extent.createTest("Order(s) summary with only V-76 brand products","This is to test Order summary page");
 
@@ -245,7 +245,7 @@ public class OrderSummaryPageTest extends BaseClass {
         System.out.println("Clicked on Last Continue button");
     }
 
-    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Order(s) summary with only V-76 brand products POINTS", groups={"OrderSummary"}, priority = 9)
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Order(s) summary with only V-76 brand products POINTS", groups={"OrderSummary"}, priority = 11)
     public void orderSummaryPageV76Points(String username, String password) throws Throwable {
         ExtentTest orderSummaryV76PointsReport = extent.createTest("Order(s) summary with only V-76 brand products POINTS","This is to test Order summary page");
 
@@ -269,7 +269,7 @@ public class OrderSummaryPageTest extends BaseClass {
         System.out.println("Clicked on Last Continue button");
     }
 
-    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Order(s) summary with only V-76 brand products BOTH", groups={"OrderSummary"}, priority = 10)
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class, description = "Order(s) summary with only V-76 brand products BOTH", groups={"OrderSummary"}, priority = 12)
     public void orderSummaryPageV76Both(String username, String password) throws Throwable {
         ExtentTest orderSummaryV76BothReport = extent.createTest("Order(s) summary with only V-76 brand products BOTH","This is to test Order summary page");
 
@@ -293,7 +293,7 @@ public class OrderSummaryPageTest extends BaseClass {
         System.out.println("Clicked on Last Continue button");
     }
 
-    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Order(s) summary with only V76 brand SAME product (both $ and points SAME product)", groups={"OrderSummary"}, priority = 3)
+    @Test (dataProvider = "logincredentials", dataProviderClass = com.luxbp.utility.LuxBPDataProvider.class,description = "Order(s) summary with only V76 brand SAME product (both $ and points SAME product)", groups={"OrderSummary"}, priority = 13)
     public void orderSummaryPageV76CoBothSameItem(String username, String password) throws Throwable {
         ExtentTest orderSummaryV76BothSameItemReport = extent.createTest("Order(s) summary with only V76 brand SAME product (both $ and points SAME product)","This is to test Order summary page");
 

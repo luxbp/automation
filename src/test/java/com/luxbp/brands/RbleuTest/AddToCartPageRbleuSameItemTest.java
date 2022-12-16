@@ -15,13 +15,14 @@ public class AddToCartPageRbleuSameItemTest extends BaseClass {
         LoginPage login = new LoginPage();
         login.loginTest(username, password);
 
-        ExtentTest AddToCartPageRbleuSameItemBothTestReport = extent.createTest("Add to cart same item buy from both NFR Point as well as Retail $","This is to test if an item is added to cart");
+        ExtentTest AddToCartPageRbleuSameItemBothTestReport = extent.createTest("Add to cart same item buy from both NFR Point as well as Retail $", "This is to test if an item is added to cart");
 
         AddToCartPageRbleuSameItemBoth RbleuBoth = new AddToCartPageRbleuSameItemBoth();
         RbleuBoth.clickProductRbleuItem();
-        String itemName = RbleuBoth.getItemNameRbleuItem();
-        RbleuBoth.addViaPoint();
 
+        String itemName = RbleuBoth.getItemNameRbleuItem();
+
+        RbleuBoth.addViaPoint();
         AddToCartPageRbleuSameItemBothTestReport.log(Status.INFO, "Getting an item in cart");
 
         try {
@@ -33,6 +34,7 @@ public class AddToCartPageRbleuSameItemTest extends BaseClass {
             System.out.println(itemName + " add failed due to " + prodClickException);
             AddToCartPageRbleuSameItemBothTestReport.fail("Item failed to add");
         }
+
         RbleuBoth.addViaDollar();
 
         AddToCartPageRbleuSameItemBothTestReport.info("Add to cart page test ends");

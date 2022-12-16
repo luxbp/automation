@@ -59,11 +59,13 @@ public class AddToCartPageRbleuSameItemBoth extends BaseClass {
         WebDriverWait waitRedeem = new WebDriverWait(driver, 5);
         waitRedeem.until(ExpectedConditions.visibilityOf(redeemYourPointsRco));
         redeemYourPointsRco.click();
-        Thread.sleep(5000);
+        Thread.sleep(8000);
         prod.click();
     }
 
     public void addViaPoint() throws InterruptedException {
+/*        WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
+        waitRedeemProd.until(ExpectedConditions.visibilityOf(buyWithPoints));*/
         buyWithPoints.click();
         addToCartRleuSameBothReport.pass("Product added successfully");
 
