@@ -1,14 +1,25 @@
-name: 'BrowserStack Test'
+name: 'Luxury Brand Partner Test'
 on: [push, pull_request]
 jobs:
   ubuntu-job:
-    name: 'BrowserStack Test on Ubuntu'
+    name: 'Getting Ubuntu images for test execution'
     runs-on: ubuntu-latest  # Can be self-hosted runner also
     steps:
-      - name: BrowserStack Actions
-        uses: browserstack/github-actions@v1.0.1
+
+      - name: 'BrowserStack Env Setup'  # Invokes the setup-env action
+        uses: browserstack/github-actions/setup-env@master
         with:
-          username: 'luxbpseva_FToxAm'
-          access-key: 'nyP8YcixmDTwet5jXfjx'
-          build-name: 'Luxury BP build'
-          project-name: 'Luxury Repository'
+          username:  ${{ secrets.BROWSERSTACK_USERNAME }}
+          access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}      
+
+      - name: 'Checkout the repository'
+        uses:  actions/checkout@v2        
+        
+      - name: 'Clean install'
+        run:   mvn clean install -DskipTests
+
+      - name: 'Compiling automation test cases'
+        run:   mvn compile              
+
+      - name: 'Executing Test file'
+        run:   mvn test -P sample-test
