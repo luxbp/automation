@@ -1,5 +1,8 @@
-name: 'Luxury Brand Partner Test'
-on: [push, pull_request]
+name: 'Luxury Brand Partner Test on Develop'
+on:
+branches:
+      - develop
+
 jobs:
   ubuntu-job:
     name: 'Getting Ubuntu images for test execution'
