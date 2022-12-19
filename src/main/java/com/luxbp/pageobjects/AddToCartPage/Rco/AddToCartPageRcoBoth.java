@@ -23,7 +23,7 @@ public class AddToCartPageRcoBoth extends BaseClass {
     @FindBy(xpath = "(//a[@href='/brands/r-and-co'])[1]")       //Back to R+Co
     WebElement back;
 
-    @FindBy(xpath = "(//a[@data-testid='productLink'])[6]")  //Click on item name of selected brand product
+    @FindBy(xpath = "(//a[@data-testid='productLink'])[14]")  //Click on item name of selected brand product
     WebElement productOne;
 
     @FindBy(xpath = "//*[contains(@class,'product__name')]")
@@ -41,11 +41,15 @@ public class AddToCartPageRcoBoth extends BaseClass {
     @FindBy(xpath = "//a[@href='/brands/r-and-co/not-for-resale']")        //Click Redeem
     WebElement redeemYourPoints;
 
-    @FindBy(xpath = "(//a[@data-testid='productLink'])[6]")
+    @FindBy(xpath = "(//a[@data-testid='productLink'])[18]")
     WebElement prodPoint;
+    @FindBy(xpath = "(//*[@type='button'])[5]")    //Click buy with Points
+    WebElement buyWithDollar;
     @FindBy(xpath = "(//*[@type=\'button\'])[4]")
     WebElement prodString;
 
+    @FindBy(xpath = "//*[@data-testid='notificationMessage']")       //Notification bar
+    WebElement notify;
     ExtentTest addToCartRcoBothReport = extent.createTest("R+CO both item test functionality");
 
     public AddToCartPageRcoBoth() {
@@ -69,7 +73,7 @@ public class AddToCartPageRcoBoth extends BaseClass {
     public void prodPoint() {
         WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
         waitRedeemProd.until(ExpectedConditions.visibilityOf(prodPoint));
-        prodPoint.click();
+        productOne.click();
     }
 
     public void buyFirstProdBoth() {
@@ -77,6 +81,7 @@ public class AddToCartPageRcoBoth extends BaseClass {
         waitBuyProductOne.until(ExpectedConditions.visibilityOf(buyProductOne));
         Action.click(driver, buyProductOne);
         addToCartRcoBothReport.pass("Product added successfully");
+
 /*        String buyBtnExpectedMesg = "OUT OF STOCK";
         String buyBtnActualMesg = prodString.getText();
 
@@ -100,7 +105,18 @@ public class AddToCartPageRcoBoth extends BaseClass {
         WebDriverWait waitBuyProductOne = new WebDriverWait(driver, 10);
         waitBuyProductOne.until(ExpectedConditions.visibilityOf(buyWithPoints));
         buyWithPoints.click();
-        addToCartRcoBothReport.pass("Product added successfully");
+
+        String validateMesg = notify.getText().trim();
+        System.out.println("Result " + validateMesg);
+        String failMesg = "You don't have sufficient points for this product";
+        if (validateMesg.contains(failMesg)) {
+            System.out.println("Not enough points, continuing with retail $");
+            addToCartRcoBothReport.fail("Not enough points, continuing with retail $");
+            buyWithDollar.click();
+            addToCartRcoBothReport.pass("Product added successfully");
+        }
+
+        addToCartRcoBothReport.pass("Products added successfully");
 
       /*  String buyBtnExpectedMesg = "OUT OF STOCK";
         String buyBtnActualMesg = prodString.getText();

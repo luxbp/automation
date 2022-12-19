@@ -20,7 +20,7 @@ public class AddToCartPageV76SameItemBoth extends BaseClass {
  /*   @FindBy(xpath = "//*[@data-id='icon-rco']")            //Click R+CO brand
     WebElement rCO;*/
 
-    @FindBy(xpath = "(//a[@data-testid='productLink'])[22]")
+    @FindBy(xpath = "(//a[@data-testid='productLink'])[28]")
     WebElement prod;
 
     @FindBy(xpath = "//*[contains(@class,'product__name')]")
@@ -42,10 +42,10 @@ public class AddToCartPageV76SameItemBoth extends BaseClass {
 
     @FindBy(xpath = "(//*[@type=\'button\'])[4]")
     WebElement prodString;
-    String failMesg = "You don't have sufficient points for this product";
     String passMesg = "Product has been added to the cart!";
 
-    ExtentTest addToCartV76SameItemReport=extent.createTest("V76 Same product test functionality");
+    ExtentTest addToCartV76SameItemReport = extent.createTest("V76 Same product test functionality");
+
     public AddToCartPageV76SameItemBoth() {
         PageFactory.initElements(driver, this);
     }
@@ -65,7 +65,8 @@ public class AddToCartPageV76SameItemBoth extends BaseClass {
         redeemYourPointsV76.click();
         Thread.sleep(8000);
     }
-    public void prodPoint(){
+
+    public void prodPoint() {
         WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
         waitRedeemProd.until(ExpectedConditions.visibilityOf(prod));
         prod.click();
@@ -73,8 +74,17 @@ public class AddToCartPageV76SameItemBoth extends BaseClass {
 
     public void addViaPoint() throws InterruptedException {
         buyWithPoints.click();
-        System.out.println("Added successfully via NFR points");
-        addToCartV76SameItemReport.pass("Product added successfully via NFR points");
+
+        String validateMesg = notify.getText().trim();
+        System.out.println("Result " + validateMesg);
+        String failMesg = "You don't have sufficient points for this product";
+        if (validateMesg.contains(failMesg)) {
+            System.out.println("Not enough points");
+            addToCartV76SameItemReport.fail("Not enough points");
+        } else {
+            addToCartV76SameItemReport.pass("Product added via NFR Points");
+            System.out.println("Product added via NFR Points");
+        }
 
     /*    String buyBtnExpectedMesg = "OUT OF STOCK";
         String buyBtnActualMesg = prodString.getText();
@@ -88,17 +98,6 @@ public class AddToCartPageV76SameItemBoth extends BaseClass {
 
         } else {
             buyWithPoints.click();
-
-            String validateMesg = notify.getText();
-
-            if (validateMesg.equals(failMesg)) {
-                System.out.println("Not enough points, continuing with retail $");
-                addToCartV76SameItemReport.fail("Not enough points, continuing with retail $");
-                addViaDollar();
-            } else if (validateMesg.equals(passMesg)) {
-                System.out.println("Added successfully via NFR points");
-                addToCartV76SameItemReport.pass("Product added successfully via NFR points");
-            }
         }*/
     }
 

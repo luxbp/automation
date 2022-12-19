@@ -19,7 +19,7 @@ public class AddToCartPageRbleuSameItemBoth extends BaseClass {
 
     @FindBy(xpath = "//*[@data-id='icon-rco']")            //Click R+CO brand
     WebElement rCO;
-    @FindBy(xpath = "(//a[@data-testid='productLink'])[8]")
+    @FindBy(xpath = "(//a[@data-testid='productLink'])[14]")
     WebElement prod;
 
     @FindBy(xpath = "//*[contains(@class,'product__name')]")
@@ -61,7 +61,8 @@ public class AddToCartPageRbleuSameItemBoth extends BaseClass {
         redeemYourPointsRco.click();
         Thread.sleep(8000);
     }
-    public void prodPoint(){
+
+    public void prodPoint() {
         WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
         waitRedeemProd.until(ExpectedConditions.visibilityOf(prod));
         prod.click();
@@ -71,7 +72,18 @@ public class AddToCartPageRbleuSameItemBoth extends BaseClass {
 /*        WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
         waitRedeemProd.until(ExpectedConditions.visibilityOf(buyWithPoints));*/
         buyWithPoints.click();
-        addToCartRleuSameBothReport.pass("Product added successfully");
+
+        String validateMesg = notify.getText().trim();
+        System.out.println("Result " + validateMesg);
+        String failMesg = "You don't have sufficient points for this product";
+        if (validateMesg.contains(failMesg)) {
+            System.out.println("Not enough points");
+            addToCartRleuSameBothReport.fail("Not enough point");
+        } else {
+            addToCartRleuSameBothReport.pass("Product added via NFR Points");
+            System.out.println("Product added via NFR Points");
+        }
+    }
 
  /*       String buyBtnExpectedMesg = "OUT OF STOCK";
         String buyBtnActualMesg = prodString.getText();
@@ -85,21 +97,10 @@ public class AddToCartPageRbleuSameItemBoth extends BaseClass {
             addToCartRleuSameBothReport.pass("Product added successfully");
         }*/
 
-/*        String validateMesg = notify.getText();
-        if (validateMesg.equals(failMesg)) {
-            System.out.println("Not enough points, continuing with retail $");
-            addToCartRleuSameBothReport.fail("Not enough points, continuing with retail $");
-
-            addViaDollar();
-        } else if (validateMesg.equals(passMesg)) {
-            System.out.println("Added successfully via NFR points");
-            addToCartRleuSameBothReport.fail("Added successfully via NFR points");
-        }*/
-    }
 
     public void addViaDollar() throws InterruptedException {
         buyWithDollar.click();
-        addToCartRleuSameBothReport.fail("Product added successfully");
+        addToCartRleuSameBothReport.pass("Product added successfully via Retail $");
 /*        String buyBtnExpectedMesg = "OUT OF STOCK";
         String buyBtnActualMesg = prodString.getText();
 

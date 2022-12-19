@@ -19,7 +19,7 @@ public class AddToCartPageRcoSameItemBoth extends BaseClass {
 
     @FindBy(xpath = "//*[@data-id='icon-rco']")            //Click R+CO brand
     WebElement rCO;
-    @FindBy(xpath = "(//a[@data-testid='productLink'])[6]")
+    @FindBy(xpath = "(//a[@data-testid='productLink'])[20]")
     WebElement prod;
 
     @FindBy(xpath = "//*[contains(@class,'product__name')]")
@@ -76,6 +76,14 @@ public class AddToCartPageRcoSameItemBoth extends BaseClass {
         waitRedeemProd.until(ExpectedConditions.visibilityOf(buyWithPoints));
         buyWithPoints.click();
 
+        String validateMesg = notify.getText().trim();
+        System.out.println("Result " + validateMesg);
+        String failMesg = "You don't have sufficient points for this product";
+        if (validateMesg.contains(failMesg)) {
+            System.out.println("Not enough points");
+            addToCartRcoSameItemReport.fail("Not enough points");
+        }
+
       /*  String buyBtnExpectedMesg = "OUT OF STOCK";
 
         String buyBtnActualMesg = prodString.getText();
@@ -86,23 +94,7 @@ public class AddToCartPageRcoSameItemBoth extends BaseClass {
         if(buyBtnActualMesg.equals(buyBtnExpectedMesg)){
             System.out.println("Product is out of stock");
             addToCartRcoSameItemReport.fail("Product is out of stock");
-            tearDown();
-        }
-        else {
-            buyWithPoints.click();
-            System.out.println("Not enough points, continuing with retail $");
-            addToCartRcoSameItemReport.fail("Not enough points, continuing with retail $");
-            addViaDollar();*/
-/*            String validateMesg = notify.getText();
-
-            if (validateMesg.equals(failMesg)) {
-                System.out.println("Not enough points, continuing with retail $");
-                addToCartRcoSameItemReport.fail("Not enough points, continuing with retail $");
-                addViaDollar();
-            } else if (validateMesg.equals(passMesg)) {
-                System.out.println("Added successfully via NFR points");
-                addToCartRcoSameItemReport.pass("Added successfully via NFR points");
-            }*/
+       }*/
         }
 
     public void addViaDollar() {

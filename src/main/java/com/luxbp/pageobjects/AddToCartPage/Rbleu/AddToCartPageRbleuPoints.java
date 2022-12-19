@@ -20,7 +20,7 @@ public class AddToCartPageRbleuPoints extends BaseClass {
     @FindBy(xpath = "//a[@href='/brands/bleu/not-for-resale']")     //Click Redeem your points button
     WebElement redeemYourPointsRbleu;
 
-    @FindBy(xpath = "(//a[@data-testid='productLink'])[8]")     //Click product
+    @FindBy(xpath = "(//a[@data-testid='productLink'])[2]")     //Click product
     WebElement prodPoint;
     @FindBy(xpath = "//*[@class='ss-gizmo absolute mr-6 -mt-1.5 right-0 top-50% leading-none ss-right']")  //Click on Buy button
     WebElement buyWithPoints;
@@ -32,6 +32,13 @@ public class AddToCartPageRbleuPoints extends BaseClass {
     WebElement verifyProductName;
     @FindBy(xpath = "(//*[@type=\'button\'])[4]")
     WebElement prodString;
+
+    @FindBy(xpath = "//*[@data-testid='notificationMessage']")       //Notification bar
+    WebElement notify;
+
+    @FindBy(xpath = "(//*[@type='button'])[5]")    //Click buy with Points
+    WebElement buyWithDollar;
+
     ExtentTest addToCartRbleuPointsReport = extent.createTest("R+co Bleu points test functionality");
 
 
@@ -69,16 +76,31 @@ public class AddToCartPageRbleuPoints extends BaseClass {
         }*/
     }
 
-    public void prodPoint(){
+    public void prodPoint() {
         WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
         waitRedeemProd.until(ExpectedConditions.visibilityOf(prodPoint));
         prodPoint.click();
     }
+
     public void buyProdPoint() {
 
         WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
         waitRedeemProd.until(ExpectedConditions.visibilityOf(buyWithPoints));
         buyWithPoints.click();
+
+        String validateMesg = notify.getText().trim();
+        System.out.println("Result " + validateMesg);
+        String failMesg = "You don't have sufficient points for this product";
+        if (validateMesg.contains(failMesg)) {
+            System.out.println("Not enough points, continuing with retail $");
+            addToCartRbleuPointsReport.fail("Not enough points, continuing with retail $");
+            buyWithDollar.click();
+            addToCartRbleuPointsReport.pass("Product added successfully via retail $");
+        } else {
+            addToCartRbleuPointsReport.pass("Product added via NFR Points");
+            System.out.println("Product added via NFR Points");
+        }
+
 
 /*        String buyBtnExpectedMesg = "OUT OF STOCK";
         String buyBtnActualMesg = prodString.getText();
