@@ -22,6 +22,7 @@ public class AddToCartPageRbleuSameItemTest extends BaseClass {
 
         String itemName = RbleuBoth.getItemNameRbleuItem();
 
+        RbleuBoth.prodPoint();
         RbleuBoth.addViaPoint();
         AddToCartPageRbleuSameItemBothTestReport.log(Status.INFO, "Getting an item in cart");
 

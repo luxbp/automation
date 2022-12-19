@@ -56,8 +56,12 @@ public class AddToCartPageRcolor extends BaseClass {
         Action.click(driver,clickElse);
     }
 
-    public void clickFirstProductRcolor()  {
+    public void prodPoint(){
+        WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
+        waitRedeemProd.until(ExpectedConditions.visibilityOf(productOne));
         productOne.click();
+    }
+    public void clickFirstProductRcolor()  {
         buyProductOne.click();
         addToCartRcolorReport.pass("Product successfully added");
     /*    String buyBtnExpectedMesg = "OUT OF STOCK";

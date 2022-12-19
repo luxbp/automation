@@ -20,6 +20,7 @@ public class AddToCartPageV76BothTest extends BaseClass {
         AddToCartPageV76Both AddToCartPageV76Both = new AddToCartPageV76Both();
         AddToCartPageV76Both.clickProductV76();
         String itemNameV76 = AddToCartPageV76Both.getItemNameV76Both();
+        AddToCartPageV76Both.prodPoint();
         AddToCartPageV76Both.buyFirstProdBoth();
 
         AddToCartPageV76BothReport.log(Status.INFO, "Getting an item in cart");

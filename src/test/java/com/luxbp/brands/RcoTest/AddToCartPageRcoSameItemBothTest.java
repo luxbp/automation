@@ -19,6 +19,7 @@ public class AddToCartPageRcoSameItemBothTest extends BaseClass {
         AddToCartPageRcoSameItemBoth RcoBoth = new AddToCartPageRcoSameItemBoth();
         RcoBoth.clickProductRcoItem();
         String itemNameRco = RcoBoth.getItemNameRplusCoItem();
+        RcoBoth.prodClick();
         RcoBoth.addViaPoint();
 
         AddToCartPageRcoSameItemBothTestReport.log(Status.INFO, "Getting an item in cart");

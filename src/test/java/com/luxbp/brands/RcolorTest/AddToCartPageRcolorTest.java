@@ -18,6 +18,7 @@ public class AddToCartPageRcolorTest extends BaseClass {
         AddToCartPageRcolor rColorPage = new AddToCartPageRcolor();
         rColorPage.clickProductRcolor();
         String itemNameRcolor = rColorPage.getItemNameRcolor();
+        rColorPage.prodPoint();
         rColorPage.clickFirstProductRcolor();
 
         addToCartRcolorReport.log(Status.INFO, "Getting an item in cart R-Color");

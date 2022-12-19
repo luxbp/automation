@@ -41,7 +41,7 @@ public class AddToCartPageRcoBoth extends BaseClass {
     @FindBy(xpath = "//a[@href='/brands/r-and-co/not-for-resale']")        //Click Redeem
     WebElement redeemYourPoints;
 
-    @FindBy(xpath = "(//a[@data-testid='productLink'])[8]")
+    @FindBy(xpath = "(//a[@data-testid='productLink'])[6]")
     WebElement prodPoint;
     @FindBy(xpath = "(//*[@type=\'button\'])[4]")
     WebElement prodString;
@@ -64,9 +64,12 @@ public class AddToCartPageRcoBoth extends BaseClass {
         WebDriverWait waitFilter = new WebDriverWait(driver, 5);
         waitFilter.until(ExpectedConditions.visibilityOf(clickElse));
         clickElse.click();
-        WebDriverWait waitProd = new WebDriverWait(driver, 5);
-        waitProd.until(ExpectedConditions.visibilityOf(productOne));
-        productOne.click();
+    }
+
+    public void prodPoint() {
+        WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
+        waitRedeemProd.until(ExpectedConditions.visibilityOf(prodPoint));
+        prodPoint.click();
     }
 
     public void buyFirstProdBoth() {
@@ -88,6 +91,7 @@ public class AddToCartPageRcoBoth extends BaseClass {
             addToCartRcoBothReport.pass("Product added successfully");
         }*/
     }
+
     public void backToRedeem() throws InterruptedException {
         back.click();
         redeemYourPoints.click();
@@ -118,7 +122,7 @@ public class AddToCartPageRcoBoth extends BaseClass {
     }
 
 
-    public String getItemNameRcoBoth () {
+    public String getItemNameRcoBoth() {
 /*        WebDriverWait waitItem = new WebDriverWait(driver, 5);
         waitItem.until(ExpectedConditions.visibilityOf(productOne));*/
         String message = productOne.getText();
@@ -126,7 +130,7 @@ public class AddToCartPageRcoBoth extends BaseClass {
         return message;
     }
 
-    public String validateAddProductBoth () {
+    public String validateAddProductBoth() {
 /*        WebDriverWait waitAlter = new WebDriverWait(driver, 5);
         waitAlter.until(ExpectedConditions.visibilityOf(closeVerifyMessage));*/
         String message = verifyProductName.getText();

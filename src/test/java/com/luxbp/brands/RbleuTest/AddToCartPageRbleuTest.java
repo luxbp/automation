@@ -19,6 +19,7 @@ public class AddToCartPageRbleuTest extends BaseClass {
         AddToCartPageRbleuDollar rBluePage = new AddToCartPageRbleuDollar();
         rBluePage.clickProductRblue();
         String itemNameRbleu = rBluePage.getItemNameRblue();
+        rBluePage.prodPoint();
         rBluePage.clickFirstProductRblue();
 
         addToCartRbleuReport.log(Status.INFO, "Getting an item in cart R-Bleu");

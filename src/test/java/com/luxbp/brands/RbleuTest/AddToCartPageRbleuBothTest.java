@@ -19,6 +19,7 @@ public class AddToCartPageRbleuBothTest extends BaseClass {
         AddToCartPageRbleuBoth AddToCartPageRbleuBoth = new AddToCartPageRbleuBoth();
         AddToCartPageRbleuBoth.clickProductRbleuDollar();
         String itemNameRbleu = AddToCartPageRbleuBoth.getItemNameRbleuBoth();
+        AddToCartPageRbleuBoth.prodPoint();
         AddToCartPageRbleuBoth.buyFirstProdRbleu();
 
         AddToCartPageRbleuBothReport.log(Status.INFO, "Getting an item in cart");

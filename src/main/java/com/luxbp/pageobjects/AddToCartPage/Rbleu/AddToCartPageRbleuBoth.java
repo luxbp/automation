@@ -63,11 +63,13 @@ public class AddToCartPageRbleuBoth extends BaseClass {
         WebDriverWait waitFilter = new WebDriverWait(driver, 5);
         waitFilter.until(ExpectedConditions.visibilityOf(clickElse));
         clickElse.click();
-        WebDriverWait waitProductOne = new WebDriverWait(driver, 5);
-        waitProductOne.until(ExpectedConditions.visibilityOf(productOne));
-        productOne.click();
     }
 
+    public void prodPoint(){
+        WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
+        waitRedeemProd.until(ExpectedConditions.visibilityOf(productOne));
+        productOne.click();
+    }
     public void buyFirstProdRbleu(){
         WebDriverWait waitBuyProductOne = new WebDriverWait(driver, 10);
         waitBuyProductOne.until(ExpectedConditions.visibilityOf(buyProductOne));

@@ -52,8 +52,6 @@ public class AddToCartPageRbleuPoints extends BaseClass {
     public void clickRedeemRbleu() throws InterruptedException {
         redeemYourPointsRbleu.click();
         Thread.sleep(5000);
-        prodPoint.click();
-        addToCartRbleuPointsReport.pass("Product added successfully");
 
    /*     String buyBtnExpectedMesg = "OUT OF STOCK";
         String buyBtnActualMesg = prodString.getText();
@@ -71,6 +69,11 @@ public class AddToCartPageRbleuPoints extends BaseClass {
         }*/
     }
 
+    public void prodPoint(){
+        WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
+        waitRedeemProd.until(ExpectedConditions.visibilityOf(prodPoint));
+        prodPoint.click();
+    }
     public void buyProdPoint() {
 
         WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);

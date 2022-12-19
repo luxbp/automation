@@ -20,6 +20,7 @@ public class AddToCartPageRcoBothTest extends BaseClass {
         AddToCartPageRcoBoth AddToCartPageRcoBoth = new AddToCartPageRcoBoth();
         AddToCartPageRcoBoth.clickProductRcoDollar();
         String itemNameRco = AddToCartPageRcoBoth.getItemNameRcoBoth();
+        AddToCartPageRcoBoth.prodPoint();
         AddToCartPageRcoBoth.buyFirstProdBoth();
 
         AddToCartPageRcoBothReport.log(Status.INFO, "Getting an item in cart");
