@@ -59,8 +59,6 @@ public class AddToCartPageRcoPoints extends BaseClass {
     public void clickRedeemRco() throws InterruptedException {
         redeemYourPointsRco.click();
         Thread.sleep(10000);        //Need to add thread as there are no other elements for explicit wait
-        WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
-        waitRedeemProd.until(ExpectedConditions.visibilityOf(prodPoint));
     }
 
     public void prodPoint(){
@@ -73,14 +71,13 @@ public class AddToCartPageRcoPoints extends BaseClass {
         WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
         waitRedeemProd.until(ExpectedConditions.visibilityOf(buyWithPoints));
         buyWithPoints.click();
-        String validateMesg = notify.getText();
+        String validateMesg = notify.getText().trim();
         System.out.println("Result " + validateMesg);
         String failMesg = "You don't have sufficient points for this product";
         if (validateMesg.contains(failMesg)) {
             System.out.println("Not enough points, continuing with retail $");
             addToCartRcoPointsReport.fail("Not enough points, continuing with retail $");
             buyWithDollar.click();
-
             addToCartRcoPointsReport.pass("Product added successfully");
         }
     }

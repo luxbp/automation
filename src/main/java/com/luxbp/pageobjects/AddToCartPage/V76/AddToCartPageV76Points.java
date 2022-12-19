@@ -33,7 +33,13 @@ public class AddToCartPageV76Points extends BaseClass {
     @FindBy(xpath = "(//*[@type=\'button\'])[4]")
     WebElement prodString;
 
-    ExtentTest addToCartV76PointsReport= extent.createTest("V76 NFR points test functionality");
+    @FindBy(xpath = "//*[@data-testid='notificationMessage']")       //Notification bar
+    WebElement notify;
+
+    @FindBy(xpath = "(//*[@type='button'])[5]")    //Click buy with Points
+    WebElement buyWithDollar;
+
+    ExtentTest addToCartV76PointsReport = extent.createTest("V76 NFR points test functionality");
 
     public AddToCartPageV76Points() {
         PageFactory.initElements(driver, this);
@@ -45,10 +51,11 @@ public class AddToCartPageV76Points extends BaseClass {
         waitAlter1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[text()='Products']")));
         Thread.sleep(5000);
 
-        Action.click(driver,products);
+        Action.click(driver, products);
 
         driver.findElement(By.cssSelector("a[href='/brands/v76'][target='']")).click();
     }
+
     public void clickRedeemV76Points() throws InterruptedException {
         redeemYourPointsV76.click();
         Thread.sleep(3000);         //Need to add Thread as there are no other element to explicit wait
@@ -64,19 +71,32 @@ public class AddToCartPageV76Points extends BaseClass {
             prodPoint.click();
         }*/
     }
-    public void prodPoint(){
+
+    public void prodPoint() {
         WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
         waitRedeemProd.until(ExpectedConditions.visibilityOf(prodPoint));
         prodPoint.click();
     }
-    public void buyProdPoint(){
+
+    public void buyProdPoint() {
         WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
         waitRedeemProd.until(ExpectedConditions.visibilityOf(buyWithPoints));
         buyWithPoints.click();
-        addToCartV76PointsReport.pass("Product added successfully");
+        String validateMesg = notify.getText().trim();
+        System.out.println("Result " + validateMesg);
+        String failMesg = "You don't have sufficient points for this product";
+        if (validateMesg.contains(failMesg)) {
+            System.out.println("Not enough points");
+            addToCartV76PointsReport.fail("Not enough points, continuing with retail $");
+            buyWithDollar.click();
+            addToCartV76PointsReport.pass("Product added successfully via retail $");
+        } else {
+            addToCartV76PointsReport.pass("Product added via NFR Points");
+            System.out.println("Product added via NFR Points");
+        }
     }
 
-    public String getItemNameV76Points () {
+    public String getItemNameV76Points() {
      /*   WebDriverWait waitItem = new WebDriverWait(driver, 5);
         waitItem.until(ExpectedConditions.visibilityOf(prodPoint));*/
         String message = prodPoint.getText();
@@ -84,7 +104,7 @@ public class AddToCartPageV76Points extends BaseClass {
         return message;
     }
 
-    public String validateAddProductPoints () {
+    public String validateAddProductPoints() {
 /*        WebDriverWait waitAlter = new WebDriverWait(driver, 5);
         waitAlter.until(ExpectedConditions.visibilityOf(closeVerifyMessage));*/
         String message = verifyProductNamePoints.getText();

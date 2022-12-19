@@ -20,7 +20,7 @@ public class AddToCartPageV76Both extends BaseClass {
     @FindBy(xpath = "(//a[@href='/brands/v76'])[1]")       //Back to R+Co
     WebElement backToV76;
 
-    @FindBy(xpath = "(//a[@data-testid='productLink'])[4]")  //Click on item name of selected brand product
+    @FindBy(xpath = "(//a[@data-testid='productLink'])[6]")  //Click on item name of selected brand product
     WebElement productOne;
 
     @FindBy(xpath = "//*[contains(@class,'product__name')]")
@@ -39,13 +39,19 @@ public class AddToCartPageV76Both extends BaseClass {
     WebElement redeemYourPointsV76;
 
 
-    @FindBy(xpath = "(//a[@data-testid='productLink'])[22]")
+    @FindBy(xpath = "(//a[@data-testid='productLink'])[24]")
     WebElement prodPoint;
 
     @FindBy(xpath = "(//*[@type=\'button\'])[4]")
     WebElement prodString;
 
-    ExtentTest addToCartV76BothReport= extent.createTest("V76 both NFR Points and retail $ test functionality");
+    @FindBy(xpath = "//*[@data-testid='notificationMessage']")       //Notification bar
+    WebElement notify;
+
+    @FindBy(xpath = "(//*[@type='button'])[5]")    //Click buy with Points
+    WebElement buyWithDollar;
+
+    ExtentTest addToCartV76BothReport = extent.createTest("V76 both NFR Points and retail $ test functionality");
 
     public AddToCartPageV76Both() {
         PageFactory.initElements(driver, this);
@@ -64,17 +70,18 @@ public class AddToCartPageV76Both extends BaseClass {
         waitFilter.until(ExpectedConditions.visibilityOf(clickElse));
         clickElse.click();
     }
-    public void prodPoint(){
+
+    public void prodPoint() {
         WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
         waitRedeemProd.until(ExpectedConditions.visibilityOf(productOne));
         productOne.click();
     }
 
-    public void buyFirstProdBoth(){
+    public void buyFirstProdBoth() {
         WebDriverWait waitBuyProductOne = new WebDriverWait(driver, 10);
         waitBuyProductOne.until(ExpectedConditions.visibilityOf(buyProductOne));
         Action.click(driver, buyProductOne);
-        addToCartV76BothReport.pass("Product added successfully");
+
 
 /*        String buyBtnExpectedMesg = "OUT OF STOCK";
         String buyBtnActualMesg = prodString.getText();
@@ -100,7 +107,21 @@ public class AddToCartPageV76Both extends BaseClass {
         WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
         waitRedeemProd.until(ExpectedConditions.visibilityOf(buyWithPoints));
         buyWithPoints.click();
-        addToCartV76BothReport.pass("Product added successfully");
+
+        String validateMesg = notify.getText().trim();
+        System.out.println("Result " + validateMesg);
+        String failMesg = "You don't have sufficient points for this product";
+        if (validateMesg.contains(failMesg)) {
+            System.out.println("Not enough points, continuing with retail $");
+            addToCartV76BothReport.fail("Not enough points, continuing with retail $");
+            buyWithDollar.click();
+            addToCartV76BothReport.pass("Product added successfully via retail $");
+        } else {
+            addToCartV76BothReport.pass("Product added via NFR Points");
+            System.out.println("Product added via NFR Points");
+        }
+
+
     /*    String buyBtnExpectedMesg = "OUT OF STOCK";
         String buyBtnActualMesg = prodString.getText();
 
@@ -116,7 +137,7 @@ public class AddToCartPageV76Both extends BaseClass {
         }*/
     }
 
-    public String getItemNameV76Both () {
+    public String getItemNameV76Both() {
      /*   WebDriverWait waitItem = new WebDriverWait(driver, 5);
         waitItem.until(ExpectedConditions.visibilityOf(productOne));*/
         String message = productOne.getText();
@@ -124,7 +145,7 @@ public class AddToCartPageV76Both extends BaseClass {
         return message;
     }
 
-    public String validateAddProductBoth () {
+    public String validateAddProductBoth() {
 /*        WebDriverWait waitAlter = new WebDriverWait(driver, 5);
         waitAlter.until(ExpectedConditions.visibilityOf(closeVerifyMessage));*/
         String message = verifyProductName.getText();

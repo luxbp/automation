@@ -23,7 +23,7 @@ public class AddToCartPageRbleuBoth extends BaseClass {
     @FindBy(xpath = "(//a[@href='/brands/bleu'])[1]")       //Back to R+Co
     WebElement back;
 
-    @FindBy(xpath = "(//a[@data-testid='productLink'])[2]")  //Click on item name of selected brand product
+    @FindBy(xpath = "(//a[@data-testid='productLink'])[8]")  //Click on item name of selected brand product
     WebElement productOne;
 
     @FindBy(xpath = "//*[contains(@class,'product__name')]")
@@ -44,6 +44,12 @@ public class AddToCartPageRbleuBoth extends BaseClass {
     WebElement buyWithPoint;
     @FindBy(xpath = "(//*[@type=\'button\'])[4]")
     WebElement prodString;
+
+    @FindBy(xpath = "//*[@data-testid='notificationMessage']")       //Notification bar
+    WebElement notify;
+
+    @FindBy(xpath = "(//*[@type='button'])[5]")    //Click buy with Points
+    WebElement buyWithDollar;
 
     ExtentTest addToCartRbleuBothReport=extent.createTest("R+co Bleu both test functionality");
 
@@ -99,7 +105,18 @@ public class AddToCartPageRbleuBoth extends BaseClass {
         WebDriverWait waitBuyProductOne = new WebDriverWait(driver, 10);
         waitBuyProductOne.until(ExpectedConditions.visibilityOf(buyWithPoint));
         buyWithPoint.click();
-        addToCartRbleuBothReport.pass("Product added successfully");
+
+
+        String validateMesg = notify.getText().trim();
+        System.out.println("Result " + validateMesg);
+        String failMesg = "You don't have sufficient points for this product";
+        if (validateMesg.contains(failMesg)) {
+            System.out.println("Not enough points, continuing with retail $");
+            addToCartRbleuBothReport.fail("Not enough points, continuing with retail $");
+            buyWithDollar.click();
+            addToCartRbleuBothReport.pass("Product added successfully via Retail $");
+        }
+        addToCartRbleuBothReport.pass("Products added successfully");
 
 /*        String buyBtnExpectedMesg = "OUT OF STOCK";
         String buyBtnActualMesg = prodString.getText();
