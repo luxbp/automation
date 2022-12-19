@@ -98,7 +98,7 @@
 	</build>
 	<profiles>
 		<profile>
-			<id>luxbp-test</id>
+			<id>luxbp-test-dev</id>
 			<build>
 				<plugins>
 					<plugin>
