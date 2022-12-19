@@ -1,6 +1,7 @@
 name: 'Luxury Brand Partner Test'
 on:
-branches:
+  pull_request:
+    branches:    
       - main
 
 jobs:
