@@ -1,7 +1,10 @@
 name: 'Luxury Brand Partner Test on Develop'
 on:
-branches:
+  push:
+  pull_request:
+    branches:    
       - develop
+
 
 jobs:
   ubuntu-job:
