@@ -22,7 +22,7 @@ public class AddToCartPageRbleuPointsTest extends BaseClass {
 
         clickProd.clickRedeemRbleu();
         String pointItemName = clickProd.getItemNameRbluePoints();
-
+        clickProd.prodPoint();
         clickProd.buyProdPoint();
         System.out.println(pointItemName);
 

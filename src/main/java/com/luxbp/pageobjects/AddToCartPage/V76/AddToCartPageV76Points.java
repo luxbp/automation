@@ -53,8 +53,6 @@ public class AddToCartPageV76Points extends BaseClass {
         redeemYourPointsV76.click();
         Thread.sleep(3000);         //Need to add Thread as there are no other element to explicit wait
 
-        prodPoint.click();
-
     /*    String buyBtnExpectedMesg = "OUT OF STOCK";
         String buyBtnActualMesg = prodString.getText();
 
@@ -65,6 +63,11 @@ public class AddToCartPageV76Points extends BaseClass {
         } else {
             prodPoint.click();
         }*/
+    }
+    public void prodPoint(){
+        WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
+        waitRedeemProd.until(ExpectedConditions.visibilityOf(prodPoint));
+        prodPoint.click();
     }
     public void buyProdPoint(){
         WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);

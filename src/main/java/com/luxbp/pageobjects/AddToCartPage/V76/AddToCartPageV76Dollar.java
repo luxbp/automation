@@ -58,10 +58,13 @@ public class AddToCartPageV76Dollar extends BaseClass {
         clickElse.click();
     }
 
-    public void clickFirstProductV76() {
-        WebDriverWait waitProductOne = new WebDriverWait(driver, 10);
-        waitProductOne.until(ExpectedConditions.visibilityOf(productOne));
+    public void prodPoint(){
+        WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
+        waitRedeemProd.until(ExpectedConditions.visibilityOf(productOne));
         productOne.click();
+    }
+
+    public void clickFirstProductV76() {
         WebDriverWait waitBuyProductOne = new WebDriverWait(driver, 10);
         waitBuyProductOne.until(ExpectedConditions.visibilityOf(buyProductOne));
         Action.click(driver, buyProductOne);

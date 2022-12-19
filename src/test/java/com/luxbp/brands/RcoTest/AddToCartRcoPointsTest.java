@@ -22,10 +22,9 @@ public class AddToCartRcoPointsTest extends BaseClass {
 
         clickProd.clickRedeemRco();
         String pointItemName = clickProd.getItemNameRplusCoPoints();
-
+        clickProd.prodPoint();
         clickProd.buyProdPoint();
         System.out.println(pointItemName);
-
         addToCartPointReport.log(Status.INFO, "Getting an redeemable item in cart");
 
         try {

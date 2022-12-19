@@ -19,6 +19,7 @@ public class AddToCartPageV76SameItemTest extends BaseClass {
         AddToCartPageV76SameItemBoth v76Both = new AddToCartPageV76SameItemBoth();
         v76Both.clickProductV76Item();
         String itemName = v76Both.getItemNameV76Item();
+        v76Both.prodPoint();
         v76Both.addViaPoint();
 
         AddToCartPageV76SameItemBothTestReport.log(Status.INFO, "Getting an item in cart");

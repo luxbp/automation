@@ -63,8 +63,10 @@ public class AddToCartPageV76Both extends BaseClass {
         WebDriverWait waitFilter = new WebDriverWait(driver, 5);
         waitFilter.until(ExpectedConditions.visibilityOf(clickElse));
         clickElse.click();
-        WebDriverWait waitBuyProductOne = new WebDriverWait(driver, 10);
-        waitBuyProductOne.until(ExpectedConditions.visibilityOf(productOne));
+    }
+    public void prodPoint(){
+        WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
+        waitRedeemProd.until(ExpectedConditions.visibilityOf(productOne));
         productOne.click();
     }
 

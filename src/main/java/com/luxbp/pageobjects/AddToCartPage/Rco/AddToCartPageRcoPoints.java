@@ -32,12 +32,13 @@ public class AddToCartPageRcoPoints extends BaseClass {
     @FindBy(xpath = "//a[@href='/brands/r-and-co/not-for-resale']")        //Click Redeem
     WebElement redeemYourPointsRco;
 
+    @FindBy(xpath = "(//*[@type='button'])[5]")    //Click buy with Points
+    WebElement buyWithDollar;
     @FindBy(xpath = "(//*[@type=\'button\'])[4]")
     WebElement prodString;
     @FindBy(xpath = "//*[@data-testid='notificationMessage']")       //Notification bar
     WebElement notify;
     ExtentTest addToCartRcoPointsReport = extent.createTest("R+co functionality Test");
-    String failMesg = "You don't have sufficient points for this product";
 
     public AddToCartPageRcoPoints() {
         PageFactory.initElements(driver, this);
@@ -60,6 +61,11 @@ public class AddToCartPageRcoPoints extends BaseClass {
         Thread.sleep(10000);        //Need to add thread as there are no other elements for explicit wait
         WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
         waitRedeemProd.until(ExpectedConditions.visibilityOf(prodPoint));
+    }
+
+    public void prodPoint(){
+        WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
+        waitRedeemProd.until(ExpectedConditions.visibilityOf(prodPoint));
         prodPoint.click();
     }
 
@@ -67,12 +73,20 @@ public class AddToCartPageRcoPoints extends BaseClass {
         WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
         waitRedeemProd.until(ExpectedConditions.visibilityOf(buyWithPoints));
         buyWithPoints.click();
+        String validateMesg = notify.getText();
+        System.out.println("Result " + validateMesg);
+        String failMesg = "You don't have sufficient points for this product";
+        if (validateMesg.contains(failMesg)) {
+            System.out.println("Not enough points, continuing with retail $");
+            addToCartRcoPointsReport.fail("Not enough points, continuing with retail $");
+            buyWithDollar.click();
 
+            addToCartRcoPointsReport.pass("Product added successfully");
+        }
+    }
  /*       String buyBtnExpectedMesg = "OUT OF STOCK";
         String buyBtnActualMesg = prodString.getText();
 
-        WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
-        waitRedeemProd.until(ExpectedConditions.visibilityOf(buyWithPoints));
         if (buyBtnActualMesg.equals(buyBtnExpectedMesg)) {
             System.out.println("Product is out of stock");
             addToCartRcoPointsReport.fail("Product is out of stock");
@@ -80,7 +94,8 @@ public class AddToCartPageRcoPoints extends BaseClass {
         } else {
             Thread.sleep(5000);
             buyWithPoints.click();
-            String validateMesg = notify.getText();
+
+
             System.out.println("Result "+ validateMesg);
             if (validateMesg.equals(failMesg))
             System.out.println("Not enough points, continuing with retail $");
@@ -89,23 +104,21 @@ public class AddToCartPageRcoPoints extends BaseClass {
             AddToCartPageRcoSameItemBoth rBoth = new AddToCartPageRcoSameItemBoth();
             rBoth.addViaDollar();*/
 
-        addToCartRcoPointsReport.pass("Product added successfully");
-    }
 
-    public String getItemNameRplusCoPoints() {
+        public String getItemNameRplusCoPoints () {
     /*    WebDriverWait waitItem = new WebDriverWait(driver, 5);
         waitItem.until(ExpectedConditions.visibilityOf(prodPoint));*/
-        String message = prodPoint.getText();
-        System.out.println("Product Name -> " + message);
-        return message;
-    }
+            String message = prodPoint.getText().trim();
+            System.out.println("Product Name -> " + message);
+            return message;
+        }
 
-    public String validateAddProduct() {
+        public String validateAddProduct () {
 /*        WebDriverWait waitAlter = new WebDriverWait(driver, 5);
         waitAlter.until(ExpectedConditions.visibilityOf(closeVerifyMessage));*/
-        String message = verifyProductNamePoints.getText();
-        System.out.println("Expected item name -> " + message);
-        return message;
+            String message = verifyProductNamePoints.getText().trim();
+            System.out.println("Expected item name -> " + message);
+            return message;
+        }
     }
-}
 

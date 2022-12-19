@@ -19,7 +19,7 @@ public class AddToCartPageRcoSameItemBoth extends BaseClass {
 
     @FindBy(xpath = "//*[@data-id='icon-rco']")            //Click R+CO brand
     WebElement rCO;
-    @FindBy(xpath = "(//a[@data-testid='productLink'])[8]")
+    @FindBy(xpath = "(//a[@data-testid='productLink'])[6]")
     WebElement prod;
 
     @FindBy(xpath = "//*[contains(@class,'product__name')]")
@@ -64,6 +64,10 @@ public class AddToCartPageRcoSameItemBoth extends BaseClass {
         waitRedeem.until(ExpectedConditions.visibilityOf(redeemYourPointsRco));
         redeemYourPointsRco.click();
         Thread.sleep(8000);
+    }
+    public void prodClick(){
+        WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
+        waitRedeemProd.until(ExpectedConditions.visibilityOf(prod));
         prod.click();
     }
 

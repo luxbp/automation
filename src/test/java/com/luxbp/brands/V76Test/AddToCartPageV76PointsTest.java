@@ -21,7 +21,7 @@ public class AddToCartPageV76PointsTest extends BaseClass {
 
         clickProd.clickRedeemV76Points();
         String pointItemName = clickProd.getItemNameV76Points();
-
+        clickProd.prodPoint();
         clickProd.buyProdPoint();
         System.out.println(pointItemName);
 

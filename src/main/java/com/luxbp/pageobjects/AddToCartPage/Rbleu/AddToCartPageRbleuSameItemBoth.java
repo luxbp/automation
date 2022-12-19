@@ -60,6 +60,10 @@ public class AddToCartPageRbleuSameItemBoth extends BaseClass {
         waitRedeem.until(ExpectedConditions.visibilityOf(redeemYourPointsRco));
         redeemYourPointsRco.click();
         Thread.sleep(8000);
+    }
+    public void prodPoint(){
+        WebDriverWait waitRedeemProd = new WebDriverWait(driver, 5);
+        waitRedeemProd.until(ExpectedConditions.visibilityOf(prod));
         prod.click();
     }
 
