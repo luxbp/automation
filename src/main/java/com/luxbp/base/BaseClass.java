@@ -29,11 +29,12 @@ public class BaseClass {
 
 
     @BeforeSuite
-    public void startReport(){
+    public void startReport() {
         extent = new ExtentReports();
-        reporter = new ExtentSparkReporter("target/Test-Output/Report.html");
+        reporter = new ExtentSparkReporter("target/Test-Output/Reports.html");
         extent.attachReporter(reporter);
     }
+
     @BeforeMethod
     public static void launchApp() {
         loadConfig();
@@ -58,20 +59,19 @@ public class BaseClass {
             BrowserTest.log(Status.INFO, "Starting Internet Explorer Browser");
             BrowserTest.pass("Internet Explorer Browser opened successfully");
             BrowserTest.fail("Other Browser not opened");
-        }
-        else if (browserName.equalsIgnoreCase("Safari")) {
+        } else if (browserName.equalsIgnoreCase("Safari")) {
             driver = new SafariDriver();
             BrowserTest.log(Status.INFO, "Starting Safari Browser");
             BrowserTest.pass("Safari Browser opened successfully");
             BrowserTest.fail("Other Browser not opened");
         }
-            driver.manage().window().maximize();
-            driver.manage().timeouts().implicitlyWait(20000, TimeUnit.MILLISECONDS);
-            driver.get(prop.getProperty("devurl"));
-            BrowserTest.log(Status.INFO, "Navigating to sign in page");
-            BrowserTest.pass("Successfully opened Sign in page");
-
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(20000, TimeUnit.MILLISECONDS);
+        driver.get(prop.getProperty("devurl"));
+        BrowserTest.log(Status.INFO, "Navigating to sign in page");
+        BrowserTest.pass("Successfully opened Sign in page");
     }
+
     public static void loadConfig() {
         try {
             prop = new Properties();
@@ -94,8 +94,9 @@ public class BaseClass {
         System.out.println("Closing browser...");
         driver.quit();
     }
+
     @AfterSuite
-    public void closeReport(){
+    public void closeReport() {
         extent.flush();
     }
-    }
+}
