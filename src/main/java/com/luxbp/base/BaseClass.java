@@ -42,7 +42,14 @@ public class BaseClass {
     public static void launchApp() {
         loadConfig();
         BrowserTest = extent.createTest("Browser test", "This is to test if browser opened successfully");
-        String browserName = prop.getProperty("BrowserType");
+        String browserName ;
+
+        if(prop.getProperty("BrowserType") != null){
+            browserName = prop.getProperty("BrowserType");
+        }
+        else {
+            browserName = "Chrome";
+        }
 
         if (browserName.equalsIgnoreCase("Chrome")) {
             WebDriverManager.chromedriver().setup();
@@ -78,8 +85,7 @@ public class BaseClass {
     public static void loadConfig() {
         try {
             prop = new Properties();
-            FileInputStream ip = new FileInputStream(
-                    System.getProperty("user.dir") + "/Configuration/Config.properties");
+            FileInputStream ip = new FileInputStream("C:\\eclipse-workspace\\automation\\target\\classes\\environment.properties");
             prop.load(ip);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
