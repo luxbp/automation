@@ -18,7 +18,14 @@ jobs:
           access-key: ${{ secrets.BROWSERSTACK_ACCESS_KEY }}      
 
       - name: 'Checkout the repository'
-        uses:  actions/checkout@v2        
+        uses:  actions/checkout@v2
+        
+      - name: 'Checkout the repository'
+      - uses: microsoft/variable-substitution@v1 
+        with:
+          files: 'config.properties'
+        env:
+          devurl: https://pro.luxbp.com/
         
       - name: 'Clean install'
         run:   mvn clean install -DskipTests
