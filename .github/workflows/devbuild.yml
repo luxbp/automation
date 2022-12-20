@@ -20,7 +20,7 @@ jobs:
       - name: 'Checkout the repository'
         uses:  actions/checkout@v2
         
-      - name: 'Checkout the repository'
+      - name: 'Subsitute Variables'
       - uses: microsoft/variable-substitution@v1 
         with:
           files: 'config.properties'
