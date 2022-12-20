@@ -23,7 +23,7 @@ jobs:
       - name: 'Subsitute Variables'
         uses: microsoft/variable-substitution@v1 
         with:
-          files: 'config.properties'
+          files: 'Config.properties'
         env:
           devurl: https://pro.luxbp.com/
         
