@@ -20,12 +20,11 @@ jobs:
       - name: 'Checkout the repository'
         uses:  actions/checkout@v2
         
-      - name: 'Subsitute Variables'
-        uses: microsoft/variable-substitution@v1 
+      - name: Replace image in config
+        uses: ./.github/actions/replace
         with:
-          files: 'Config.properties'
-        env:
-          devurl: https://pro.luxbp.com/
+            files: Config.properties
+            replacements: 'devurl: https://pro.luxbp.com/'          
         
       - name: 'Clean install'
         run:   mvn clean install -DskipTests
