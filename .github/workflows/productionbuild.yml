@@ -26,4 +26,4 @@ jobs:
         run:   mvn compile              
 
       - name: 'Executing Test file'
-        run:   mvn test -P luxbp-test-prod
+        run:   mvn test -P luxbp
