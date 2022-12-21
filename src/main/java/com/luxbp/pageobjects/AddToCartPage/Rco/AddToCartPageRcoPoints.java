@@ -74,7 +74,7 @@ public class AddToCartPageRcoPoints extends BaseClass {
         String validateMesg = notify.getText().trim();
         System.out.println("Result " + validateMesg);
         String failMesg = "You don't have sufficient points for this product";
-        if (validateMesg.contains(failMesg)) {
+        if (validateMesg.contains(failMesg) || validateMesg.contains(failMesg.toUpperCase())) {
             System.out.println("Not enough points, continuing with retail $");
             addToCartRcoPointsReport.fail("Not enough points, continuing with retail $");
             buyWithDollar.click();
