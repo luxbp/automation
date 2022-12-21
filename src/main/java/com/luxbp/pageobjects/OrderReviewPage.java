@@ -20,7 +20,8 @@ public class OrderReviewPage extends BaseClass {
 
     ExtentTest orderReport = extent.createTest("Order Review Module", "This is test to validate Order Review Module");
 
-    public String validateOrderReview() {PageFactory.initElements(driver, this);
+    public OrderReviewPage(){PageFactory.initElements(driver, this);}
+    public String validateOrderReview() {
 
         String message = verifyOrderReview.getText();
         System.out.println("Order Review success-> "+message);
