@@ -111,7 +111,7 @@ public class AddToCartPageV76Both extends BaseClass {
         String validateMesg = notify.getText().trim();
         System.out.println("Result " + validateMesg);
         String failMesg = "You don't have sufficient points for this product";
-        if (validateMesg.contains(failMesg)) {
+        if (validateMesg.contains(failMesg) || validateMesg.contains(failMesg.toUpperCase())) {
             System.out.println("Not enough points, continuing with retail $");
             addToCartV76BothReport.fail("Not enough points, continuing with retail $");
             buyWithDollar.click();
@@ -140,7 +140,7 @@ public class AddToCartPageV76Both extends BaseClass {
     public String getItemNameV76Both() {
      /*   WebDriverWait waitItem = new WebDriverWait(driver, 5);
         waitItem.until(ExpectedConditions.visibilityOf(productOne));*/
-        String message = productOne.getText();
+        String message = productOne.getText().trim();
         System.out.println("Product Name -> " + message);
         return message;
     }
@@ -148,7 +148,7 @@ public class AddToCartPageV76Both extends BaseClass {
     public String validateAddProductBoth() {
 /*        WebDriverWait waitAlter = new WebDriverWait(driver, 5);
         waitAlter.until(ExpectedConditions.visibilityOf(closeVerifyMessage));*/
-        String message = verifyProductName.getText();
+        String message = verifyProductName.getText().trim();
         System.out.println("Expected item name -> " + message);
         return message;
     }

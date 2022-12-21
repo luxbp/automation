@@ -79,7 +79,7 @@ public class AddToCartPageRcoSameItemBoth extends BaseClass {
         String validateMesg = notify.getText().trim();
         System.out.println("Result " + validateMesg);
         String failMesg = "You don't have sufficient points for this product";
-        if (validateMesg.contains(failMesg)) {
+        if (validateMesg.contains(failMesg) || validateMesg.contains(failMesg.toUpperCase())) {
             System.out.println("Not enough points");
             addToCartRcoSameItemReport.fail("Not enough points");
         }
@@ -105,7 +105,7 @@ public class AddToCartPageRcoSameItemBoth extends BaseClass {
     public String getItemNameRplusCoItem() {
        /* WebDriverWait waitItem = new WebDriverWait(driver, 5);
         waitItem.until(ExpectedConditions.visibilityOf(prod));*/
-        String message = prod.getText();
+        String message = prod.getText().trim();
         System.out.println("Product Name -> " + message);
         return message;
     }
@@ -113,7 +113,7 @@ public class AddToCartPageRcoSameItemBoth extends BaseClass {
     public String validateAddProductItem() {
 /*        WebDriverWait waitAlter = new WebDriverWait(driver, 5);
         waitAlter.until(ExpectedConditions.visibilityOf(closeVerifyMessage));*/
-        String message = verifyProductNamePoints.getText();
+        String message = verifyProductNamePoints.getText().trim();
         System.out.println("Expected item name -> " + message);
         return message;
     }
