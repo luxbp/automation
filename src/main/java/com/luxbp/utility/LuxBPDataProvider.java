@@ -12,7 +12,7 @@ import com.opencsv.exceptions.CsvException;
 public class LuxBPDataProvider {
     @DataProvider(name = "logincredentials")
     public static Object[][] readUserfromCSV() throws IOException, CsvException {
-        String CSV_file = "src/main/resources/UserData.csv";
+        String CSV_file = "target/classes/UserData.environment.csv";
         try {
             CSVReader reader = new CSVReader(new FileReader(CSV_file));
             List<String[]> csvData = reader.readAll();
