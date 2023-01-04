@@ -1,8 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name = "TestNG">
-    <test name = "End to end">
-    <classes>
-        <class name="com.luxbp.testcases.OrderSummaryPageTest"></class>
-    </classes>
+<suite name="TestNG">
+    <test name="End to end">
+        <classes>
+            <class name="com.luxbp.testcases.OrderSummaryPageTest"></class>
+            <class name="com.luxbp.testcases.GridOrderingPageTest"></class>
+        </classes>
     </test>
 </suite>
