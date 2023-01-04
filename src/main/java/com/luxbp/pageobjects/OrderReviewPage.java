@@ -12,7 +12,6 @@ public class OrderReviewPage extends BaseClass {
 
     @FindBy(xpath = "(//*[@class='step-title mb-0 cursor-default text-white block font-black text-base leading-none uppercase tracking-xl'])[4]")
     WebElement verifyOrderReview;
-
     @FindBy(xpath = "//span[contains(text(),'Place order')]")  //Click on PLACE ORDER on ORDER REVIEW
     WebElement placeOrder;
     @FindBy(xpath = "//*[@class='mx-auto bg-white border border-solid border-black px-10 py-4 text-center text-h5 uppercase tracking-sm md:w-1/3 mb-10 text-black flex justify-center items-center']/span")  //Get ORDER NUMBER
@@ -20,12 +19,17 @@ public class OrderReviewPage extends BaseClass {
 
     ExtentTest orderReport = extent.createTest("Order Review Module", "This is test to validate Order Review Module");
 
-    public String validateOrderReview() {PageFactory.initElements(driver, this);
+    public OrderReviewPage() {
+        PageFactory.initElements(driver, this);
+    }
+
+    public String validateOrderReview() {
 
         String message = verifyOrderReview.getText();
-        System.out.println("Order Review success-> "+message);
+        System.out.println("Order Review success-> " + message);
         return message;
     }
+
     public void placeOrderBtn() {
         if (verifyOrderReview.isDisplayed()) {
             orderReport.pass("Successfully navigated to Order Review tab");
