@@ -7,11 +7,11 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 
-public class MavenPluginUserCreate {
+public class MavenPluginCleanUsers {
     private static final Logger LOGGER = LoggerFactory.getLogger(MavenPluginUserCreate.class);
 
     public static void main(String[] args) throws IOException, CsvException, ParseException {
-        LOGGER.info("Running user create.");
-        (new UserManagement()).execute();
+        LOGGER.info("Running user cleaning.");
+        (new UserManagement()).cleanup();
     }
 }

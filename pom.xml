@@ -66,11 +66,26 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<version>3.0.0</version>
-				<configuration>
-					<source>${maven.compiler.source}</source>
-					<target>${maven.compiler.target}</target>
-					<mainClass>com.luxbp.utility.MavenPluginUserCreate</mainClass>
-				</configuration>
+				<executions>
+					<execution>
+						<id>create-users</id>
+						<goals>
+							<goal>java</goal>
+						</goals>
+						<configuration>
+							<mainClass>com.luxbp.utility.MavenPluginUserCreate</mainClass>
+						</configuration>
+					</execution>
+					<execution>
+						<id>clean-users</id>
+						<goals>
+							<goal>java</goal>
+						</goals>
+						<configuration>
+							<mainClass>com.luxbp.utility.MavenPluginCleanUsers</mainClass>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<artifactId>maven-dependency-plugin</artifactId>

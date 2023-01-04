@@ -1,7 +1,6 @@
 package com.luxbp.utility;
 
 import com.opencsv.exceptions.CsvException;
-import org.apache.commons.io.IOUtils;
 import org.apache.hc.client5.http.classic.methods.HttpDelete;
 import org.apache.hc.client5.http.classic.methods.HttpPost;
 import org.apache.hc.client5.http.classic.methods.HttpPut;
@@ -17,10 +16,9 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.util.Objects;
 
-public class CreateUsers {
+public class UserManagement {
 
     class UserModel {
         public String firstname;
@@ -31,7 +29,7 @@ public class CreateUsers {
 
         public String brands;
     }
-    private static final Logger log = LoggerFactory.getLogger(CreateUsers.class);
+    private static final Logger log = LoggerFactory.getLogger(UserManagement.class);
 
     public static final String[] baseUrls = {
             "https://magento-upgrade.luxbp.com",
@@ -127,6 +125,7 @@ public class CreateUsers {
         for(Object[] info : Objects.requireNonNull(LuxBPDataProvider.readUserfromCSV())) {
             UserModel userInfo = this.userDetails(info);
             for (String url : baseUrls) {
+                log.info(url);
                 URL dEndpoint = new URL(String.format("%s%s%s", url, deleteEndpoint, userInfo.email));
                 try (CloseableHttpClient client = HttpClients.createDefault()) {
                     HttpDelete createRequest = new HttpDelete(dEndpoint.toString());
